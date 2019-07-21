@@ -1,0 +1,37 @@
+<section class="visible-md visible-lg">
+  <hr>
+  <h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
+  <div class="short-about">
+    {% if site.sidebar-avatar %}
+    <img src="{{site.sidebar-avatar}}" />
+    {% endif %}
+    {% if site.sidebar-about-description %}
+    <p>{{site.sidebar-about-description}}</p>
+	<div id="span_dt_dt"></div>
+	<script data-no-instant>
+		function show_date_time() {
+		window.setTimeout("show_date_time()", 1000);
+		var BirthDay = new Date("2019/7/19 15:16:13"),
+        today = new Date,
+        timeold = today.getTime() - BirthDay.getTime(),
+        msPerDay = 864e5,
+        e_daysold = timeold / msPerDay,
+        daysold = Math.floor(e_daysold),
+        e_hrsold = 24 * (e_daysold - daysold),
+        hrsold = Math.floor(e_hrsold),
+        e_minsold = 60 * (e_hrsold - hrsold),
+        minsold = Math.floor(60 * (e_hrsold - hrsold)),
+        seconds = Math.floor(60 * (e_minsold - minsold));
+		span_dt_dt.innerHTML = "(´･Д･)我已经出生<br>" + daysold + 
+								"天\(//∇//)\<br>(*≧ω≦)" + hrsold + 
+								"小时<br>" + minsold + 
+								"分∑(ﾟДﾟ)<br>" + seconds + 
+								"秒啦！！！";
+        }
+        show_date_time();
+    </script>
+    {% endif %}
+    <!-- SNS Link -->
+    {% include sns-links.html %}
+  </div>
+</section>
