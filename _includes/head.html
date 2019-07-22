@@ -59,7 +59,15 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+	<style>
+		a:focus { -moz-outline-style: none; }
+		a{blr:expression(this.onFocus=this.close());} /* 只支持IE，过多使用效率低 */ 　 
+		a{blr:expression(this.onFocus=this.blur());} /* 只支持IE，过多使用效率低 */ 
+		a:focus {
+		outline:none;
+		-moz-outline:none;
+		}
+	</style>
     <!-- ga & ba script hoook -->
     <script></script>
 </head>
