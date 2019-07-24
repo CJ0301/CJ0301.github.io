@@ -103,7 +103,7 @@
 	 */
 
 	var Genea = __webpack_require__(2);
-	var alphabetArr = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,\' '.split('');
+	var alphabetArr = '12340abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.,\' '.split('');
 	var alphabet = function () {
 	  var alphabet = {};
 	  alphabetArr.forEach(function (ch, i) {
