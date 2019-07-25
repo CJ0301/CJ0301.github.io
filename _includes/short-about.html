@@ -1,16 +1,8 @@
 <section class="visible-md visible-lg">
   <hr>
-  <h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
-  <div class="short-about">
-    {% if site.sidebar-avatar %}
-    <img src="{{site.sidebar-avatar}}" />
-    {% endif %}
-    {% if site.sidebar-about-description %}
-    <p>{{site.sidebar-about-description}}</p>
-	<div id="span_dt_dt"></div>
-	<script data-no-instant>
+  <script type="text/javascript">
 		function show_date_time() {
-		window.setTimeout("show_date_time()", 1000);
+		window.setInterval("show_date_time()", 1000);
 		var BirthDay = new Date("2019/7/19 15:16:13"),
         today = new Date,
         timeold = today.getTime() - BirthDay.getTime(),
@@ -28,6 +20,16 @@
 								"分∑(ﾟДﾟ)<br>" + seconds + 
 								"秒啦！！！";
         }
+    </script>
+  <h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
+  <div class="short-about">
+    {% if site.sidebar-avatar %}
+    <img src="{{site.sidebar-avatar}}" />
+    {% endif %}
+    {% if site.sidebar-about-description %}
+    <p>{{site.sidebar-about-description}}</p>
+	<div id="span_dt_dt"></div>
+	<script>
         show_date_time();
     </script>
     {% endif %}
