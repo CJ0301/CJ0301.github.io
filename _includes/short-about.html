@@ -1,25 +1,30 @@
 <section class="visible-md visible-lg">
   <hr>
   <script type="text/javascript">
-		function show_date_time() {
-		window.setInterval("show_date_time()", 1000);
-		var BirthDay = new Date("2019/7/19 15:16:13"),
-        today = new Date,
-        timeold = today.getTime() - BirthDay.getTime(),
-        msPerDay = 864e5,
-        e_daysold = timeold / msPerDay,
-        daysold = Math.floor(e_daysold),
-        e_hrsold = 24 * (e_daysold - daysold),
-        hrsold = Math.floor(e_hrsold),
-        e_minsold = 60 * (e_hrsold - hrsold),
-        minsold = Math.floor(60 * (e_hrsold - hrsold)),
-        seconds = Math.floor(60 * (e_minsold - minsold));
-		span_dt_dt.innerHTML = "(´･Д･)我已经出生<br>" + daysold + 
-								"天\(//∇//)\<br>(*≧ω≦)" + hrsold + 
-								"小时<br>" + minsold + 
-								"分∑(ﾟДﾟ)<br>" + seconds + 
+		window.onload=function starttime(){
+        time(h1,"2019/7/19 15:16:13");     // 在一起的时间
+        ptimer = setTimeout(starttime,1000); // 添加计时器
+    }
+
+    function time(obj,futimg){
+        var nowtime = new Date().getTime(); // 现在时间转换为时间戳
+        var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
+        var msec = nowtime-futruetime; // 毫秒 未来时间-现在时间
+        var time = (msec/1000);  // 毫秒/1000
+        var day = parseInt(time/86400); // 天  24*60*60*1000
+        var hour = parseInt(time/3600)-24*day;    // 小时 60*60 总小时数-过去的小时数=现在的小时数
+        var minute = parseInt(time%3600/60); // 分 -(day*24) 以60秒为一整份 取余 剩下秒数 秒数/60 就是分钟数
+        var second = parseInt(time%60);  // 以60秒为一整份 取余 剩下秒数
+//              console.log(hour+":"+minute+":"+second)
+//              alert(hour)
+        obj.innerHTML= "(´･Д･)我已经出生<br>" + day + 
+								"天\(//∇//)\<br>(*≧ω≦)" + hour + 
+								"小时<br>" + minute + 
+								"分∑(ﾟДﾟ)<br>" + second + 
 								"秒啦！！！";
-        }
+
+        return true;
+    }
     </script>
   <h5><a href="{{'/about/' | prepend: site.baseurl }}">ABOUT ME</a></h5>
   <div class="short-about">
@@ -29,9 +34,7 @@
     {% if site.sidebar-about-description %}
     <p>{{site.sidebar-about-description}}</p>
 	<div id="span_dt_dt"></div>
-	<script>
-        show_date_time();
-    </script>
+	<div id="h1">...</div>
     {% endif %}
     <!-- SNS Link -->
     {% include sns-links.html %}
