@@ -97,8 +97,8 @@ body, html {
 
 /* The icons */
 .cbp_tmtimeline > li .cbp_tmicon {
-	width: 40px;
-	height: 40px;
+	width: 30px;
+	height: 30px;
 	font-family: 'huxico';
 	speak: none;
 	font-style: normal;
@@ -145,39 +145,12 @@ body, html {
 }
 
 /** Venders Logo **/
-.i-vue:before {
-	content: "";
-    display: block;
-    width: 40px;
-    height: 40px;
-    background: url("../images/logo-vue.png") 50% 50% no-repeat;
-    background-size: 20px;
-}
-
-.i-kissy:before {
+.i-java:before {
 	content: "";
 	display: block;
 	width: 40px;
 	height: 40px;
-	background: url("../images/logo-kissy.png") 50% 50% no-repeat;
-	background-size: 20px;
-}
-
-.i-jquery:before {
-	content: "";
-	display: block;
-	width: 40px;
-	height: 40px;
-	background: url("../images/logo-jquery.png") 50% 50% no-repeat;
-	background-size: 20px;
-}
-
-.i-react:before {
-	content: "";
-	display: block;
-	width: 40px;
-	height: 40px;
-	background: url("../images/logo-react.png") 50% 50% no-repeat;
+	background: url("../images/java.png") 50% 50% no-repeat;
 	background-size: 22px;
 }
 
@@ -202,7 +175,6 @@ header{
 	padding: 5em 0px;
 	padding-bottom: 10em;
 	position: relative;
-	border-bottom: 1px solid #edeeee;
 }
 header h1 {
     font-size: 70px;
