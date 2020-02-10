@@ -1,7 +1,7 @@
 ---
 layout: 		post
 title: 			"MPAndroidChart_2"
-subtitle: 		'MPAndroidChart的英文文档部分翻译，以及使用的整理'
+subtitle: 		'关于轴基与XY轴'
 author: 		"CJ"
 header-img: 	"img/post-bg-fblog.jpg"
 header-mask: 	0.3
