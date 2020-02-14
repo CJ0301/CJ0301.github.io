@@ -283,5 +283,6 @@ tags:
 可以用ChartHighlighter类来定制自己的高亮笔
 - setHighlighter(ChartHighlighter highlighter)：：为处理/处理图表视图上执行的所有高亮显示触摸事件的图表设置自定义高亮显示对象。您的自定义荧光笔对象需要扩展ChartHighlighter类。
 
-
+参考资料：  
+[Weeklycoding](https://weeklycoding.com/mpandroidchart-documentation/)
 	
