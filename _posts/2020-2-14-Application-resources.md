@@ -95,3 +95,15 @@ tags:
         </tr>
     </table>
 
+#### 使用资源
+&emsp;由于Android SDL会在编译时在R类中为/res/目录下所有资源创建索引，因此在Java代码中访问资源主要通过R类来完成。其完整的语法格式为
+	
+	[<package_name>.]R.<resource_type>.<resource_name>
+
+- <package_name>：R类所在的包，如果导入过R类所在的包，可以省略
+- <resource_type>：R类中代表不同资源类型的子类，例如string代表字符串资源
+- <resource_name>：指定资源名称，资源名称可能是无后缀的文件名（如图片资源），也可能是XML资源元素中由android:name属性知道的名称。
+
+&emsp;在xml中使用资源格式如下：
+
+	@[<package_name>：]<resource_type>/<resource_name>
