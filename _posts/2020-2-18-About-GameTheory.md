@@ -99,3 +99,8 @@ tags:
 
 - <a id="ref1" href="https://baike.baidu.com/item/%E5%B8%95%E7%B4%AF%E6%89%98%E6%9C%80%E4%BC%98/1768788?fromtitle=%E5%B8%95%E7%B4%AF%E6%89%98%E6%95%88%E7%8E%87&fromid=3664561&fr=aladdin#1_3">[百度百科-猎鹿博弈]
 - <a id="ref1" href="https://baike.baidu.com/item/%E5%8D%8F%E5%92%8C%E8%B0%AC%E8%AF%AF/1217416?fr=aladdin">[百度百科-不能承受的代价]
+
+## 博弈组成要素
+1. 参与人 players
+2. 策略   strategy
+3. 利益   payoff

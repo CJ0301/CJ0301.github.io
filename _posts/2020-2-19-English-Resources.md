@@ -84,10 +84,10 @@ tags:
 词典：
 
 - [剑桥高阶英语学习词典](https://dictionary.cambridge.org/)  
-- [柯林斯在线词典](www.collinsdictionary.com)  
-- [麦克米伦词典](www.macmillandictionary.com)  
+- [柯林斯在线词典](https://www.collinsdictionary.com)  
+- [麦克米伦词典](https://www.macmillandictionary.com)  
 - [韦氏词典](http://learnersdictionary.com/)
-- [朗文当代高级英语辞典](www.ldoceonline.com)
+- [朗文当代高级英语辞典](https://www.ldoceonline.com)
 - [牛津高阶英语词典](https://www.oxfordlearnersdictionaries.com/)  
 - [在线牛津搭配词典](Collocationdictionary.freedicts.com)
 - [Thesaurus](https://www.thesaurus.com/)
