@@ -111,3 +111,8 @@ public static int[] add(int[] arr,int target) {
 | 中大公司 | 公众号 Web 小程序 | Web 小程序           | 拉回原生啊      |
 | 巨头公司 | 公众号 Web        | 不跟微信玩           | 不跟微信玩      |
 
+## 视频嵌入
+<iframe src="//player.bilibili.com/player.html?aid=75978628&amp;cid=129963854&amp;page=1" width="700px" height="500px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+## 音乐嵌入
+<p>http://q6ba0cez9.bkt.clouddn.com/离开你的城市后.mp3</p>
