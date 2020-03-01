@@ -17,9 +17,9 @@ tags:
 
 Notes：
 1. []取整,[x]取不超过x的最大整数,🌰：[1.2] = 1,[-2.3] = -3
-2. $$三角不等式: ||a|-|b|| \leq |a \pm b| \leq |a|-|b|$$
+2. $$三角不等式：||a|-|b|| \leq |a \pm b| \leq |a|-|b|$$
 
-1、定义:   
+1、定义：  
 &nbsp;{an} --> 数列   
 &nbsp;A --> 常数  
 
@@ -102,7 +102,7 @@ $$
 x \rightarrow a^- & \\
 x \rightarrow a^+ &
 \end{cases}$$
-3. $$a的去心邻域: 0<|x-a|<\delta \Rightarrow x\in(a-\delta)\bigcup(a+\delta)  
+3. $$a的去心邻域：0<|x-a|<\delta \Rightarrow x\in(a-\delta)\bigcup(a+\delta)  
 $$
 4. $$\lim\limits_{x \rightarrow a}f(x) 与 f(a) 无关$$
 5.   <center>$$\forall\epsilon>0,\exists\delta>0,当x\in(a-\delta,a)时$$
@@ -340,6 +340,161 @@ $$解：\lim\limits_{x \rightarrow 2}(x^2+3x)=\lim\limits_{x \rightarrow 2}x^2+\
 
 例2🌰.$$\lim\limits_{x \rightarrow 1}\frac{x^3-1}{x^2-3x+2}$$
 
-$$解:\lim\limits_{x \rightarrow 1}\frac{x^3-1}{x^2-3x+2} = \lim\limits_{x \rightarrow 1}\frac{(x-1)(x^2+x+1)}{(x-1)(x-2)}$$
+$$解：\lim\limits_{x \rightarrow 1}\frac{x^3-1}{x^2-3x+2} = \lim\limits_{x \rightarrow 1}\frac{(x-1)(x^2+x+1)}{(x-1)(x-2)}$$
 
 $$=\lim\limits_{x \rightarrow 1}\frac{x^2+x+1}{x-2}=\frac{\lim\limits_{x \rightarrow 1}(x^2+x+1)}{\lim\limits_{x \rightarrow 1}(x-2)}=-3$$
+
+例3🌰.$$\lim\limits_{x \rightarrow 2}\frac{x}{x^2-4}$$
+
+$$解：\because\lim\limits_{x \rightarrow 2}\frac{x^2-4}{x}=\frac{\lim\limits_{x \rightarrow 2}(x^2-4)}{\lim\limits_{x \rightarrow 2}x}=0$$
+
+$$\therefore\lim\limits_{x \rightarrow 2}\frac{x}{x^2-4}=\infty$$
+
+例4🌰.$$\lim\limits_{x \rightarrow \infty}\frac{3x^2+2x-5}{x^2-x+4}$$
+
+$$\lim\limits_{x \rightarrow \infty}\frac{3x^2+2x-5}{x^2-x+4}=\lim\limits_{x \rightarrow \infty}\frac{3+\frac{2}{x}-\frac{5}{x^2}}{1-\frac{1}{x}+\frac{4}{x^2}}=3$$
+
+例5🌰.$$\lim\limits_{x \rightarrow \infty}\frac{x+2}{2x^2-x+1}$$
+
+$$解：\lim\limits_{x \rightarrow \infty}\frac{x+2}{2x^2-x+1}=\lim\limits_{x \rightarrow \infty}\frac{\frac{1}{x}+\frac{2}{x^2}}{2-\frac{1}{x}+\frac{1}{x^2}}=0$$
+
+例6🌰.$$\lim\limits_{x \rightarrow \infty}\frac{x^2-3x+4}{2x+1}$$
+
+$$解：\because\lim\limits_{x \rightarrow \infty}\frac{2x+1}{x^2-3x+4}=0$$
+
+$$\therefore\lim\limits_{x \rightarrow \infty}\frac{x^2-3x+4}{2x+1}=\infty$$
+
+结论：
+
+$$\lim\limits_{x \rightarrow \infty}\frac{amx^m+...+a1x+a0}{bnx^n+...+b1x+b0}=\begin{cases}
+\frac{am}{bn} & m=n \\
+0 & m<n \\
+\infty & m>n 
+\end{cases}$$
+
+2、复合
+
+$$y=f(u),\lim\limits_{u \rightarrow a}f(u)=A$$
+
+$$u=\varphi(x)(\varphi(x)\not=a),\lim\limits_{x \rightarrow x0}\varphi(x)=a$$
+
+$$则\lim\limits_{x \rightarrow x0}f[\varphi(x)]=A$$
+
+$$证：\forall\epsilon>0$$
+
+$$\because\lim\limits_{u \rightarrow a}f(u)=A,\therefore\exists\eta>0,当0<|u-a|<\eta时$$
+
+$$|f(u)-A|<\epsilon(*)$$
+
+$$对\eta>0$$
+
+$$\because\lim\limits_{x \rightarrow x0}\varphi(x)=a,\therefore\exists\delta>0,当0<|x-x0|<\delta时$$
+
+$$|\varphi(x)-a|<\eta(**)$$
+
+$$\therefore\forall\epsilon>0,\exists\delta>0,当0<|x-x0|<\delta时，|f[\varphi(x)]-A|<\epsilon$$
+
+$$\therefore\lim\limits_{x \rightarrow x0}f[\varphi(x)]=A$$
+
+#### 极限存在准则 两个重要极限
+
+1、准则一：夹逼定理（迫敛定理）
+- 数列型
+
+$$1.an \leq bn \leq cn 2.\lim\limits_{n \rightarrow \infty}an=\lim\limits_{n \rightarrow \infty}cn=A$$
+
+$$则\lim\limits_{n \rightarrow \infty}bn=A$$
+
+$$证：\forall\epsilon>0,\exists N1>0,当n>N1时,有|an-A|<\epsilon\Rightarrow A-\epsilon<an<A+\epsilon(*)$$
+
+$$\exists N2>0,当n>N2时,有|cn-A|<\epsilon\Rightarrow A-\epsilon<cn<A+\epsilon(**)$$
+
+$$N=max\{N1,N2\},当n>N时(*)(**)成立$$
+
+$$A-\epsilon<an \leq bn \leq cn < A+\epsilon$$
+
+$$A-\epsilon<bn<A+\epsilon \Rightarrow |bn-A|<\epsilon$$
+
+$$即\forall\epsilon>0,\exists N>0,当m>N时,|bn-A|<\epsilon$$
+
+$$\therefore\lim\limits_{n \rightarrow \infty}bn=A$$
+
+- 函数型 
+证明同上
+
+例1🌰.$$\lim\limits_{n \rightarrow \infty}(2^n+3^n+4^n)^\frac{1}{n}$$
+
+$$解：4^n\leq2^n+3^n+4^n\leq3*4^n$$
+
+$$4\leq(2^n+3^n+4^n)^\frac{1}{n}\leq3^\frac{1}{n}*4^n$$
+
+$$\because\lim\limits_{n \rightarrow \infty}左=4,\lim\limits_{n \rightarrow \infty}右=4$$
+
+$$\therefore\lim\limits_{n \rightarrow \infty}(2^n+3^n+4^n)^\frac{1}{n}=4$$
+
+$$一般来说：a>0,b>0,c>0$$
+
+$$则\lim\limits_{n \rightarrow \infty}(a^n+b^n+c^n)^\frac{1}{n}=max\{a,b,c\}$$
+
+例2🌰.$$\lim\limits_{n \rightarrow \infty}(\frac{1}{\sqrt{n^2+1}}+\frac{1}{\sqrt{n^2+2}}+...+\frac{1}{\sqrt{n^2+n}})（分母次数不齐）$$
+
+$$解：令bn=\frac{1}{\sqrt{n^2+1}}+\frac{1}{\sqrt{n^2+2}}+...+\frac{1}{\sqrt{n^2+n}}$$
+
+$$\frac{n}{\sqrt{n^2+n}}\leq bn \leq\frac{n}{\sqrt{n^2+1}}$$
+
+$$\lim\limits_{n \rightarrow \infty}左=1,\lim\limits_{n \rightarrow \infty}右=1$$
+
+2、两个重要极限
+$$对0<x<\frac{\pi}{2}$$
+![](/img/in-posts/20200229-circle.png)
+
+$$S\Delta AOB=\frac{1}{2}OB*OAsinx=\frac{1}{2}sinx$$
+
+$$S扇AOB=\frac{1}{2}OA*x = \frac{1}{2}x$$
+
+$$S\Delta AOC = \frac{1}{2}OA*AC = \frac{1}{2}tanx$$
+
+$$\Rightarrow\frac{1}{2}sinx<\frac{1}{2}x<\frac{1}{2}tanx$$
+
+$$\therefore当0<x<\frac{\pi}{2}时,\Rightarrow\frac{1}{2}sinx<\frac{1}{2}x<\frac{1}{2}tanx$$
+
+$$\Rightarrow 1<\frac{x}{sinx}<\frac{1}{cosx}$$
+
+$$0<1-cosx=2sin^2\frac{x}{2}<2(\frac{x}{2})^2=\frac{1}{2}x^2$$
+
+$$\because\lim\limits_{x \rightarrow 0^+}左=0,\lim\limits_{x \rightarrow 0^+}右=0$$
+
+$$\therefore\lim\limits_{x \rightarrow 0^+}(1 - cosx)=0\Rightarrow\lim\limits_{x \rightarrow 0^+}cosx=1$$
+
+$$\because\lim\limits_{x \rightarrow 0^+}左=1,\lim\limits_{x \rightarrow 0^+}右=1$$
+
+$$对1<\frac{x}{sinx}<\frac{1}{cosx}$$
+
+$$\therefore\lim\limits_{x \rightarrow 0^+}\frac{x}{sinx}=1$$
+
+$$\because\frac{x}{sinx}为偶函数,\therefore\lim\limits_{x \rightarrow 0^-}\frac{x}{sinx}=1,\therefore\lim\limits_{x \rightarrow 0}\frac{x}{sinx}=1$$
+
+重要极限1：$$\lim\limits_{x \rightarrow 0}\frac{x}{sinx}=1$$
+
+$$一般地,\lim\limits_{\Delta \rightarrow 0}\frac{\Delta}{sin\Delta}=1$$
+
+例1🌰.$$\lim\limits_{x \rightarrow 0}\frac{tanx}{x}$$
+
+$$解：\lim\limits_{x \rightarrow 0}\frac{tanx}{x}=\lim\limits_{x \rightarrow 0}\frac{sinx}{x}*\frac{1}{cosx}=1*1=1$$
+
+例2🌰.$$\lim\limits_{x \rightarrow 0}\frac{1-cosx}{x^2}$$
+
+$$解：\lim\limits_{x \rightarrow 0}\frac{1-cosx}{x^2}=\lim\limits_{x \rightarrow 0}\frac{2sin^2\frac{x}{2}}{x^2}$$
+
+$$=\lim\limits_{x \rightarrow 0}\frac{1}{2}*\frac{sin^2\frac{x}{2}}{(\frac{x}{2})^2}=\lim\limits_{x \rightarrow 0}\frac{1}{2}(\frac{sin\frac{x}{2}}{\frac{x}{2}})^2=\frac{1}{2}$$
+
+例3🌰.$$\lim\limits_{x \rightarrow 0}\frac{arcsinx}{x}$$
+
+$$解：\lim\limits_{x \rightarrow 0}\frac{arcsinx}{x}$$
+
+$$设x=sint$$
+
+$$\lim\limits_{t \rightarrow 0}\frac{t}{sint}=1$$
+
+重要极限2：单调有界的数列必定存在极限
+
