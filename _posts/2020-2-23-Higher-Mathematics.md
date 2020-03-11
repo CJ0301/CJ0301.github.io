@@ -20,11 +20,13 @@ Notes：
 2. $$三角不等式：||a|-|b|| \leq |a \pm b| \leq |a|-|b|$$
 
 1、定义：  
-&nbsp;{an} --> 数列   
-&nbsp;A --> 常数  
+$$  
+{a_n} \rightarrow 数列,   
+A \rightarrow 常数  
+$$
 
 $$
-若\forall\epsilon > 0,\exists N > 0,当n>N时,|an - A| < \epsilon,则\lim\limits_{n \rightarrow \infty}an = A
+若\forall\epsilon > 0,\exists N > 0,当n>N时,|a_n - A| < \epsilon,则\lim\limits_{n \rightarrow \infty}a_n = A
 $$
 
 例1🌰. $$\lim\limits_{n \rightarrow \infty}\frac{n-1}{2n+1} = \frac{1}{2}$$
@@ -41,33 +43,33 @@ $$当n>N时，不等式成立$$
 
 2、性质：
 - 唯一性：
-$$若\lim\limits_{n \rightarrow \infty}an = A,\lim\limits_{n \rightarrow \infty}an = B,则A=B$$
+$$若\lim\limits_{n \rightarrow \infty}a_n = A,\lim\limits_{n \rightarrow \infty}a_n = B,则A=B$$
 
 $$证：设A>B$$
 
 $$取\epsilon = \frac{A-B}{2}>0$$
 
-$$\because\lim\limits_{n \rightarrow \infty}an = A$$
+$$\because\lim\limits_{n \rightarrow \infty}a_n = A$$
 
-$$\therefore\exists N1>0,当n>N1时，|an-A|<\frac{A-B}{2}
+$$\therefore\exists N_1>0,当n>N_1时，|a_n-A|<\frac{A-B}{2}
 \Rightarrow $$
 
-$$\frac{A+B}{2}<an<\frac{3A-B}{2}(*)$$
+$$\frac{A+B}{2}<a_n<\frac{3A-B}{2}(*)$$
 
-$$\because\lim\limits_{n \rightarrow \infty}an = B$$
+$$\because\lim\limits_{n \rightarrow \infty}a_n = B$$
 
-$$\therefore\exists N2>0,当n>N2时，|an-B|<\frac{A-B}{2}
+$$\therefore\exists N_2>0,当n>N_2时，|a_n-B|<\frac{A-B}{2}
 \Rightarrow $$
 
-$$\frac{3B-A}{2}<an<\frac{A+B}{2}(**)$$
+$$\frac{3B-A}{2}<a_n<\frac{A+B}{2}(**)$$
 
-$$取N = max\{N1,N2\},当n>N时,(*)(**)都成立，不等式矛盾，同理A<B矛盾$$
+$$取N = max\{N_1,N_2\},当n>N时,(*)(**)都成立，不等式矛盾，同理A<B矛盾$$
 
 - 保号性：
-$$\lim\limits_{n \rightarrow \infty}an = A\begin{cases}
+$$\lim\limits_{n \rightarrow \infty}a_n = A\begin{cases}
 & >0 \\
 & <0 
-\end{cases}\exists N>0,当n>N时，an\begin{cases}
+\end{cases}\exists N>0,当n>N时，a_n\begin{cases}
 & >0 \\
 & <0 
 \end{cases}$$
@@ -76,22 +78,22 @@ $$证：当A>0$$
 
 $$取\epsilon=\frac{A}{2}>0$$
 
-$$\because\lim\limits_{n \Rightarrow \infty}an = A,\therefore\exists N>0,当n>N时，|an-A|<\frac{A}{2} \rightarrow$$
+$$\because\lim\limits_{n \rightarrow \infty}a_n = A,\therefore\exists N>0,当n>N时，|a_n-A|<\frac{A}{2} \Rightarrow$$
 
-$$an>\frac{A}{2}>0$$
+$$a_n>\frac{A}{2}>0$$
 
 - 有界性：
-$$\lim\limits_{n \rightarrow \infty}an = A,则 \exists M>0，使|an| \leq M$$
+$$\lim\limits_{n \rightarrow \infty}a_n = A,则 \exists M>0，使|a_n| \leq M$$
 
 $$取\epsilon=1>0$$
 
-$$\because\lim\limits_{n \rightarrow \infty}an = A,\therefore N>0,当n>N时，|an-A|<1 \Rightarrow $$
+$$\because\lim\limits_{n \rightarrow \infty}a_n = A,\therefore N>0,当n>N时，|a_n-A|<1 \Rightarrow $$
 
-$$||an|-|A||<1 \Rightarrow |an|<1+|A|$$
+$$||a_n|-|A||<1 \Rightarrow |a_n|<1+|A|$$
 
-$$取M=MAX\{|a1|,|a2|,...|an|,1+|A|\}$$
+$$取M=MAX\{|a_1|,|a_2|,...|a_n|,1+|A|\}$$
 
-$$\therefore\forall n,有|an|\leq M$$
+$$\therefore\forall n,有|a_n|\leq M$$
 
 #### 函数极限
 
@@ -163,17 +165,17 @@ $$设A>B,取\epsilon = \frac{A-B}{2}>0$$
 
 $$\because\lim\limits_{x \rightarrow a}f(x) = A$$
 
-$$\therefore\delta1>0,当0<|x-a|<\delta1时$$
+$$\therefore\delta_1>0,当0<|x-a|<\delta_1时$$
 
 $$|f(x)-A|<\frac{A-B}{2} \Rightarrow \frac{A+B}{2}<f(x)<\frac{3A-B}{2}(*)$$
 
 $$又\because\lim\limits_{x \rightarrow a}f(x) = B$$
 
-$$\therefore\delta2>0,当0<|x-a|<\delta2时$$
+$$\therefore\delta_2>0,当0<|x-a|<\delta_2时$$
 
 $$|f(x)-B|<\frac{A-B}{2} \Rightarrow \frac{3B-A}{2}<f(x)<\frac{A+B}{2}(**)$$
 
-$$取\delta = min\{\delta1,\delta2\},当0<|x-a|<\delta时,(*)(**)都正确，矛盾$$
+$$取\delta = min\{\delta_1,\delta_2\},当0<|x-a|<\delta时,(*)(**)都正确，矛盾$$
 
 - 保号性：
 $$\lim\limits_{x \rightarrow a}f(x) = A\begin{cases}
@@ -210,15 +212,15 @@ $$x\rightarrow2时为不是无穷小$$
 
 $证：设\lim\limits_{x \rightarrow a}\alpha=0,\lim\limits_{x \rightarrow a}\beta=0$
 
-$$\forall\epsilon>0,\exists\delta1>0,当0<|x-a|<\delta1时$$
+$$\forall\epsilon>0,\exists\delta_1>0,当0<|x-a|<\delta_1时$$
 
 $$|\alpha-0|<\epsilon(*)$$
 
-$$\exists\delta2>0,当0<|x-a|<\delta2时$$
+$$\exists\delta_2>0,当0<|x-a|<\delta_2时$$
 
 $$|\beta-0|<\epsilon(**)$$
 
-$$取\delta=min\{\delta1,\delta2\},当0<|x-a|<\delta时,(*)(**)成立$$
+$$取\delta=min\{\delta_1,\delta_2\},当0<|x-a|<\delta时,(*)(**)成立$$
 
 $$当0<|x-a|<\delta时$$
 
@@ -232,15 +234,15 @@ $$\therefore\lim\limits_{x \rightarrow a}(\alpha\pm\beta)=0$$
 
 $$证：设\lim\limits_{x \rightarrow a}\alpha=0,\lim\limits_{x \rightarrow a}\beta=0$$
 
-$$取\epsilon0=1,\exists\delta1>0,当0<|x-a|<\delta1时$$
+$$取\epsilon_0=1,\exists\delta_1>0,当0<|x-a|<\delta_1时$$
 
 $$|\alpha-0|<1,即|\alpha|<1(*)$$
 
-$$\forall\epsilon>0,\exists\delta2>0,当0<|x-a|<\delta2时$$
+$$\forall\epsilon>0,\exists\delta_2>0,当0<|x-a|<\delta_2时$$
 
 $$|\beta-0|<\epsilon(**)$$
 
-$$取\delta=min\{\delta1,\delta2\},当0<|x-a|<\delta时,(*)(**)成立$$
+$$取\delta=min\{\delta_1,\delta_2\},当0<|x-a|<\delta时,(*)(**)成立$$
 
 $$|\alpha\beta-0|=|\alpha||\beta-0|<\epsilon$$
 
@@ -318,7 +320,7 @@ $$\therefore f(x)g(x)=AB$$
 
 $$证：\lim f(x)=A \Rightarrow f(x)=A+\alpha,\alpha\rightarrow0(B\not=0)$$
 
-$$取\epsilon0=\frac{|B|}{2}>0,\exists\delta1>0,当0<|x-a|<\delta1时$$
+$$取\epsilon0=\frac{|B|}{2}>0,\exists\delta_1>0,当0<|x-a|<\delta_1时$$
 
 $$|g(x)-B|<\frac{|B|}{2}\Rightarrow||g(x)|-|B||<\frac{|B|}{2}\Rightarrow|g(x)|>\frac{|B|}{2}$$
 
@@ -326,9 +328,9 @@ $$|\frac{f(x)}{g(x)}-\frac{A}{B}| = |\frac{A+\alpha}{B+\beta}-\frac{A}{B}|=\frac
 
 $$\because B\alpha-A\beta\rightarrow0$$
 
-$$\therefore\forall\epsilon>0,\exists\delta>0,当0<|x-a|<\delta1时,|B\alpha-A\beta|<\epsilon$$
+$$\therefore\forall\epsilon>0,\exists\delta>0,当0<|x-a|<\delta_1时,|B\alpha-A\beta|<\epsilon$$
 
-$$取\delta=min\{\delta1,\delta2\},当0<|x-a|<\delta时$$
+$$取\delta=min\{\delta_1,\delta_2\},当0<|x-a|<\delta时$$
 
 $$|\frac{f(x)}{g(x)}-\frac{A}{B}|<\frac{2}{|B|^2}\epsilon$$
 
@@ -366,8 +368,8 @@ $$\therefore\lim\limits_{x \rightarrow \infty}\frac{x^2-3x+4}{2x+1}=\infty$$
 
 结论：
 
-$$\lim\limits_{x \rightarrow \infty}\frac{amx^m+...+a1x+a0}{bnx^n+...+b1x+b0}=\begin{cases}
-\frac{am}{bn} & m=n \\
+$$\lim\limits_{x \rightarrow \infty}\frac{a_m x^m+...+a_1 x+a_0}{b_n x^n+...+b_1 x+b_0}=\begin{cases}
+\frac{a_m}{b_n} & m=n \\
 0 & m<n \\
 \infty & m>n 
 \end{cases}$$
@@ -376,9 +378,9 @@ $$\lim\limits_{x \rightarrow \infty}\frac{amx^m+...+a1x+a0}{bnx^n+...+b1x+b0}=\b
 
 $$y=f(u),\lim\limits_{u \rightarrow a}f(u)=A$$
 
-$$u=\varphi(x)(\varphi(x)\not=a),\lim\limits_{x \rightarrow x0}\varphi(x)=a$$
+$$u=\varphi(x)(\varphi(x)\not=a),\lim\limits_{x \rightarrow x_0}\varphi(x)=a$$
 
-$$则\lim\limits_{x \rightarrow x0}f[\varphi(x)]=A$$
+$$则\lim\limits_{x \rightarrow x_0}f[\varphi(x)]=A$$
 
 $$证：\forall\epsilon>0$$
 
@@ -388,36 +390,36 @@ $$|f(u)-A|<\epsilon(*)$$
 
 $$对\eta>0$$
 
-$$\because\lim\limits_{x \rightarrow x0}\varphi(x)=a,\therefore\exists\delta>0,当0<|x-x0|<\delta时$$
+$$\because\lim\limits_{x \rightarrow x_0}\varphi(x)=a,\therefore\exists\delta>0,当0<|x-x_0|<\delta时$$
 
 $$|\varphi(x)-a|<\eta(**)$$
 
-$$\therefore\forall\epsilon>0,\exists\delta>0,当0<|x-x0|<\delta时，|f[\varphi(x)]-A|<\epsilon$$
+$$\therefore\forall\epsilon>0,\exists\delta>0,当0<|x-x_0|<\delta时，|f[\varphi(x)]-A|<\epsilon$$
 
-$$\therefore\lim\limits_{x \rightarrow x0}f[\varphi(x)]=A$$
+$$\therefore\lim\limits_{x \rightarrow x_0}f[\varphi(x)]=A$$
 
 #### 极限存在准则 两个重要极限
-
+一、极限存在准则  
 1、准则一：夹逼定理（迫敛定理）
 - 数列型
 
-$$1.an \leq bn \leq cn 2.\lim\limits_{n \rightarrow \infty}an=\lim\limits_{n \rightarrow \infty}cn=A$$
+$$1.a_n \leq b_n \leq c_n 2.\lim\limits_{n \rightarrow \infty}a_n=\lim\limits_{n \rightarrow \infty}c_n=A$$
 
-$$则\lim\limits_{n \rightarrow \infty}bn=A$$
+$$则\lim\limits_{n \rightarrow \infty}b_n=A$$
 
-$$证：\forall\epsilon>0,\exists N1>0,当n>N1时,有|an-A|<\epsilon\Rightarrow A-\epsilon<an<A+\epsilon(*)$$
+$$证：\forall\epsilon>0,\exists N_1>0,当n>N_1时,有|a_n-A|<\epsilon\Rightarrow A-\epsilon<a_n<A+\epsilon(*)$$
 
-$$\exists N2>0,当n>N2时,有|cn-A|<\epsilon\Rightarrow A-\epsilon<cn<A+\epsilon(**)$$
+$$\exists N_2>0,当n>N_2时,有|c_n-A|<\epsilon\Rightarrow A-\epsilon<c_n<A+\epsilon(**)$$
 
-$$N=max\{N1,N2\},当n>N时(*)(**)成立$$
+$$N=max\{N_1,N_2\},当n>N时(*)(**)成立$$
 
-$$A-\epsilon<an \leq bn \leq cn < A+\epsilon$$
+$$A-\epsilon<a_n \leq b_n \leq c_n < A+\epsilon$$
 
-$$A-\epsilon<bn<A+\epsilon \Rightarrow |bn-A|<\epsilon$$
+$$A-\epsilon<b_n<A+\epsilon \Rightarrow |b_n-A|<\epsilon$$
 
-$$即\forall\epsilon>0,\exists N>0,当m>N时,|bn-A|<\epsilon$$
+$$即\forall\epsilon>0,\exists N>0,当m>N时,|b_n-A|<\epsilon$$
 
-$$\therefore\lim\limits_{n \rightarrow \infty}bn=A$$
+$$\therefore\lim\limits_{n \rightarrow \infty}b_n=A$$
 
 - 函数型 
 证明同上
@@ -438,13 +440,56 @@ $$则\lim\limits_{n \rightarrow \infty}(a^n+b^n+c^n)^\frac{1}{n}=max\{a,b,c\}$$
 
 例2🌰.$$\lim\limits_{n \rightarrow \infty}(\frac{1}{\sqrt{n^2+1}}+\frac{1}{\sqrt{n^2+2}}+...+\frac{1}{\sqrt{n^2+n}})（分母次数不齐）$$
 
-$$解：令bn=\frac{1}{\sqrt{n^2+1}}+\frac{1}{\sqrt{n^2+2}}+...+\frac{1}{\sqrt{n^2+n}}$$
+$$解：令b_n=\frac{1}{\sqrt{n^2+1}}+\frac{1}{\sqrt{n^2+2}}+...+\frac{1}{\sqrt{n^2+n}}$$
 
-$$\frac{n}{\sqrt{n^2+n}}\leq bn \leq\frac{n}{\sqrt{n^2+1}}$$
+$$\frac{n}{\sqrt{n^2+n}}\leq b_n \leq\frac{n}{\sqrt{n^2+1}}$$
 
 $$\lim\limits_{n \rightarrow \infty}左=1,\lim\limits_{n \rightarrow \infty}右=1$$
 
-2、两个重要极限
+2、准则二：单调有界的数列必定存在极限  
+Notes:
+1. $$如果\exists M>0,\forall n,有|a_n|\leq M,则{a_n}有界$$
+2. $$\{a_n\}\uparrow\begin{cases}
+无上界 & \Rightarrow \lim\limits_{n \rightarrow \infty}a_n=+\infty \\
+\exists M,a_n\leq M & \Rightarrow \lim\limits_{n \rightarrow \infty}a_n \exists
+\end{cases}$$
+
+$$\{a_n\}\downarrow\begin{cases}
+无下界 & \Rightarrow \lim\limits_{n \rightarrow \infty}a_n=-\infty \\
+\exists M,a_n\geq M & \Rightarrow \lim\limits_{n \rightarrow \infty}a_n \exists
+\end{cases}$$
+
+例1🌰.$$0<a_1<\frac{\pi}{2},a_{n+1}=sin(a_n),证:\lim\limits_{n \rightarrow \infty}a_n\exists$$
+
+$$解：由题得a_n>0$$
+
+$$\because sinx<x(0<x<\frac{\pi}{2})$$
+
+$$\therefore a_{n+1}=sin(a_n)<a_n \Rightarrow \{a_n\}\downarrow$$
+
+$$\therefore\lim\limits_{n\rightarrow\infty}a_n\exists$$
+
+$$由a_{n+1}=sin(a_n) \Rightarrow A=sinA$$
+
+$$\therefore A=0$$
+
+例2🌰.$$a_1=\sqrt{2},a_2=\sqrt{2\sqrt{2}},a_3=\sqrt{2\sqrt{2\sqrt{2}}},...证:\lim\limits_{n \rightarrow \infty}a_n\exists$$
+
+$$a_{n+1} = \sqrt{2+a_n},由题得\{a_n\}\uparrow$$
+
+$$假设a_n\leq 2$$
+
+$$a_1=\sqrt{2}<2$$
+
+$$设a_k \leq 2$$
+
+$$a_k+1=\sqrt{2+a_k} \leq 2$$
+
+$$\therefore\forall n,有a_n \leq 2$$
+
+$$\therefore\lim\limits_{n \rightarrow \infty}a_n\exists$$
+
+二、两个重要极限  
 $$对0<x<\frac{\pi}{2}$$
 ![](/img/in-posts/20200229-circle.png)
 
@@ -496,5 +541,546 @@ $$设x=sint$$
 
 $$\lim\limits_{t \rightarrow 0}\frac{t}{sint}=1$$
 
-重要极限2：单调有界的数列必定存在极限
+Notes:
+1.二项式定理：$$(a+b)^n=\sum_{r=0}^{n} C_n^r a^nr b^r(n \in N^*)$$
 
+重要极限2：$$\lim\limits_{\Delta \rightarrow 0}(1+\Delta)^{\frac{1}{\Delta}} =  e$$
+
+$$a_n=(1+\frac{1}{n})^n$$
+
+$$a_n=(1+\frac{1}{n})^n = C_n^0+C_n^1\frac{1}{n}+...+C_n^n\frac{1}{n^n}$$
+
+$$a_{n+1} = (1+\frac{1}{n+1})^{n+1} = C_n^0+C_n^1\frac{1}{n+1}+...+C_n+1^{n+1}\frac{1}{n+1^{n+1}}$$
+
+$$\Rightarrow a_{n+1}>a_n\Rightarrow \{a_n\}\uparrow$$
+
+$$\because a_n \leq 1+1+\frac{1}{2!}+\frac{1}{3!}+...+\frac{1}{n!}\leq 1+1+\frac{1}{1*2}+\frac{1}{3*4}+...++\frac{1}{(n-1)*n} = 3-\frac{1}{n} \leq 3$$
+
+$$\therefore\lim\limits_{n \rightarrow \infty}(1+\frac{1}{n})^n\exists$$
+
+例1🌰.$$\lim\limits_{x \rightarrow 0}(1+3x)^\frac{1}{sinx}$$
+
+$$解：\lim\limits_{x \rightarrow 0}[(1+3x)^{\frac{1}{3x}}]^{\frac{3x}{sinx}}$$
+
+$$=e^{\lim\limits_{x \rightarrow 0}\frac{3x}{sinx}}$$
+
+$$=e^3$$
+
+例2🌰.$$\lim\limits_{x \rightarrow 0}(1-x^2)^{\frac{1}{xsinx}}$$
+
+$$解：\lim\limits_{x \rightarrow 0}[(1-x^2)^{\frac{1}{-x^2}}]^{\frac{-x}{sinx}}$$
+
+$$=e^{\lim\limits_{x \rightarrow 0}\frac{-x}{sinx}}$$
+
+$$=\frac{1}{e}$$
+
+#### 无穷小的比较
+$$\alpha \rightarrow 0 , \beta \rightarrow 0$$
+
+$$1.If \lim\frac{\beta}{\alpha}=0,则\beta为\alpha的高阶无穷小,记\beta=o(\alpha)$$
+
+$$2.If \lim\frac{\beta}{\alpha}=l(\neq0,\infty),则\beta为\alpha的同阶无穷小$$
+
+$$3.If \lim\frac{\beta}{\alpha}=1,则\beta为\alpha的等价无穷小,记\alpha \sim \beta$$
+
+$$If \lim\frac{\beta}{\alpha^k}=l(\neq0,\infty)(k>0),则\beta为\alpha的k阶无穷小$$
+
+$$🌰 如：\alpha = x,\beta = 4x^3+x^4$$
+
+$$\lim\limits_{x \rightarrow 0}\frac{\beta}{x^3} = \lim\limits_{x \rightarrow 0}(4+x)=4$$
+
+$$\beta为\alpha的3阶无穷小$$
+
+
+性质  
+一般性质：  
+
+$$1.\alpha \rightarrow 0,\beta \rightarrow 0 \Rightarrow\begin{cases}
+\alpha\pm\beta \rightarrow 0 \\
+\alpha\beta \rightarrow 0\\
+k\alpha \rightarrow 0
+\end{cases}$$
+
+$$2.|\alpha|\leq M,\beta \rightarrow 0 \Rightarrow \alpha\beta \rightarrow 0$$
+
+$$3.\lim f(x)=A \Rightarrow f(x)=A+\alpha,\alpha\rightarrow 0$$
+
+等价性质：  
+
+$$1. \begin{cases}
+\alpha\sim\alpha \\
+\alpha\sim\beta \Rightarrow \beta \sim \alpha \\
+\alpha\sim\beta,\beta\sim\gamma \Rightarrow \alpha\sim\gamma
+\end{cases}$$
+
+$$证：\alpha\sim\beta\Rightarrow\lim\frac{\beta}{\alpha}=1$$
+
+$$\beta\sim\gamma\Rightarrow\lim\frac{\gamma}{\beta}=1$$
+
+$$\because\frac{\gamma}{\alpha}=\frac{\beta}{\alpha}·\frac{\gamma}{\beta},\therefore\lim\frac{\gamma}{\alpha}=1$$
+
+$$2. \alpha\sim\alpha',\beta\sim\beta'且\lim\frac{\beta'}{\alpha'}=A,则\lim\frac{\beta}{\alpha}=A$$
+
+$$证：\frac{\beta}{\alpha}=\frac{\alpha'}{\alpha}·\frac{\beta'}{\alpha'}·\frac{beta}{beta'}$$
+
+$$\because\lim\frac{\alpha'}{\alpha}=1,\lim\frac{\beta'}{\beta}=1$$
+
+$$\lim\frac{\beta}{\alpha}=A$$
+
+$$3. \alpha\sim\beta\Rightarrow\beta = \alpha+o(\alpha)$$
+
+$$证：\alpha\sim\beta\Rightarrow\lim\frac{\beta}{\alpha}=1$$
+
+$$\Rightarrow\frac{\beta}{\alpha}=1+\gamma,\gamma\rightarrow0$$
+
+$$\beta=\alpha+\alpha\gamma$$
+
+$$\because\lim\frac{\alpha\gamma}{\alpha}=\lim\gamma=0,\therefore\alpha\gamma=o(\alpha)$$
+
+$$\therefore\beta=\alpha+o(\alpha)$$
+
+$$\beta=\alpha+o(\alpha)$$
+
+$$\Rightarrow\frac{\beta}{\alpha}=1+\frac{o(\alpha)}{\alpha}\Rightarrow\lim\frac{\beta}{\alpha}=1$$
+
+$$\therefore\alpha\sim\beta$$
+
+常见的等价无穷小  
+
+$$\lim\limits_{x \rightarrow 0}\frac{sinx}{x}=1\Rightarrow x\sim sinx$$
+
+$$\lim\limits_{x \rightarrow 0}\frac{tanx}{x}=1\Rightarrow x\sim tanx$$
+
+$$\lim\limits_{x \rightarrow 0}\frac{arcsinx}{x}=1\Rightarrow x\sim arcsinx$$
+
+$$\lim\limits_{x \rightarrow 0}\frac{arctanx}{x}=1,设x=tant\Rightarrow \lim\limits_{t \rightarrow 0}\frac{t}{tant}=1\Rightarrow x\sim arctanx$$
+
+$$\lim\limits_{x \rightarrow 0}\frac{\ln(1+x)}{x} = \lim\limits_{x \rightarrow 0}\frac{1}{x}\ln(1+x) = \lim\limits_{x \rightarrow 0}\ln(1+x)^\frac{1}{x} = 1\Rightarrow x\sim \frac{\ln(1+x)}{x}$$
+
+$$\lim\limits_{x \rightarrow 0}\frac{e^x-1}{x},设e^x-1=t\Rightarrow\lim\limits_{t \rightarrow 0}\frac{t}{\ln(1+t)}=1\Rightarrow x\sim e^x-1$$
+
+$$综上,x\rightarrow0时,x \sim sinx \sim tanx \sim arcsinx \sim arctanx \sim e^x-1 \sim \ln(1+x)$$
+
+$$\because\lim\limits_{x \rightarrow 0}\frac{1-cosx}{x^2}=\frac{1}{2}$$
+
+$$\therefore x\rightarrow 0时,1-cosx\sim \frac{1}{2}x^2$$
+
+
+例1🌰.$$\lim\limits_{x \rightarrow 0}\frac{(1+x)^a-1}{x}$$
+
+$$=\lim\limits_{x \rightarrow 0}\frac{e^{a\ln(1+x)}-1}{x}$$
+
+$$\because e^\Delta-1\sim\Delta(\Delta\rightarrow0)$$
+
+$$=\lim\limits_{x \rightarrow 0}\frac{a\ln(1+x)}{x}=a$$
+
+
+$$推得x\rightarrow0时 (1+x)^a-1\sim ax,一般地 (1+\Delta)^a-1\sim a\Delta(\Delta\rightarrow0)$$
+
+$$总结：当x\rightarrow0时,常见的有x \sim sinx \sim tanx \sim arcsinx \sim arctanx \sim e^x-1 \sim \ln(1+x)$$
+
+$$1-cosx\sim \frac{1}{2}x^2$$
+
+$$(1+x)^a-1\sim ax$$
+
+例1🌰.$$\lim\limits_{x\rightarrow0}\frac{(1+2x)^x-1}{xsinx}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{e^{x\ln(1+2x)}-1}{x^2}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{x\ln(1+2x)}{x^2}=\lim\limits_{x\rightarrow0}\frac{\ln(1+2x)}{x}=2$$
+
+例2🌰.$$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+tanx}-\sqrt{1+sinx}}{x^3}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{1}{\sqrt{1+tanx}+\sqrt{1+sinx}}*\frac{tanx-sinx}{x^3}$$
+
+$$=\frac{1}{2}\lim\limits_{x\rightarrow0}\frac{tanx-sinx}{x^3}$$
+
+$$=\frac{1}{2}\lim\limits_{x\rightarrow0}\frac{tanx}{x}*\frac{1-cosx}{x^2}=\frac{1}{4}$$
+
+例3🌰.$$\lim\limits_{x\rightarrow0}\frac{tan2x}{tan5x}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{2x}{5x}=\frac{2}{5}$$
+
+例4🌰.$$\lim\limits_{x\rightarrow0}\frac{(1+x^2)^{\frac{1}{3}}-1}{cosx-1}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{\frac{x^2}{3}}{-\frac{x^2}{2}}=-\frac{2}{3}$$
+
+#### 连续性与间断点
+
+$$注：\lim\limits_{x\rightarrow a}f(x)与f(a)无关$$
+
+$$如：f(x)=\frac{sin2x}{x},f(0)不存在$$
+
+$$但\lim\limits{x\rightarrow a}f(x)=2$$
+
+$$又如：f(x)=\begin{cases}
+\frac{\ln(1+x^2)}{1-cosx} & -1<x<0\\
+1 & x=0 \\
+\frac{e^{2x}-1}{sin2x} & 0<x<1
+\end{cases}$$
+
+$$f(0^-) = \lim\limits_{x\rightarrow 0^-}\frac{\ln(1+x^2)}{1-cosx}=2$$
+
+$$f(0^+) = \lim\limits_{x\rightarrow 0^+}\frac{e^{2x}-1}{sin2x}=2$$
+
+$$\therefore\lim\limits_{x\rightarrow 0}f(x)=2\neq f(0)$$
+
+一、连续性  
+定义：$$y=f(x)在x=x_0邻域内连续(邻域包括x_0,区别于去心邻域)$$
+
+$$如果\lim\limits_{x\rightarrow x_0}f(x)=f(x_0),则f(x)在x=x_0连续$$
+
+二、间断点  
+定义：$$如果\lim\limits_{x\rightarrow x_0}f(x)\neq f(x_0),则x=x_0为f(x)的间断点$$
+
+$$第一类：f(x_0^-),f(x_0^+)\exists
+\begin{cases}
+f(x_0^-)=f(x_0^+)(\neq f(x_0)) & x_0为可去间断点 \\
+f(x_0^-) \neq f(x_0^+) & x_0为跳跃间断点 
+\end{cases}$$
+
+
+$$第二类：f(x_0^-),f(x_0^+)至少有一个不存在$$
+
+$$例1🌰.f(x)=\frac{|x|}{x},求间断点与分类$$
+
+$$解：x=0为间断点$$
+
+$$f(0^-)=\lim\limits_{x\rightarrow 0^-}=\frac{|x|}{x}=-1$$
+
+$$f(0^+)=\lim\limits_{x\rightarrow 0^+}=\frac{|x|}{x}=1$$
+
+$$f(0^-)\neq f(0^+)$$
+
+$$x=0为跳跃间断点$$
+
+$$例2🌰.f(x)=\frac{x^2-3x+2}{x^2-1},求间断点与分类$$
+
+$$解：x=\pm1为间断点$$
+
+$$\lim\limits_{x\rightarrow-1}f(x)=\infty\Rightarrow x=-1为第二类间断点$$
+
+
+$$\lim\limits_{x\rightarrow1}f(x)=-\frac{1}{2}\Rightarrow x=1为可去间断点$$
+
+$$例3🌰.f(x)=\frac{2^{\frac{1}{x-1}}}{1+2^{\frac{1}{x-1}}}$$
+
+$$解：x=1为间断点$$
+
+$$f(1^-) = \lim\limits_{x\rightarrow1^-}\frac{2^{\frac{1}{x-1}}}{1+2^{\frac{1}{x-1}}}$$
+
+$$\because x-1\rightarrow 0^-,则\frac{1}{x-1}\rightarrow-\infty$$
+
+$$=0$$
+
+$$f(1^+) = \lim\limits_{x\rightarrow1^+}\frac{2^{\frac{1}{x-1}}}{1+2^{\frac{1}{x-1}}}$$
+
+$$=\lim\limits_{x\rightarrow 1^+}\frac{1}{\frac{1}{2^{\frac{1}{x-1}}}+1}=1$$
+
+$$\because f(1^-)\neq f(1^+) $$
+
+$$\therefore x=1为跳跃间断点$$
+
+#### 连续函数的运算与初等函数的连续性
+
+一、连续函数的运算性质  
+1.$$f(x)、g(x)在x=x_0连续,则f(x)\pm g(x)、f(x)g(x)、\frac{f(x)}{g(x)}(g(x_0)\neq0),在x_0都连续$$
+
+$$如：\lim\limits_{x\rightarrow x_0}f(x)=f(x_0),\lim\limits_{x\rightarrow x_0}g(x)=g(x_0)\Rightarrow\lim\limits_{x\rightarrow x_0}f(x)g(x)=f(x_0)g(x_0)$$
+
+2.$$y=f(u)在u=a连续,u=\phi(x)且\lim\limits_{x\rightarrow x_0}\phi(x)=a则\lim\limits_{x\rightarrow x_0}f[\phi(x)]=f(a)$$
+
+$$证：\because\lim\limits_{u\rightarrow a}f(u)=f(a)$$
+
+$$\therefore\forall\epsilon>0,\exists\eta>0,当0<|u-a|<\eta时,|f(u)-f(a)|<\epsilon$$
+
+$$\because\lim\limits_{x\rightarrow x_0}\phi(x)=a$$
+
+$$\therefore对\eta>0,\exists\delta>0,当0<|x-x_0|<\delta时，|\phi(x)-a|<\eta$$
+
+$$当0<|x-x_0|<\delta时$$
+
+$$|f[\phi(x)]-f(a)|<\epsilon$$
+
+$$\therefore\lim\limits_{x\rightarrow x_0}f[\phi(x)]=f(a)$$
+
+$$即\lim\limits_{x\rightarrow x_0}f[\phi(x)]=f[\lim\limits_{x\rightarrow x_0}\phi(x)]$$
+
+$$如：\lim\limits_{x\rightarrow0}(cosx)^{\frac{1}{x^2}}$$
+
+$$\lim\limits_{x\rightarrow0}\{[1+(cosx-1)^{\frac{1}{cosx-1}}]\}^\frac{cosx-1}{x^2}$$
+
+$$=\lim\limits_{x\rightarrow0}e^\frac{cosx-1}{x^2}$$
+
+$$=e^{-\frac{1}{2}}$$
+
+二、初等函数连续性  
+1.基本初等函数-$$\begin{cases}
+x^a \\
+a^x (a>0且a\neq1) \\
+\log a^x(a>0且a\neq1) \\
+sinx、cosx、tanx、cotx...
+\end{cases}$$
+
+2.初等函数-$$由\begin{cases}
+常数 \\
+基本初等函数
+\end{cases}经过有限次的\begin{cases}
+四则 \\
+复合
+\end{cases}而成的式子$$
+
+🌟初等函数在定义域内连续
+
+$$例1🌰.\lim\limits_{x\rightarrow0}\frac{\log_a(1+x)}{x}$$
+
+$$解：原式=\lim\limits_{x\rightarrow0}\frac{1}{x}\log_a(1+x)=\lim\limits_{x\rightarrow0}log_a(1+x)^{\frac{1}{x}}$$
+
+$$=\log_a\lim\limits_{x\rightarrow0}(1+x)^{\frac{1}{x}}=\log_ae=\frac{1}{\ln a}$$
+
+$$例2🌰.\lim\limits_{x\rightarrow0}\frac{a^x-1}{x}$$
+
+$$法一：令a^x-1=t\Rightarrow x=\frac{1}{\ln a}·\ln(1+t)$$
+
+$$原式=\lim\limits_{t\rightarrow0}\frac{t}{\frac{1}{\ln a}\ln(1+t)}=\ln a\lim\limits_{t\rightarrow0}\frac{t}{\ln(1+t)}=\ln a$$
+
+$$法二：原式=\lim\limits_{x\rightarrow0}\frac{e^{x\ln a-1}}{x}=\lim\limits_{x\rightarrow0}\frac{x\ln a}{x}=\ln a$$
+
+#### 闭区间上连续函数的性质
+一、闭区间连续函数的定义
+设f(x)在[a,b]上有定义
+若  
+1.f(x)在(a,b)内连续  
+2.$$f(a)=f(a^+),f(b)=f(b^-)
+则f(x)在[a,b]上连续,记f(x)\in c[a,b]$$
+
+二、$$f(x)\in c[a,b]四大性质$$
+
+1.最大值和最小值定理
+
+$$设f(x)\in c[a,b],则f(x)在[a,b]一定取到最小值m和最大值M$$
+
+$$即\exists x_1\in[a,b],f(x_1)=m$$
+
+$$ \exists x_2\in[a,b],f(x_2)=M$$
+
+2.有界定理
+
+$$设f(x)\in c[a,b]则一定\exists k>0使|f(x)|\leq k$$
+
+3.零点定理
+
+$$设f(x)\in c[a,b],且f(a)f(b)<0,一定存在c\in(a,b),使f(c)=0$$
+
+4.介值定理
+
+$$设f(x)\in c[a,b],则\forall\eta\in[m,M],\exists\delta\in[a,b]使f(\delta)=\eta $$
+
+例1🌰.$$f(x)\in c[0,1],f(0)=1,f(1)=0,证明\exists c\in(0,1),使f(c)=c$$
+
+$$令\phi(x)=f(x)-x$$
+
+$$\phi(x)\in c[0,1]$$
+
+$$\phi(0)=1,\phi(1)=-1$$
+
+$$\because\phi(0)\phi(1)<0$$
+
+$$\therefore\exists c\in(0,1),使\phi(c)=0$$
+
+$$\therefore f(c)-c=0\Rightarrow f(c)=c$$
+
+例2🌰.$$f(x)\in c[0,2],且f(0)+2f(1)+3f(2)=6,证明\exists c\in[0,2],使f(c)=1$$
+
+$$证：\because f(x)\in c[0,2]\therefore\exists m,M$$
+
+$$6m\leq f(0)+2f(1)+3f(2) \leq 6M$$
+
+$$m\leq1\leq M$$
+
+$$\therefore c\in[0,2]使f(c)=1$$
+
+#### 理论体系
+Part1 极限  
+一、定义  
+(1)极限  
+1. $$(\epsilon-N)If\forall\epsilon>0,\exists N>0,当n>N时,|a_n-A|<\epsilon,\lim\limits_{x\rightarrow\infty}a_n=A$$
+2. $$(\epsilon-\delta)If\forall\epsilon>0,\exists\delta>0,当0<|x-a|<\delta时,|f(x)-A|<\epsilon,\lim\limits_{x\rightarrow a}f(x)=A$$
+3. $$(\epsilon-x)\begin{cases}
+x\rightarrow -\infty \\
+x\rightarrow +\infty &If\forall\epsilon>0,\exists X>0,当x>X时,|f(x)-A|<\epsilon,\lim\limits_{x\rightarrow+\infty}f(x)=A\\
+x\rightarrow \infty
+\end{cases}$$
+
+(2)无穷小  
+$$If\lim\limits_{x\rightarrow a}\alpha(x)=0,则\alpha(x)当x\rightarrow a为无穷小$$
+
+$$设\alpha\rightarrow0,\beta\rightarrow0\begin{cases}
+\lim\frac{\beta}{\alpha}=0 & \beta=o(\alpha)高阶无穷小 \\
+\lim\frac{\beta}{\alpha}=k(\neq0,\infty) & \beta=O(\alpha) 同阶无穷小\\
+lim\frac{\beta}{\alpha}=1 & \alpha\sim\beta 等价无穷小
+\end{cases}$$
+
+二、性质  
+(1)一般性质
+1. 唯一性
+2. 保号性
+3. 有界性
+
+(2)运算性质
+1. 四则：$$\lim f(x)=A,\lim g(x)=B,则：$$
+
+$$\lim[f(x)\pm g(x)]=A\pm B$$
+
+$$\lim f(x)g(x)=AB$$
+
+$$\lim\frac{f(x)}{g(x)}=\frac{A}{B}(B\neq0)$$
+
+2. 复合：$$\lim\limits_{u\rightarrow a}f(u)=A,u=\phi(x)且\phi(x)\neq a,\lim\limits_{x\rightarrow x_0}\phi(x)=a,则\lim\limits_{x\rightarrow x_0}f[\phi(x)]=A$$
+
+(3)存在性质
+1. 迫敛定理
+2. 单调有界数列必有极限
+
+(4)无穷小的性质  
+一般性质    
+1. $$\alpha\rightarrow0,\beta\rightarrow0\Rightarrow\begin{cases}
+\alpha\pm\beta\rightarrow0 \\
+\alpha\beta\rightarrow0 \\
+k\alpha\rightarrow0 \\
+\end{cases}$$
+2. $$|\alpha|\leq M,\beta\rightarrow0 \Rightarrow \alpha\beta\rightarrow0$$
+3. $$\lim f(x)=A\Rightarrow f(x)=A+\alpha,\alpha\rightarrow0$$
+
+等价性质  
+$$\alpha\sim\alpha',\beta\sim\beta'且\lim\frac{\beta'}{\alpha'}=A\Rightarrow\lim\frac{\beta}{\alpha}=A$$
+
+常见的等价无穷小$$(x\rightarrow0)$$  
+
+$$x \sim sinx \sim tanx \sim arcsinx \sim arctanx \sim e^x-1 \sim \ln(1+x)$$
+
+$$1-cosx\sim \frac{1}{2}x^2$$
+
+$$(1+x)^a-1\sim ax$$
+
+三、两个重要极限
+1. $$\lim\limits_{\Delta\rightarrow0}\frac{sin\Delta}{\Delta}=1$$
+2. $$\lim\limits_{\Delta\rightarrow0}(1+\Delta)^{\frac{1}{\Delta}}=e$$
+
+Part2 连续与间断  
+一、概念  
+1. 连续-$$If\lim\limits_{x\rightarrow a}f(x)=f(a)则f(x)在x=a连续$$
+2. 间断-$$If\lim\limits_{x\rightarrow a}f(x)\neq f(a)则f(x)在x=a间断$$
+
+二、$$f(x)\in c[a,b]的四大性质$$
+
+## 例题
+例1🌰.$$a_1=2,a_{n+1}=\frac{1}{2}(a_n+\frac{1}{a_n}),证\lim\limits_{n\rightarrow\infty}a_n\exists$$
+
+思路：证明有界性和单调性
+
+$$证：由题的a_{n+1}\geq1,即{a_n}有下界$$
+
+$$a_{n+1}-a_n=\frac{1}{2}(\frac{1}{a_n}-a_n)\leq0\Rightarrow a_{n+1}\leq a_n即\{a_n\}\downarrow$$
+
+$$\therefore\lim\limits_{n\rightarrow\infty}a_n\exists$$
+
+例2🌰.$$\lim\limits_{n\rightarrow\infty}(\frac{1}{n^2+1}+\frac{2}{n^2+2}+...+\frac{n}{n^2+n})$$
+
+思路：夹逼定理
+
+$$解：令b_n=\frac{1}{n^2+1}+\frac{2}{n^2+2}+...+\frac{n}{n^2+n}$$
+
+$$\frac{1}{2}\leq b_n \leq \frac{\frac{1}{2}n(n+1)}{n^2+1}$$
+
+$$\because\lim\limits_{n\rightarrow\infty}左=\frac{1}{2},\lim\limits_{n\rightarrow\infty}右=\frac{1}{2}\lim\limits_{n\rightarrow\infty}\frac{1+\frac{1}{n}}{1+\frac{1}{n^2}}=\frac{1}{2}$$
+
+$$\therefore原式=\frac{1}{2}$$
+
+🌟不定型：$$\begin{cases}
+\frac{0}{0}、1^{\infty} \\
+\frac{\infty}{\infty}、0*\infty、\infty-\infty、... \\
+\end{cases}$$
+
+$$\frac{0}{0}型：\begin{cases}
+u(x)^{v(x)}\Rightarrow e^{v(x)\ln u(x)} \\
+\ln()\Rightarrow\ln(1+\Delta)\sim\Delta(\Delta\rightarrow0) \\
+()-1\Rightarrow\begin{cases}
+e^{\Delta}\sim\Delta \\
+(1+\Delta)^a-1\sim a\Delta 
+\end{cases}(\Delta\rightarrow0)
+\end{cases}$$
+
+例3🌰.$$\lim\limits_{x\rightarrow0}\frac{x\ln(1+2x)}{\sqrt{1-x^2}-1}$$
+
+$$解：原式=\lim\limits_{x\rightarrow0}\frac{2x^2}{\frac{1}{2}(-x^2)}=-4$$
+
+例4🌰.$$\lim\limits_{x\rightarrow0}\frac{(\frac{1+cosx}{2})^x-1}{x^3}$$
+
+$$解：原式=\lim\limits_{x\rightarrow0}\frac{e^{x\ln\frac{1+cosx}{2}}-1}{x^3}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{x\ln\frac{1+cosx}{2}}{x^3}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{\ln(1+\frac{cosx-1}{2})}{x^2}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{\frac{cosx-1}{2}}{x^2}$$
+
+$$=-\frac{1}{4}$$
+
+$$1^\infty型\begin{cases}
+凑(1+\Delta)^{\frac{1}{\Delta}} \\
+恒等变型
+\end{cases}$$
+
+例5🌰.$$\lim\limits_{x\rightarrow0}(e^x+sin2x)^{\frac{1}{x}}$$
+
+$$解：\lim\limits_{x\rightarrow0}(e^x+sin2x)^{\frac{1}{x}}$$
+
+$$=\lim\limits_{x\rightarrow0}\{[1+(e^x-1+sin2x)]^{\frac{1}{e^x-1+sin2x}}\}^{\frac{e^x-1+sin2x}{x}}$$
+
+$$e^{\lim\limits_{x\rightarrow0}(\frac{e^x-1}{x}+\frac{sin2x}{x})}=e^3$$
+
+例6🌰.$$\lim\limits_{x\rightarrow0}(\frac{1+tanx}{1+sinx})^{\frac{1}{x^3}}$$
+
+$$解：原式=\lim\limits_{x\rightarrow0}[(1+\frac{tanx-sinx}{1+sinx})^{\frac{1+sinx}{tanx-sinx}}]^{\frac{tanx-sinx}{x^3(1+sinx)}}$$
+
+$$=e^{\lim\limits_{x\rightarrow0}\frac{1}{1+sinx}*\frac{tanx-sinx}{x^3}}$$
+
+$$=e^{\lim\limits_{x\rightarrow0}\frac{tanx}{x}*\frac{1-cosx}{x^2}}=e^{\frac{1}{2}}$$
+
+$$0*\infty\begin{cases}
+\frac{0}{\frac{1}{\infty}} 即\frac{0}{0} \\
+\frac{\infty}{\frac{1}{0}} 即\frac{\infty}{\infty}
+\end{cases}$$
+
+例7🌰.$$\lim\limits_{x\rightarrow+\infty}x(\sqrt{x^2+4}-x)$$
+
+$$解：原式=\lim\limits_{x\rightarrow+\infty}\frac{4x}{\sqrt{x^2+4}+x}$$
+
+$$=4\lim\limits_{x\rightarrow+\infty}\frac{1}{\sqrt{1+\frac{4}{x^2}}+1}=2$$
+
+$$\infty-\infty$$:
+
+例8🌰.$$\lim\limits_{x\rightarrow1}(\frac{1}{x-1}-\frac{3}{x^3-1})$$
+
+$$解：原式=\lim\limits_{x\rightarrow1}\frac{(x-1)(x+2)}{(x-1)(x^2+x+1)}$$
+
+$$=\lim\limits_{x\rightarrow1}\frac{x+2}{x^2+x+1}=1$$
+
+例9🌰.$$\lim\limits_{x\rightarrow+\infty}(\sqrt{x^2+4x+1}-x)$$
+
+$$解：原式=\lim\limits_{x\rightarrow+\infty}\frac{4x+1}{\sqrt{x^2+4x+1}+x}$$
+
+$$=\lim\limits_{x\rightarrow+\infty}\frac{4+\frac{1}{x}}{\sqrt{1+\frac{4}{x}+\frac{1}{x^2}}+1}=2$$
+
+例10🌰.$$f(x)=\frac{x^2-x-2}{x^2-1}e^{\frac{1}{x}},求f(x)间断点。$$
+
+$$解：x=0,x=\pm1为间断点$$
+
+$$\lim\limits_{x\rightarrow-1}f(x)=lim\limits_{x\rightarrow-1}\frac{x-2}{x-1}e^{\frac{1}{x}}=\frac{3}{2}e^{-1}$$
+
+$$\lim\limits_{x\rightarrow1}f(x)=\infty$$
+
+$$f(0^-)=0,f(0^+)=\infty$$
+
+$$\therefore x=-1为可去间断点 x=1为第二类间断点 x=0为第二类间断点$$
