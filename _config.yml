@@ -102,12 +102,12 @@ page-mathjax: false
 # Friends
 friends: [
     {
-        title: "这里怎么还是空的啊∑(ﾟДﾟ)<br/>ball ball你们辣<br/>把你们的博客地址给我吧(´･_･`)"
-    #     title: "Su",
-    #     href: "http://su.gallery/"
-    # },{
+         title: "Vergessen(河工大大佬)",
+         href: "https://www.vergessen.top/"
+    }
+    #,{
     #    title: "乱序",
     #    href: "http://mida.re/"
     #}
-    }
+    
 ]

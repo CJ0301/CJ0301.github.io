@@ -818,7 +818,7 @@ $$=e^{-\frac{1}{2}}$$
 1.基本初等函数-$$\begin{cases}
 x^a \\
 a^x (a>0且a\neq1) \\
-\log a^x(a>0且a\neq1) \\
+\log_ax(a>0且a\neq1) \\
 sinx、cosx、tanx、cotx...
 \end{cases}$$
 

@@ -31,6 +31,7 @@ tags:
 
 稍微有点编程基础的也可以参考初识循环语句学习的冒泡排序，就是采用的贪心算法的思想。
 
+## 例题
 例1🌰.$$一艘海盗船🏴‍☠️的装载量为C，一次抢劫中，他们得到了若干件古董，每件古董的重量为w_i，带走的古董件数为n，海盗如何将尽可能多的古董装上船？$$
 
 算法设计：
@@ -60,3 +61,78 @@ public class Test {
 }
 ```
 例2🌰.$$山洞中有n种宝物，每种宝物有一定的重量w和相应的价值v，毛驴的运载能力为m,一种宝物只能拿一样，宝物可以分割。如何使毛驴运走最多价值的宝物？$$
+
+思路：选择性价比最高的宝物，最后分割拿的最后一样宝物。
+
+```java
+package com.zte.practice;
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+		List<Resource> resources = new ArrayList<>();
+		Scanner s = new Scanner(System.in);
+		int numOfRes = s.nextInt();
+		float tWeight = s.nextInt();
+		for(int i=0;i<numOfRes;i++) {
+			resources.add(new Resource(s.nextFloat(), s.nextFloat()));
+		}
+		
+		resources.sort(new Comparator<Resource>() {
+			@Override
+			public int compare(Resource o1, Resource o2) {
+				return o1.getPerCost()-o2.getPerCost()<0?1:-1;
+			}	
+		});
+		
+		CaculateRes(resources,tWeight);
+	}
+	
+	public static void CaculateRes(List<Resource> res,float tWeight){
+		float cWeight,cPerValue,tValue = 0;
+		for(Resource r:res) {
+			cWeight = r.getWeight();
+			cPerValue = r.getPerCost();
+			if(tWeight>cWeight) {
+				System.out.println("拿单位价值"+cPerValue+"的宝物,重量为"+cWeight);
+				tWeight -= cWeight;
+				tValue += r.getValue();
+			}else {
+				System.out.println("拿单位价值"+cPerValue+"的宝物,重量为"+tWeight);
+				tValue += cPerValue*tWeight; 
+				break;
+			}
+		}
+		System.out.println("总价值"+tValue);
+	}
+}
+
+class Resource{
+	private float weight;  //重量
+	private float value;   //价值
+	private float perCost; //性价比
+	public Resource(float weight, float value) {
+		super();
+		this.weight = weight;
+		this.value = value;
+		this.perCost = value/weight;
+	}
+	
+	public float getPerCost() {
+		return perCost;
+	}
+	
+	public float getWeight() {
+		return weight;
+	}
+	
+	public float getValue() {
+		return value;
+	}
+	
+}
+```
