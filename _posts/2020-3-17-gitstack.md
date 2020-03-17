@@ -3,7 +3,7 @@ layout: 		post
 title: 			"Gitstack"
 subtitle: 		'代码托管'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-tools.jpg"
 header-mask: 	0.3
 catalog: 		true
 mathjax:        true
