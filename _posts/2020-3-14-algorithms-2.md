@@ -265,7 +265,7 @@ public static void merge(int[] arr,int l,int mid,int r,int[] temp) {
 ```
 
 分治排序的结构体系如下图：
-![](/in-posts/img/20200314-mergeSort.png)
+![](/img/in-posts/20200314-mergeSort.png)
 
 其原理就是利用二叉树结构进行分解，然后不断上升合并成一个新的有序集合。
 

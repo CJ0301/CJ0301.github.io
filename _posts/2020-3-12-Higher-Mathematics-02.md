@@ -107,3 +107,80 @@ Notes:
 4.$$f(x)在x=x_0处可导\Rightarrow f(x)在x=x_0处连续,反过来不正确$$
 
 #### 函数的求导法则
+初等函数-$$由\begin{cases}
+常数 \\
+基本初等函数
+\end{cases}经过有限次的\begin{cases}
+四则 \\
+复合
+\end{cases}而成的式子$$
+
+一、基本公式    
+$$1.(c)'=0$$  
+$$2.(x^a)'=ax^{a-1}$$  
+$$3.(a^x)'=a^x\ln a$$  
+$$4.(\log_ax)'=\frac{1}{x\ln a}$$  
+$$5.三角函数$$  
+$$6.反三角函数$$  
+
+二、四则求导法则  
+若u(x)、v(x)可导，则  
+$$1.[u(x)\pm v(x)]'=u'(x)\pm v'(x)$$  
+$$2.[u(x)v(x)]'=u'(x)v(x)+u(x)v'(x)$$  
+$$3.[\frac{u(x)}{v(x)}]'=\frac{u'(x)v(x)-u(x)v'(x)}{v^2(x)}(v(x)\neq0)$$  
+
+证明1：令f(x)=u(x)+v(x)
+
+$$f'(x)=\lim\limits_{h \rightarrow 0}\frac{f(x+h)-f(x))}{h}$$
+
+$$=\lim\limits_{h \rightarrow 0}\frac{u(x+h)+v(x+h)-u(x)-v(x)}{h}$$
+
+$$=\lim\limits_{h \rightarrow 0}\frac{\Delta u+\Delta v}{h}$$
+
+$$=u'(x)+v'(x)$$
+
+$$即(u+v)'=u'+v'，同理(u-v)'=u'-v'$$
+
+证明2：f(x)=u(x)v(x)
+
+$$f'(x)=\lim\limits_{h \rightarrow 0}\frac{f(x+h)-f(x))}{h}$$
+
+$$=\lim\limits_{h \rightarrow 0}\frac{u(x+h)v(x+h)-u(x)v(x)}{h}$$
+
+$$=\lim\limits_{h \rightarrow 0}\frac{u(x+h)v(x+h)-u(x)v(x+h)+u(x)v(x+h)-u(x)v(x)}{h}$$
+
+$$=\lim\limits_{h \rightarrow 0}[\frac{\Delta u}{h}·v(x+h)+u(x)·\frac{\Delta v}{h}]$$
+
+$$=u'(x)v(x)+u(x)v'(x)$$
+
+$$即(uv)'=u'v+uv'$$
+
+证明3：f(x)=\frac{u(x)}{v(x)}
+
+$$f'(x)=\lim\limits_{h \rightarrow 0}\frac{f(x+h)-f(x))}{h}$$
+
+$$=\lim\limits_{h \rightarrow 0}\frac{\frac{u(x+h)}{v(x+h)}-\frac{u(x)}{v(x)}}{h}$$
+
+$$=\lim\limits_{h \rightarrow 0}\frac{1}{v(x)v(x+h)}*\frac{u(x+h)v(x)-u(x)v(x+h)}{h}$$
+
+$$=\frac{1}{v^2(x)}\lim\limits_{h\rightarrow0}\frac{u(x+h)v(x)-u(x)v(x)+u(x)v(x)-u(x)v(x+h)}{h}$$
+
+$$=\frac{1}{v^2(x)}\lim\limits_{h\rightarrow0}\frac{\Delta u}{h}v(x)-u(x)\frac{\Delta v}{h}$$
+
+$$=\frac{u'(x)v(x)-u(x)v'(x)}{v^2(x)}$$
+
+$$即(\frac{u}{v})'=\frac{u'v-uv'}{v^2}$$
+
+Notes:
+1.(ku)'=ku'(k为常数)
+2.(uvw)'=u'vw+uv'w+uvw'
+
+例1🌰.f(x)=x(x+1)(x+2)...(x+100),求f'(0)=?
+
+
+三、复合函数求导法则
+
+
+
+
+
