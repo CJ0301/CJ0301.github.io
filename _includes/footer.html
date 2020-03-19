@@ -1,3 +1,8 @@
+<div class="pio-container right" style="bottom: 2rem; z-index: 1;right:6rem">
+			<div class="pio-action"></div>
+			<canvas id="pio" width="360" height="480"></canvas>
+</div>
+	
 <!-- Footer -->
 <footer>
     <div class="container">
@@ -14,7 +19,7 @@
                         frameborder="0" scrolling="0" width="100px" height="20px"
                         src="https://ghbtns.com/github-btn.html?user=CJ0301&repo=CJ0301.github.io&type=star&count=true" >
                     </iframe>
-					<br><a href="http://www.beian.miit.gov.cn/" style="text-decoration:none">苏ICP备20012351号</a>
+					<br><a id="beian" href="http://www.beian.miit.gov.cn/" style="text-decoration:none">苏ICP备20012351号</a>
 					<div id="span_dt_dt" margin-left="900px" padding="1rem 0"></div>
                 </p>
             </div>
@@ -37,6 +42,32 @@
 <script src="{{ "/js/snackbar.js " | prepend: site.baseurl }}"></script>
 <script src="{{ "/js/sw-registration.js " | prepend: site.baseurl }}"></script>
 {% endif %}
+
+<!-- 引用 Live2D 核心组件 -->
+<script src='{{ site.baseurl }}/js/l2d.js'></script>
+<!-- 引用看板娘交互组件 -->
+<script src='{{ site.baseurl }}/js/pio.js'></script>
+<!--启动看板娘-->
+<script>
+	var pio = new Paul_Pio({
+	"mode": "fixed",
+	"hidden": false,
+	"content": {
+		"welcome": ["欢迎来到CJ的小宇宙！", "今天天气不错，一起来玩吧！", "博主每天都有些折腾记录，欢迎前往他的小窝阅读~"],
+		"custom": [
+			{"selector": ".comment-form", "text": "欢迎参与本文评论，别发小广告噢~"},
+			{"selector": ".home-social a:last-child", "text": "在这里可以了解博主的日常噢~"},
+			{"selector": ".post-preview", "type": "read"},
+			{"selector": "#returnTop","type":"rocket"},
+			{"selector": "#beian","type":"beian"},
+			{"selector": ".pager .previous","type":"previous"},
+			{"selector": ".pager .next","type":"next"},
+			{"selector":".list-inline","type":"social"}
+		]
+	},
+	"model": ["{{ site.baseurl }}/js/models/pio/model.json"]
+});
+</script>
 
 <!-- async load function -->
 <script>

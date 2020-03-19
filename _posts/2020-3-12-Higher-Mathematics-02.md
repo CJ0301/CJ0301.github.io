@@ -56,14 +56,16 @@ $$f_+'(0)=\lim\limits_{x\rightarrow0^+}\frac{f(x)-f(0)}{x-0}=\lim\limits_{x\righ
 
 $$\because f_-'(0)\neq f_+'(0),\therefore f'(x)不存在$$
 
-二、用定义求导数
-1.$$y=f(x)=c$$
+二、用定义求导数  
+
+1)一般函数
+1.$$f(x)=c$$
 
 $$f'(x)=\lim\limits_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\rightarrow0}\frac{c-c}{h}=0$$
 
 $$\therefore(c)'=0$$
 
-2.$$y=f(x)=x^n$$
+2.$$f(x)=x^n$$
 
 $$f'(x)=\lim\limits_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\rightarrow0}\frac{(x+h)^n-x^n}{h}$$
 
@@ -73,7 +75,7 @@ $$\therefore(x^n)'=nx^{n-1}$$
 
 $$一般的,(x^a)'=ax^{a-1}$$
 
-3.$$y=a^x(a>0切a\neq1)$$
+3.$$f(x)=a^x(a>0切a\neq1)$$
 
 $$f'(x)=\lim\limits_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\rightarrow0}\frac{a^{x+h}-a^x}{h}$$
 
@@ -97,14 +99,86 @@ $$=\log_a(e^{\frac{1}{x}})=\frac{1}{x}\log_ae=\frac{1}{x\ln a}$$
 
 $$\therefore(\log_ax)'=\frac{1}{x\ln a}$$
 
+2）三角函数
+5.$$f(x)=sinx$$
+
+$$f'(x)=\lim\limits_{h\rightarrow0}\frac{sin(x+h)-sinx}{h}$$
+
+$$=\lim\limits_{h\rightarrow0}\frac{2cos(x+\frac{h}{2})·sin\frac{h}{2}}{h}$$
+
+$$=\lim\limits_{h\rightarrow0}cos(x+\frac{h}{2})·\frac{sin\frac{h}{2}}{\frac{h}{2}}=cosx$$
+
+$$\therefore(sinx)'=cosx$$
+
+6.$$f(x)=cosx$$
+
+$$f'(x)=\lim\limits_{h\rightarrow0}\frac{cos(x+h)-cosx}{h}$$
+
+$$=\lim\limits_{h\rightarrow0}\frac{-2sin(x+\frac{h}{2})·sin\frac{h}{2}}{h}$$
+
+$$=-\lim\limits_{h\rightarrow0}sin(x+\frac{h}{2})·\frac{sin\frac{h}{2}}{\frac{h}{2}}=-sinx$$
+
+$$\therefore(cosx)'=-sinx$$
+
+7.$$f(x)=tanx$$
+
+$$(tanx)'=(\frac{sinx}{cosx})'=\frac{(sinx)'cosx-sinx(cosx)'}{cos^2x}$$
+
+$$=\frac{1}{cos^2x}=sec^2x$$
+
+$$\therefore(tanx)'=sec^2x$$
+
+8.$$f(x)=cotx$$
+
+$$(cotx)'=(\frac{cosx}{sinx})'=-\frac{1}{sin^2x}=-csc^2x$$
+
+$$\therefore(cotx)'=-csc^2x$$
+
+9.$$f(x)=secx$$
+
+$$(secx)'=(\frac{1}{cosx})=\frac{sinx}{cos^2x}=secxtanx$$
+
+$$\therefore(secx)'=secxtanx$$
+
+10.$$f(x)=cscx$$
+
+$$(cscx)'=-\frac{cosx}{sin^2x}=-cscxcotx$$
+
+$$\therefore(cscx)'=-cscxcotx$$
+
+3）反函数
+
+Th1.$$y=f(x)\Rightarrow x=\phi(y)$$
+
+例1🌰.$$求y=\ln(x+\sqrt{1+x^2})的反函数$$
+
+$$解：y=\ln(x+\sqrt{1+x^2})\Rightarrow x+\sqrt{1+x^2}=e^y$$
+
+$$\because-x+\sqrt{1+x^2}=e^{-y}$$
+
+$$\therefore 2x=e^y-e^{-y}$$
+
+$$\therefore x=\frac{e^y-e^{-y}}{2}$$
+
+Th2.$$y=f(x)可导且f'(x)\neq0,x=\phi(y)为反函数，则\phi(y)可导，且\phi'(y)=\frac{1}{f'(x)}$$
+
+$$证：f'(x)=\lim\limits_{\Delta x\rightarrow0}\frac{\Delta y}{\Delta x}\neq0\Rightarrow\Delta y=O(\Delta x)(同阶无穷小)$$
+
+$$\phi'(y)=\lim\limits_{\Delta y\rightarrow0}\frac{\Delta x}{\Delta y}=\frac{1}{f'(x)}$$
+
+$$\therefore\phi'(y)=f'(x)$$
+
 Notes:
 1.$$F'(X)\exists\Rightarrow f_-'(x_0)、f_+'(x_0)\exists且相等$$
 
 2.$$设f(x)连续,若\lim\limits_{x\rightarrow a}\frac{f(x)-b}{x-a}=A,则f(a)=b,f'(a)=A$$
 
-3.y=f(x)在x=a处的切线为：y-f(a)=f'(a)(x-a)
+3.y=f(x)在x=a处的切线为：$$y-f(a)=f'(a)(x-a)$$
 
 4.$$f(x)在x=x_0处可导\Rightarrow f(x)在x=x_0处连续,反过来不正确$$
+
+5.三角的和差化积
+![](/img/in-posts/20200319-sumToMul.png)
 
 #### 函数的求导法则
 初等函数-$$由\begin{cases}
@@ -177,6 +251,15 @@ Notes:
 
 例1🌰.f(x)=x(x+1)(x+2)...(x+100),求f'(0)=?
 
+方法一：  
+
+$$f'(0)=\lim\limits_{x\rightarrow0}\frac{f(x)-f(0)}{x}=\lim\limits_{x\rightarrow0}(x+1)(x+2)...(x+100)=100!$$
+
+方法二：
+
+$$f'(x)=(x+1)...(x+100)+x(x+2)...(x+100)+...+x(x+1)(x+99)$$
+
+$$\therefore f'(0)=100!$$
 
 三、复合函数求导法则
 
