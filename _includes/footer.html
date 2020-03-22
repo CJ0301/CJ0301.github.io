@@ -1,4 +1,4 @@
-<div class="pio-container right" style="bottom: 2rem; z-index: 1;right:6rem">
+<div class="pio-container right" style="bottom: 1rem; z-index: 1;right:6rem">
 			<div class="pio-action"></div>
 			<canvas id="pio" width="360" height="480"></canvas>
 </div>
@@ -55,14 +55,13 @@
 	"content": {
 		"welcome": ["欢迎来到CJ的小宇宙！", "今天天气不错，一起来玩吧！", "博主每天都有些折腾记录，欢迎前往他的小窝阅读~"],
 		"custom": [
-			{"selector": ".comment-form", "text": "欢迎参与本文评论，别发小广告噢~"},
-			{"selector": ".home-social a:last-child", "text": "在这里可以了解博主的日常噢~"},
 			{"selector": ".post-preview", "type": "read"},
 			{"selector": "#returnTop","type":"rocket"},
 			{"selector": "#beian","type":"beian"},
 			{"selector": ".pager .previous","type":"previous"},
 			{"selector": ".pager .next","type":"next"},
-			{"selector":".list-inline","type":"social"}
+			{"selector":".list-inline","type":"social"},
+			{"selector":".cbp_tmtimeline","type":"portfolio"}
 		]
 	},
 	"model": ["{{ site.baseurl }}/js/models/pio/model.json"]

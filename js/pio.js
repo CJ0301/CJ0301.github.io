@@ -117,7 +117,7 @@ var Paul_Pio = function (prop) {
                     text = '已经这么晚了呀，早点休息吧，晚安~';
                 }
                 else{
-                    text = "CJ说：这个是无法被触发的吧，哈哈";
+                    text = "这个是无法被触发的吧，哈哈";
                 }
 
                 modules.render(text);
@@ -167,7 +167,7 @@ var Paul_Pio = function (prop) {
                 modules.destroy();
             };
             elements.close.onmouseover = function () {
-                modules.render(prop.content.close || "QWQ 下次再见吧~");
+                modules.render(prop.content.close || "QWQ 要把我关进小黑屋嘛");
             };
             current.menu.appendChild(elements.close);
         },
@@ -205,7 +205,12 @@ var Paul_Pio = function (prop) {
 						}
 						else if(t.type === "social"){
 							e[j].onmouseover = function () {
-                                modules.render("想认识我主人嘛🥳");
+                                modules.render("想了解我主人嘛🥳");
+                            }
+						}
+						else if(t.type === "portfolio"){
+							e[j].onmouseover = function () {
+                               modules.render("想看看主人做的 %t 吗？😉".replace(/%t/, "“" + this.firstElementChild.firstElementChild.firstElementChild.innerText + "”"));
                             }
 						}
                         else if(t.text){

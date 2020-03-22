@@ -136,7 +136,7 @@ $$\therefore(cotx)'=-csc^2x$$
 
 9.$$f(x)=secx$$
 
-$$(secx)'=(\frac{1}{cosx})=\frac{sinx}{cos^2x}=secxtanx$$
+$$(secx)'=(\frac{1}{cosx})'=\frac{sinx}{cos^2x}=secxtanx$$
 
 $$\therefore(secx)'=secxtanx$$
 
@@ -166,7 +166,33 @@ $$证：f'(x)=\lim\limits_{\Delta x\rightarrow0}\frac{\Delta y}{\Delta x}\neq0\R
 
 $$\phi'(y)=\lim\limits_{\Delta y\rightarrow0}\frac{\Delta x}{\Delta y}=\frac{1}{f'(x)}$$
 
-$$\therefore\phi'(y)=f'(x)$$
+$$\therefore\phi'(y)=\frac{1}{f'(x)}$$
+
+11.$$y=arcsinx(-1<x<1),x=siny$$
+
+$$y'=\frac{1}{x'}$$
+
+$$(arcsinx)'=\frac{1}{cosy}=\frac{1}{\sqrt{1-sin^2y}}=\frac{1}{\sqrt{1-x^2}}$$
+
+$$\therefore(arcsinx)'=\frac{1}{\sqrt{1-x^2}}$$
+
+12.$$y=arccosx(-1<x<1,0<y<\pi),x=cosy$$
+
+$$(arccosx)'=-\frac{1}{siny}=-\frac{1}{\sqrt{1-cos^2y}}=-\frac{1}{\sqrt{1-x^2}}$$
+
+$$\therefore(arccosx)'=-\frac{1}{\sqrt{1-x^2}}$$
+
+13.$$y=arctanx(-\infty<x<+\infty,-\frac{\pi}{2}<y<\frac{\pi}{2}),x=tany$$
+
+$$(arctanx)'=\frac{1}{sec^2y}=\frac{1}{1+tan^2y}=\frac{1}{1+x^2}$$
+
+$$\therefore(arctanx)'=\frac{1}{1+x^2}$$
+
+14.$$y=arccotx,x=coty$$
+
+$$(arccotx)'=\frac{1}{-csc^2x}=-\frac{1}{1+cot^2y}=-\frac{1}{1+x^2}$$
+
+$$\therefore(arccotx)'=-\frac{1}{1+x^2}$$
 
 Notes:
 1.$$F'(X)\exists\Rightarrow f_-'(x_0)、f_+'(x_0)\exists且相等$$
@@ -261,9 +287,89 @@ $$f'(x)=(x+1)...(x+100)+x(x+2)...(x+100)+...+x(x+1)(x+99)$$
 
 $$\therefore f'(0)=100!$$
 
-三、复合函数求导法则
+三、复合函数求导法则  
+Th3.$$y=f(u)可导,u=\phi(x)可导且\phi'(x)\neq0,则y=f[\phi(x)]关于x可导,且$$
 
+$$\frac{dy}{dx}=f'(u)·\phi'(x)=f'[\phi(x)]\phi'(x)=\frac{dy}{du}·\frac{du}{dx}$$
 
+$$证：\phi'(x)=\lim\limits_{\Delta x\rightarrow0}\frac{\Delta u}{\Delta x}\neq0\Rightarrow\Delta u=O(\Delta x)$$
 
+$$f'(u)=\lim\limits_{\Delta u\rightarrow0}\frac{\Delta y}{\Delta u}$$
 
+$$\frac{dy}{dx}=\lim\limits_{\Delta x\rightarrow0}\frac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\rightarrow0}\frac{\Delta y}{\Delta u}·\frac{\Delta u}{\Delta x}$$
 
+$$\because u=O(\Delta x)$$
+
+$$=\lim\limits_{\Delta u\rightarrow0}\frac{\Delta y}{\Delta u}·\frac{\Delta u}{\Delta x}$$
+
+$$=f'(u)·\phi'(x)=f'[\phi(x)]\phi'(x)$$
+
+例1🌰.$$y=e^{x^3}求\frac{dy}{dx}$$
+
+$$解：y=e^u,u=x^3$$
+
+$$\frac{dy}{dx}=\frac{dy}{du}·\frac{du}{dx}=e^u·3x^2=3x^2e^{x^3}$$
+
+例2🌰.$$y=sin\frac{2x}{1+x^2},求\frac{dy}{dx}$$
+
+$$解：y=sinu,u=\frac{2x}{1+x^2}$$
+
+$$\frac{dy}{dx}=cosu·\frac{2(1+x^2)-4x^2}{(1+x^2)^2}$$
+
+$$=cos\frac{2x}{1+x^2}·\frac{2(1-x^2)}{(1+x^2)^2}$$
+
+例3🌰.$$y=\sqrt[3]{1-2x^2},求\frac{dy}{dx}$$
+
+$$=-\frac{4}{3}x(1-2x^2)^{-\frac{2}{3}}$$
+
+例4🌰.$$y=e^{sin\frac{1}{x}},求\frac{dy}{dx}$$
+
+$$y'=e^{sin\frac{1}{x}}·cos\frac{1}{x}·(-\frac{1}{x^2})$$
+
+例5🌰.$$y=(1+x^2)^{sinx},\frac{dy}{dx}=?$$
+
+$$y=e^{sinx·\ln(1+x^2)}$$
+
+$$\frac{dy}{dx}=e^{sinx·\ln(1+x^2)}·[(sinx)'·\ln(1+x^2)+sinx(ln(1+x^2))']$$
+
+$$=e^{sinx·\ln(1+x^2)}[cosx·\ln(1+x^2)+sinx·\frac{1}{1+x^2}·2x]$$
+
+例6🌰.$$y=a^{x^a},\frac{dy}{dx}=?$$
+
+$$y=e^{x^a\ln a}$$
+
+$$\frac{dy}{dx}=a\ln a·x^{a-1}·a^{x^a}$$
+
+#### 高阶导数
+$$如：y=x^3,y'=3x^2,y''=6x$$
+
+$$y=f(x)的导数为f'(x),f'(x)的导数被称为f(x)的二阶导数,记f''(x)或\frac{d^2y}{dx^2}$$
+
+一阶导数：$$f'(x)或\frac{dy}{dx}$$  
+二阶导数：$$f''(x)或\frac{d^2y}{dx^2}=\frac{d}{dx}(\frac{dy}{dx})$$  
+三阶导数：$$f'''(x)或\frac{d^3y}{dx^3}$$  
+四阶导数：$$f^{(4)}(x)或\frac{d^4y}{dx^4}$$  
+
+例1🌰.$$y=sin3x,求y^{(4)}$$
+
+$$y'=3cos3x$$
+
+$$y''=-9sin3x$$
+
+$$y'''=-27cos3x$$
+
+$$y^{(4)}=81sin3x$$
+
+例2🌰.$$y=\frac{1}{3x+4},y^{(n)}$$
+
+$$y=(3x+4)^{-1}$$
+
+$$y=(-1)(3x+4)^{-2}·3$$
+
+$$y=(-1)(-2)(3x+4)^{-3}·3^2$$
+
+$$...$$  
+
+$$y^{(n)}=(-1)(-2)...(-n)(3x+4)^{-(n+1)}·3^n$$
+
+$$=\frac{(-1)^n·n!·3^n}{(3x+4)^{n+1}}$$
