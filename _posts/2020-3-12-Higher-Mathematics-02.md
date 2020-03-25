@@ -373,3 +373,185 @@ $$...$$
 $$y^{(n)}=(-1)(-2)...(-n)(3x+4)^{-(n+1)}·3^n$$
 
 $$=\frac{(-1)^n·n!·3^n}{(3x+4)^{n+1}}$$
+
+总结：
+
+$$(uv)'=u'v+uv'$$
+
+$$(uv)''=u''v+2u'v'+uv''$$
+
+$$...$$
+
+$$(uv)^{(n)}=C_n^0u^{(n)}v+C_n^1u^{(n-1)}v'+...+C_n^nuv^{(n)}$$
+
+#### 隐函数及参数方程确定的函数的导数
+
+函数表达方法：  
+1. 显函数 y=f(x)
+2. 隐函数$$F(x \vert y)=0\Rightarrow y=\phi(x)$$
+3. $$参数形式 \begin{cases}
+x =\phi(t) \\
+y = \Phi(t)
+\end{cases}$$
+
+显函数求导：  
+
+$$y=e^{sin^2\frac{1}{x}}$$
+
+$$\frac{dy}{dx}=e^{sin^2\frac{1}{x}}·2sin\frac{1}{x}·cos\frac{1}{x}·(-\frac{1}{x^2})$$
+
+$$=-\frac{1}{x^2}·e^{sin^2\frac{1}{x}}·sin\frac{2}{x}$$
+
+隐函数求导：  
+
+$$F(x|y)=0，将y看作\phi(x)$$
+
+例1🌰.$$求e^y+xy-e=0$$
+
+$$\Rightarrow e^y·\frac{dy}{dx}+y+x·\frac{dy}{dx}=0$$
+
+$$\Rightarrow\frac{dy}{dx}=-\frac{y}{x+e^y}$$
+
+例2🌰.$$y^5+2y-x-3x^7=0\Rightarrow y=y(x)，求\frac{dy}{dx}\vert_{x=0}$$
+
+$$1.x=0\Rightarrow y=0$$
+
+$$2.5y^4·\frac{dy}{dx}+2\frac{dy}{dx}-1-21x^6=0$$
+
+$$3.x=0,y=0代入，\frac{dy}{dx}|_{x=0}=\frac{1}{2}$$
+
+例3🌰.$$求\frac{x^2}{16}+\frac{y^2}{9}=1在(2,\frac{3}{2}\sqrt{3})处的切线$$
+
+$$解：1.\frac{x^2}{16}+\frac{y^2}{9}=1\Rightarrow\frac{x}{8}+\frac{2y}{9}·\frac{dy}{dx}=0$$
+
+$$2.将(2,\frac{3}{2}\sqrt{3})代入$$
+
+$$\frac{dy}{dx}\vert_{(2,\frac{3}{2}\sqrt{3})}=-\frac{\sqrt{3}}{4}$$
+
+$$切线：y=2\sqrt{3}-\frac{\sqrt{3}}{4}x$$
+
+例4🌰.$$y=x^{sinx},\frac{dy}{dx}=?$$
+
+$$方法1.y=e^{sinx\ln x}$$
+
+$$y'=e^{sinx\ln x}·(cosx·\ln x+\frac{sinx}{x})$$
+
+$$=x^{sinx}(cosx·\ln x+\frac{sinx}{x})$$
+
+$$方法2.y=e^{sinx\ln x}\Rightarrow \ln y=sinx·lnx$$
+
+$$\frac{1}{y}\frac{dy}{dx}=cosx·\ln x+\frac{sinx}{x}$$
+
+$$\frac{dy}{dx}=x^{sinx}(cosx·\ln x+\frac{sinx}{x})$$
+
+例5🌰.$$y=\sqrt{\frac{(x-1)(x-2)}{(x-3)(x-4)}}$$
+
+$$解：\ln y=\frac{1}{2}[\ln(x-1)+\ln(x-2)-\ln(x-3)\ln(x-4)]$$
+
+$$\frac{1}{y}·\frac{dy}{dx}=\frac{1}{2}(\frac{1}{x-1}+\frac{1}{x-2}-\frac{1}{x-3}-\frac{1}{x-4})$$
+
+例6🌰.$$2^{xy}+2x=y,y''(0)=?$$
+
+$$解：1.x=0\Rightarrow y=1$$
+
+$$2.2^{xy}·\ln2·(y+x\frac{dy}{dx})+2=\frac{dy}{dx}$$
+
+$$代入x=0,y=1,y'(0)=\ln2+2$$
+
+$$\ln2[2^{xy}·ln2·(y+x\frac{dy}{dx})^2+2^{xy}·(2\frac{dy}{dx}+x\frac{d^2y}{dx^2})]=\frac{d^2y}{dx^2}$$
+
+$$将x=0,y=1,y'(0)=\ln2+2代入得$$
+
+$$y''(0)=\ln2(\ln2+2\ln2+4)$$
+
+参数形式：  
+
+1.$$\begin{cases}
+x =\phi(t) \\
+y = \Phi(t)
+\end{cases},\phi(t)、\Phi(t)可导，且\phi(t)\neq0$$
+
+$$\frac{dy}{dx}=\frac{dy/dt}{dx/dt}=\frac{\Phi'(t)}{\phi'(t)}$$
+
+2.$$\phi(t)、\Phi(t)二阶可导，且\phi(t)\neq0$$
+
+
+$$\frac{dy}{dx}=\frac{dy/dt}{dx/dt}=\frac{\Phi'(t)}{\phi'(t)}$$
+
+$$\frac{d^2y}{dx^2}=\frac{d(\frac{dy}{dx})}{dx}=\frac{d[\frac{\Phi'(t)}{\phi'(t)}]}{dx}$$
+
+$$=\frac{d^2y}{dx^2}=\frac{d(\frac{dy}{dx})}{dx}=\frac{d[\frac{\Phi'(t)}{\phi'(t)}]/dt}{dx/dt}$$
+
+$$=\frac{[\frac{\Phi'(t)}{\phi'(t)}]'}{\phi'(t)}$$
+
+例1🌰.$$\begin{cases}
+x =arctant \\
+y = \ln(1+t^2)
+\end{cases}求\frac{dy}{dx},\frac{d^2y}{dx^2}$$
+
+$$解：\frac{dy}{dx}=2t$$
+
+$$\frac{d^2y}{dx^2}=\frac{d(2t)/dt}{dx/dt}=2(1+t^2)$$
+
+#### 函数的微分
+
+🌰.$$y=x^2,x_0=3$$
+
+$$\Delta y=y(3+\Delta x)-y(3)=(3+\Delta x)^2-9$$
+
+$$=6\Delta x+(\Delta x)^2=6\Delta x+o(\Delta x)$$
+
+def-$$y=f(x)(x\in D),x_0\in D,\Delta y=f(x_0+\Delta x)-f(x_0)$$
+
+$$If=A\Delta x+o(\Delta x)$$
+
+$$则称f(x)在x=x_0处可微$$
+
+$$A\Delta x为y=f(x)在x=x_0处的微分，记作dy|_{x=x_0}$$
+
+Notes:  
+$$1.可导\Leftrightarrow可微$$
+
+$$证\Rightarrow 设f(x)在x=x_0可导，则$$
+
+$$\lim\limits_{\Delta x\rightarrow0}\frac{\Delta y}{\Delta x}=f'(x_0)\Rightarrow\frac{\Delta y}{\Delta x}=f'(x_0)+\alpha(\alpha\rightarrow0\Delta x\rightarrow 0)$$
+
+$$\Delta y=f'(x_0)\Delta x+\alpha\Delta x$$
+
+$$\because\lim\limits_{\Delta x\rightarrow0}\frac{\alpha\Delta x}{\Delta x}=0,\therefore\alpha\Delta x=o(\Delta x)$$
+
+$$\therefore\Delta y=f'(x_0)\Delta x+o(\Delta x),即y=f(x)在x=x_0处可微$$
+
+$$证\Leftarrow 设f(x)在x=x_0可微，则$$
+
+$$\Delta y = A\Delta x+o(\Delta x)$$
+
+$$\Rightarrow \frac{\Delta y}{\Delta x}=A+\frac{o(\Delta x)}{\Delta x}$$
+
+$$\therefore\lim\limits_{\Delta x\rightarrow0}\frac{\Delta y}{\Delta x}=A=f'(x_0)$$
+
+2.$$\Delta y=A\Delta x+o(\Delta x)，则A=f'(x_0)$$
+
+3.$$设y=f(x)可导，则$$
+
+$$dy=df(x)=f'(x)dx$$
+
+
+一、近似计算
+$$\Delta y=f'(x_0)\Delta x+o(\Delta x)$$
+
+$$f(x_0+\Delta x)-f(x_0)=f'(x_0)\Delta x+o(\Delta x)$$
+
+$$f(x_0+\Delta x)-f(x_0)\approx f'(x_0)\Delta x$$
+
+$$\therefore f(x_0+\Delta x)\approx f(x_0)+f'(x_0)\Delta x$$
+
+例1🌰.$$\sqrt{4.003}\approx?$$
+
+$$解：f(x)=\sqrt{x},x_0=4,\Delta x=0.003$$
+
+$$f(4)=2,f'(x)=\frac{1}{2\sqrt{x}},f'(4)=\frac{1}{4}$$
+
+$$\therefore\sqrt{4.003}=f(4+0.003)\approx f(4)+f'(4)*0.003$$
+
+$$=2+\frac{1}{4}*0.003$$

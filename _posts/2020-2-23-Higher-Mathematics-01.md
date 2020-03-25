@@ -579,7 +579,7 @@ $$\alpha \rightarrow 0 , \beta \rightarrow 0$$
 
 $$1.If \lim\frac{\beta}{\alpha}=0,则\beta为\alpha的高阶无穷小,记\beta=o(\alpha)$$
 
-$$2.If \lim\frac{\beta}{\alpha}=l(\neq0,\infty),则\beta为\alpha的同阶无穷小$$
+$$2.If \lim\frac{\beta}{\alpha}=l(\neq0,\infty),则\beta为\alpha的同阶无穷小,记作\beta=O(\alpha)$$
 
 $$3.If \lim\frac{\beta}{\alpha}=1,则\beta为\alpha的等价无穷小,记\alpha \sim \beta$$
 
@@ -1077,7 +1077,7 @@ $$=\lim\limits_{x\rightarrow+\infty}\frac{4+\frac{1}{x}}{\sqrt{1+\frac{4}{x}+\fr
 
 $$解：x=0,x=\pm1为间断点$$
 
-$$\lim\limits_{x\rightarrow-1}f(x)=lim\limits_{x\rightarrow-1}\frac{x-2}{x-1}e^{\frac{1}{x}}=\frac{3}{2}e^{-1}$$
+$$\lim\limits_{x\rightarrow -1}f(x)=\lim\limits_{x\rightarrow -1}\frac{x-2}{x-1} e^{\frac{1}{x}}=\frac{3}{2} e^{-1}$$
 
 $$\lim\limits_{x\rightarrow1}f(x)=\infty$$
 
