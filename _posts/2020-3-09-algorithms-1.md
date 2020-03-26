@@ -283,13 +283,13 @@ class Resource{
 	<td>6</td>
 </tr>
 <tr>
-	<td>价值[i]</td>
+	<td>价值v[i]</td>
 	<td>15</td>
 	<td>16</td>
 	<td>18</td>
 </tr>
 <tr>
-	<td>性价比[i]</td>
+	<td>性价比p[i]</td>
 	<td>5</td>
 	<td>4</td>
 	<td>3</td>

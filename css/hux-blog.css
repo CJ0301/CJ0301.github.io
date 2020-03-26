@@ -1658,3 +1658,42 @@ img::-moz-selection {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
+.about-tag{
+	display: inline-block;
+	position: relative;
+	padding: 0px 10px;
+	background: #ccc !important;
+	color: #DFEFE7;
+	line-height: 1.5;
+	margin-left: 1em;
+	border-radius: 0;
+}
+.about-tag:hover {
+	background: gray;
+	color: white;
+}
+.about-tag:before {
+	position: absolute;
+	content: " ";
+	border: transparent 0.75em solid;
+	border-right-color: #ccc;
+	top: 0;
+	left: -1.5em;
+	height: 0em;
+	width: 0em;
+}
+.about-tag:hover:before {
+	border-right-color: gray;
+}
+.about-tag:after {
+	position: absolute;
+	content: " ";
+	background: white;
+	width: 0.5em;
+	height: 0.5em;
+	top: 0.5em;
+	left: -0.125em;
+	border-radius: 0.25em;
+}
+.cat-tag{margin:0 auto;width: 300px;height: 495px;background: url("tag.png") no-repeat;position: relative;}
+.cat-tag p{width: 200px;height: 380px;position: absolute;left: 50px;top:60px;word-wrap:break-word;font-size: 1.5em;}

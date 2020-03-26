@@ -78,4 +78,4 @@ git利用`<<<<<<<`，`=======`，`>>>>>>>`标记不同分支的内容，修改�
 
 bug修复
 先用`git stash`保存工作现成，创建临时分支，修复完提交，然后记录下提交的hash码，进入`git cherry-pick <hash码>`，然后使用`git stash pop`回到工作现场，修复冲突之后提交，可以合并主支。
-![](20200318-cherry-pick.png)
+![](/img/in-posts/20200318-cherry-pick.png)

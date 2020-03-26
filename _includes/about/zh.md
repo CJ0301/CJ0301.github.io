@@ -1,20 +1,14 @@
-> 写写代码，做做设计，  
-> 离开世界之前，一切都是过程。
+>正在为曾经失去的一切不断努力🔥。  
 
-Hey，我是CJ，暂时没想好怎么介绍，这块先空着吧
+<div class="about-tag">喜欢做白日梦</div>
+<div class="about-tag">幼稚鬼</div>
+<div class="about-tag">二次元</div>
+<div class="about-tag">漫威迷</div>
+<div class="about-tag">想要成为软硬兼修的全栈工程师</div>
+
+Hey，我是CJ。
 
 一些作品和开源软件项目，👉 戳[Github](http://github.com/CJ0301)。
-
-##### 待开发板块
-
-|     | 💔️           | ❤️ ️                                          | ❤️❤️ ️                                          | ❤️❤️❤️ ️                                      |
-| --- | ------------- | --------------------------------------------- | ----------------------------------------------- | --------------------------------------------- |
-| 😅  | `BASIC` | `C` `Prolog` <br>               | `Kotlin` `Dart` `MIPS`                          | `Swift` `Agda` `Idris`                        |
-| 🧐  |               | `C++` `Hack` <br> `Scheme` `Racket` `Clojure` | `C++ >11` `C#` `Typed Py` <br> `ActionScript 3` | `Scala` `Rust`                                |
-| 😏  | `Shell`       | `Java` `Python`                               | `TypeScript` `Flow` `WASM`                      | `Haskell` `Coq` <br> `SML` `OCaml` `ReasonML` |
-| 🤓  |               | `JavaScript`                                  | `Javascript >ES6`                               | `λ` `Λ` `Π` `Σ`                               |
-
-> Heard but barely experienced: `Fortran` `Smalltalk` `Pascal` `Forth` `Ruby` `CoffeeScript` `Go` `Elm` `Erlang` `Elixir` `F#` `F*` `Q#` `Nim` `Haxe` `Cyclone` `VimScript` `Perl` `Lu
 
 ##### Talks
 

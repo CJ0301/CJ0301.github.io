@@ -213,3 +213,116 @@ public static boolean solution(int[] A) {
 	return true;
 }
 ```
+
+例4🌰.0-1背包问题(类型二)   
+之前在贪心算法那边讲过宝物不可分割的问题，现在就对那题做一个不可分割的优化。  
+我们有如下几个物品：  
+<table>
+	<tr>
+		<td>i</td>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+	</tr>
+	<tr>
+		<td>w(体积)</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+	</tr>
+	<tr>
+		<td>v(价值)</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+		<td>6</td>
+	</tr>
+
+</table>
+
+首先假设在载重内的最大价值为$$\{v_1w_1,v_2w_2,...,v_kw_k\}$$，这时候我们就有了一个状态量$$e\in(0，1)$$来表示宝物是否装入，由此可得不等式{e_1w_1,e_2w_2,...,e_kw_k}<capacity。  
+设状态f(x)=最大价值，则$$f(x)=max\{f(x-w_k)+v_k,f(x-w_k)\}$$  
+我们根据不等式和状态可以将问题划分成k*capacity个子问题，然后画出这样的一个表格：
+<table>
+	<tr>
+		<td>物品i\载重capacity</td>
+		<td>1</td>
+		<td>2</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+		<td>6</td>
+		<td>7</td>
+		<td>8</td>
+	</tr>
+	<tr>
+		<td>1</td>
+		<td>0</td>
+		<td>3</td>
+		<td>3</td>
+		<td>3</td>
+		<td>3</td>
+		<td>3</td>
+		<td>3</td>
+		<td>3</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>0</td>
+		<td>3</td>
+		<td>4</td>
+		<td>4</td>
+		<td>7</td>
+		<td>7</td>
+		<td>7</td>
+		<td>7</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>0</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+		<td>7</td>
+		<td>8</td>
+		<td>9</td>
+		<td>9</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>0</td>
+		<td>3</td>
+		<td>4</td>
+		<td>5</td>
+		<td>7</td>
+		<td>8</td>
+		<td>9</td>
+		<td>10</td>
+	</tr>
+
+</table>
+
+```java
+public static int FindMax(int w[], int[] v, int capacity) {
+	int number = w.length;
+	int[][] V = new int[number + 1][capacity + 1];
+	int i, j;
+	// 填表
+	for (i = 1; i <= number; i++) {
+		for (j = 1; j <= capacity; j++) {
+			if (j < w[i - 1]) {// 包装不进
+				V[i][j] = V[i - 1][j];
+			} else {// 能装
+				if (V[i - 1][j] > V[i - 1][j - w[i - 1]] + v[i - 1]) {// 不装价值大
+					V[i][j] = V[i - 1][j];
+				} else {// 前i-1个物品的最优解与第i个物品的价值之和更大
+					V[i][j] = V[i - 1][j - w[i - 1]] + v[i - 1];
+				}
+			}
+		}
+	}
+	return V[number][capacity];
+}
+```
