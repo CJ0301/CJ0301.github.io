@@ -17,9 +17,9 @@ tags:
 &emsp;下面来介绍如何引入和我遇到的一些小问题：
 &emsp;依次点击左上角的```File->Import Module``` 然后找到```MPAndroidChart```文件下的```MPChartLib```,然后进入```Project Structure(按快捷键ctrl+alt+shift+s或者点右上角的一个文件夹的小图标)```,然后依次点击```Dependencies->app-> + ->Module Dependency```,最后选中```MPChartLib```  
 &emsp;这里有遇到一个小问题，在MPChartLib的gradle文件中作者有加一行maven的依赖，可能会导致如下报错：
-![](/img/in-posts/20200209_error_1.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200209_error_1.png)
 只要删除如下一行代码即可
-![](/img/in-posts/20200209_error_2.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200209_error_2.png)
 
 ## 使用
 #### 初始化
@@ -94,7 +94,7 @@ tags:
 	}
 
 &emsp;显示效果：
-![](/img/in-posts/20200209_simple_chart.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200209_simple_chart.png)
 
 
 ## 交互

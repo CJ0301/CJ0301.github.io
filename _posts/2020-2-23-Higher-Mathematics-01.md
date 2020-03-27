@@ -492,7 +492,7 @@ $$\therefore\lim\limits_{n \rightarrow \infty}a_n\exists$$
 
 二、两个重要极限  
 $$对0<x<\frac{\pi}{2}$$
-![](/img/in-posts/20200229-circle.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200229-circle.png)
 
 $$S\Delta AOB=\frac{1}{2}OB*OAsinx=\frac{1}{2}sinx$$
 

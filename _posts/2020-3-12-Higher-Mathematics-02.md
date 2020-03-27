@@ -15,7 +15,7 @@ tags:
 #### 导数的概念
 举一个🌰：
 如图,y=f(x)
-![](/img/in-posts/20200312-line.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200312-line.png)
 $$K_{M_0M}=\frac{f(a+\Delta x)-f(a)}{\Delta x}=\frac{\Delta y}{\Delta x},M_0(a,f(a)),M(a+\Delta x,f(a+\Delta x))$$
 
 过M_0做曲线的切线
@@ -205,7 +205,7 @@ Notes:
 4.$$f(x)在x=x_0处可导\Rightarrow f(x)在x=x_0处连续,反过来不正确$$
 
 5.三角的和差化积
-![](/img/in-posts/20200319-sumToMul.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200319-sumToMul.png)
 
 #### 函数的求导法则
 初等函数-$$由\begin{cases}

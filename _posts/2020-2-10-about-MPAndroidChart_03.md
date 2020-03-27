@@ -98,7 +98,7 @@ tags:
     lineChart.highlightValue(highlight,false);
     lineChart.invalidate();
 
-![](/img/in-posts/20200209_simple_chart.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200209_simple_chart.png)
 
 &emsp;散点图
 
@@ -117,7 +117,7 @@ tags:
     scatterChart.setData(scatterData);
     scatterChart.invalidate();
 
-![](/img/in-posts/20200210_scatterChart.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200210_scatterChart.png)
 
 #### BarEntry
 &emsp;柱状图
@@ -136,7 +136,7 @@ tags:
     barData.addDataSet(barDataSet);
     barChart.setData(barData);
 
-![](/img/in-posts/20200210_barChart.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200210_barChart.png)
 
 &emsp;水平柱状图
 
@@ -154,7 +154,7 @@ tags:
     barData.addDataSet(barDataSet);
     hBarChart.setData(barData);
 
-![](/img/in-posts/20200210_hBarChart.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200210_hBarChart.png)
 
 #### CandleEntry
 &emsp;这一块太复杂了，以后有机会再更新
@@ -174,7 +174,7 @@ tags:
     pieData.addDataSet(pieDataSet);
     pieChart.setData(pieData);
 
-![](/img/in-posts/20200210_pieChart.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200210_pieChart.png)
 
 #### RadarEntry
 &emsp;雷达图
@@ -193,7 +193,7 @@ tags:
     radarData.addDataSet(radarDataSet);
     radarChart.setData(radarData);
 
-![](/img/in-posts/20200210_radarChart.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200210_radarChart.png)
 
 #### BubbleEntry
 &emsp;气泡图
@@ -246,7 +246,7 @@ tags:
     bubbleChart.setData(bubbleData);
 
 
-![](/img/in-posts/20200210_bubbleChart.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200210_bubbleChart.png)
 
 ## 设置颜色
 &emsp;这一块感觉没啥好讲的，在相应的dataset上添加颜色，如果不添加就会使用默认颜色。一般在数据集多的时候会使用，饼图是肯定要用到的，毕竟至少有两个数据。    

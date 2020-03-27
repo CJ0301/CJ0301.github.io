@@ -42,7 +42,7 @@ tags:
 
 步骤：$$初始化S={v_0},T={其余顶点}，D={对应的距离值}。(D[i]初始值，若<v_0,v_i>存在，则为权值，否则为\infty)$$
 
-![](/img/in-posts/20200318-graph.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200318-graph.png)
 ```java
 public class Test {
 	private static int mEdgNum;        // 边的数量

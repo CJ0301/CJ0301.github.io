@@ -33,7 +33,7 @@ public static int Fibonacci(int n) {
 ```
 
 这种方法计算有个很致命的缺点👇：
-![](/img/in-posts/20200315-tree.jpg)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200315-tree.jpg)
 
 可以明显的看到F(2)和F(1)的加和执行了三次，同时存在大量的结点重复。
 
@@ -58,7 +58,7 @@ public static int Fibonacci(int n) {
 F(n-1)+F(n-2) & n>2
 \end{cases}$$
 3. 自底而上计算最优值
-![](/img/in-posts/20200315-tree-up.jpg)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200315-tree-up.jpg)
 4. 构造最优解
 
 ```java

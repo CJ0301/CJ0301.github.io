@@ -20,7 +20,7 @@ Servlet利用输出流动态生成HTML页面。JSP页面必须放在Web项目中
 - 静态部分：由标准的HTML标签等静态页面所具备的内容所控制。
 - 动态部分：受Java程序控制的内容，主要用于客户端与服务器之间的交互。
 
-![](/img/in-posts/JSP-1.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/JSP-1.png)
 根据原理图我们可以得出如下四个结论：
 - JSP文件必须在JSP服务器内运行。
 - JSP文件必须生成对应的Servlet才能执行。

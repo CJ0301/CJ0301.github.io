@@ -19,7 +19,7 @@ tags:
 &emsp;下载方式很简单，点首页的下载，选择Latest Version就好啦。安装方式也很简单，这里不多做介绍了。  
 
 &emsp;下好之后的效果图如下：
-![](/img/in-posts/20200219_english.jpg)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200219_english.jpg)
 
 
 &emsp;这时候就有人有疑问了，这软件这么简陋哪是神器了。
@@ -36,16 +36,16 @@ tags:
 
 &emsp;这里可以修改模板样式，有css功底的程序员可以进行修改。
 
-![](/img/in-posts/20200219_anki_card.jpg)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200219_anki_card.jpg)
 
 &emsp;插件上还需要下载Ankiconnect,依次点击```工具->添加附件->获取插件->浏览插件```把Ankiconnect对应的下载代码复制进去即可。
 
 &emsp;然后再对在线词典助手进行设置。
-![](/img/in-posts/20200219_anki_card_2.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200219_anki_card_2.png)
 
 &emsp;然后就可以使用了，双击英语单词或是按一下热键点英语单词，记录你想记录的意思即可(点右边绿色的小加号，没有重新点开看看)。
 
-![](/img/in-posts/20200219_anki_card_3.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200219_anki_card_3.png)
 
 下面分享几个英文网站：   
 
