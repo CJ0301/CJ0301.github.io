@@ -3,7 +3,8 @@ layout: 		post
 title: 			"高等数学_2"
 subtitle: 		'导数与微分'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-math.jpg"
+outer-img:		"post-bg-math.jpg"
 header-mask: 	0.3
 catalog: 		true
 mathjax: 		true

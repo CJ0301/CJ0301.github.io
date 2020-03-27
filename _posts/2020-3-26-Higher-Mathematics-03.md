@@ -3,7 +3,8 @@ layout: 		post
 title: 			"高等数学_3"
 subtitle: 		'微分中值定理'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-math.jpg"
+outer-img:		"post-bg-math.jpg"
 header-mask: 	0.3
 catalog: 		true
 mathjax: 		true

@@ -3,7 +3,8 @@ layout: 		post
 title: 			"MPAndroidChart_4"
 subtitle: 		'图表造型的美化'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-android.jpg"
+outer-img:		"post-bg-android.jpg"
 header-mask: 	0.3
 catalog: 		true
 tags:

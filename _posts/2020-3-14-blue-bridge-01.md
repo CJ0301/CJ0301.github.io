@@ -3,7 +3,8 @@ layout: 		post
 title: 			"蓝桥杯竞赛准备"
 subtitle: 		'关于一些Java常用技巧整理'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-java.jpg"
+outer-img:		"post-bg-java.jpg"
 header-mask: 	0.3
 catalog: 		true
 mathjax:        true

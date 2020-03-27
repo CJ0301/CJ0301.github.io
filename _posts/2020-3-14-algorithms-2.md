@@ -3,7 +3,8 @@ layout: 		post
 title: 			"算法"
 subtitle: 		'分治啊分治'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-cs.jpg"
+outer-img:		"post-bg-cs.jpg"
 header-mask: 	0.3
 catalog: 		true
 mathjax:        true

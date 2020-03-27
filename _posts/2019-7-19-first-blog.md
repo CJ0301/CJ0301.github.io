@@ -3,7 +3,8 @@ layout: 		post
 title: 			"CJ的第一条博客啊"
 subtitle: 		'第一次发博客嗷'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-life.jpg"
+outer-img:		"post-bg-life.jpg"
 header-mask: 	0.3
 tags:
   - Life

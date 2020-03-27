@@ -3,7 +3,8 @@ layout: 		post
 title: 			"Markdown语法整理"
 subtitle: 		"为了以后自己能养好更新博客的好习惯，还是先把Markdown语法重新学习一下比较好"
 author: 		"CJ"
-header-img: 	"img/post-bg-test.jpg"
+header-img: 	"img/post-bg-blogBuild.jpg"
+outer-img:		"post-bg-blogBuild.jpg"
 header-mask: 	0.3
 catalog: 		true
 mathjax: 		true

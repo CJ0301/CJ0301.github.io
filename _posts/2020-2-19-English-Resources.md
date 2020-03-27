@@ -3,7 +3,8 @@ layout: 		post
 title: 			"英语学习资料整理"
 subtitle: 		'整理一下英语的学习资料'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-english.jpg"
+outer-img:		"post-bg-english.jpg"
 header-mask: 	0.3
 catalog: 		true
 tags:

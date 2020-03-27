@@ -3,7 +3,8 @@ layout: 		post
 title: 			"Java的日期处理"
 subtitle: 		'关于一些日期使用的处理'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-java.jpg"
+outer-img:		"post-bg-java.jpg"
 header-mask: 	0.3
 catalog: 		true
 mathjax:        true

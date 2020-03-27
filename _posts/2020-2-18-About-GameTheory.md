@@ -3,7 +3,8 @@ layout: 		post
 title: 			"博弈论的笔记整理"
 subtitle: 		'之前就有对博弈论感兴趣，这次听耶鲁大学的网课颇有收获，故借此机会记点笔记'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-gameThe.jpg"
+outer-img:		"post-bg-gameThe.jpg"
 header-mask: 	0.3
 catalog: 		true
 tags:

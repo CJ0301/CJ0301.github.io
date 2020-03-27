@@ -3,7 +3,8 @@ layout: 		post
 title: 			"一份关于JSP的小总结_1_"
 subtitle: 		'前面的十几天一直再看JavaEE的知识，既然有了自己的博客，决定停下来稍微总结一下'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-javaweb.jpg"
+outer-img:		"post-bg-javaweb.jpg"
 header-mask: 	0.3
 catalog: 		true
 tags:

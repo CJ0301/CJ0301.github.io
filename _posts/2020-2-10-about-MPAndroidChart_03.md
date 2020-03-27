@@ -3,7 +3,8 @@ layout: 		post
 title: 			"MPAndroidChart_3"
 subtitle: 		'图表设定数据以及形式的变化'
 author: 		"CJ"
-header-img: 	"img/post-bg-fblog.jpg"
+header-img: 	"img/post-bg-android.jpg"
+outer-img:		"post-bg-android.jpg"
 header-mask: 	0.3
 catalog: 		true
 tags:
