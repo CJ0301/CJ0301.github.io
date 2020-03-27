@@ -79,7 +79,7 @@ netease_comment: false
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "又写了一天bug<br>Stay Simple，Stay Naive<br>"
-sidebar-avatar: /img/hero.png     # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: https://a-photo-store.oss-cn-beijing.aliyuncs.com/hero.png     # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
