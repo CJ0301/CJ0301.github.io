@@ -93,6 +93,7 @@ git checkout -- <文件名> 回到该文件最近一次commit或add的状态(慎
 
 
 #### 分支操作
+git branch 查看所有分支
 
 git branch <分支名> 在当前commit对象上创建分支  
 
@@ -111,7 +112,7 @@ git log --graph 查看分支合并图
 git利用`<<<<<<<`，`=======`，`>>>>>>>`标记不同分支的内容，修改之后提交就能成功合并了。
 
 bug修复  
-先用`git stash`保存工作现成，创建临时分支，修复完提交，然后记录下提交的hash码，进入`git cherry-pick <hash码>`，然后使用`git stash pop`回到工作现场，修复冲突之后提交，可以合并主支。
+先用`git stash`保存工作现场，创建临时分支，修复完提交，然后记录下提交的hash码，使用`git cherry-pick <hash码>`复制到工作分支，然后使用`git stash pop`回到工作现场，修复冲突之后提交，可以合并主支。
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200318-cherry-pick.png)
 
 #### 实践讲解  
