@@ -70,11 +70,17 @@ git checkout -- <文件名> 撤销内容操作到上一个版本(慎用，会数
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200317-file-status.png)
 
 #### 分支操作
+
 git branch <分支名> 在当前commit对象上创建分支  
-git checkout <分支名> 切换分支  
+
+git checkout <分支名> 切换分支   
+
 git merge <分支名> 合并分支  
+
 git branch -d <分支名> 删除分支  
+
 git rebase <分支名> 更新分支代码  
+
 
 应用场景：我现在有一个网站,里面有原有内容，我这时候有个新的需求要做，创建一个newReq分支(git branch newReq)，同时我有一个bug要修复，创建一个bug1分支(git branch bug1)，我修复了bug1，切回master然后合并bug1和主支，当我再做newReq如果操作了同一个文件夹，就会出现冲突。  
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200318-branch.png)
