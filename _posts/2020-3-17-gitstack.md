@@ -3,8 +3,8 @@ layout: 		post
 title: 			"Gitstack"
 subtitle: 		'代码托管'
 author: 		"CJ"
-header-img: 	"img/Portfolio-bg.jpg"
-outer-img:		"Portfolio-bg.jpg"
+header-img: 	"img/post-bg-tools.jpg"
+outer-img:		"post-bg-tools.jpg"
 header-mask: 	0.3
 catalog: 		true
 mathjax:        true
