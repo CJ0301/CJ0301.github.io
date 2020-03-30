@@ -303,3 +303,119 @@ public static void QuickSort(int a[], int s, int e){
 ```
 
 用按身高排队举个例子，先把队头的小明👦揪出来，这时候第一个位置是空缺的，我再从最后面开始找个比小明矮的塞到队头，如果找到了再换到队尾找，直到形成一个能依靠小明身高为基准划分的队伍。然后依次再对两队进行操作。
+
+二分搜索变种
+例3🌰. leetcode35  
+给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
+```java
+public int searchInsert(int[] nums, int target) {
+	int low = 0;
+	int high = nums.length; 
+	int mid;
+	if(target<=nums[low]) {
+		return 0;
+	}
+	while(low+1 < high) {
+		mid = low + (high-low) / 2;
+		if(target <= nums[mid]) 
+			high = mid;
+			
+		if(target > nums[mid]) 
+			low = mid;
+			
+	}
+		
+	return high;
+}
+```
+
+例4🌰. leetcode74  
+编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
+
+- 每行中的整数从左到右按升序排列。
+- 每行的第一个整数大于前一行的最后一个整数。
+```java
+public static boolean searchInsert(int[][] matrix, int target) {
+	int rowNum = matrix.length;
+	if (rowNum == 0) {
+		return false;
+	}
+	int colNum = matrix[0].length;
+	if (colNum == 0) {
+		return false;
+	}
+	int l = 1;
+	int h = colNum * rowNum;
+	int mid;
+	int row, col;
+	while (l + 1 < h) {
+		mid = l + (h - l) / 2;
+		row = (mid - 1) / colNum;
+		col = (mid - 1) % colNum;
+		if (target == matrix[row][col]) {
+			return true;
+		}
+		if (target < matrix[row][col]) {
+			h = row * colNum + col + 1;
+		}
+		if (target > matrix[row][col]) {
+			l = row * colNum + col + 1;
+		}
+	}
+
+	if (target == matrix[(l - 1) / colNum][(l - 1) % colNum]
+			|| target == matrix[(h - 1) / colNum][(h - 1) % colNum]) {
+		return true;
+	}
+	return false;
+}
+```
+
+例5🌰.  leetcode240  
+编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：
+
+- 每行的元素从左到右升序排列。
+- 每列的元素从上到下升序排列。
+
+```java
+public static boolean searchInsert(int[][] matrix, int target) {
+	int row = matrix.length - 1;
+	int col = 0;
+
+	while (row >= 0 && col < matrix[0].length) {
+		if (matrix[row][col] > target) {
+			row--;
+		} else if (matrix[row][col] < target) {
+			col++;
+		} else {
+			return true;
+		}
+	}
+
+	return false;
+}
+```
+
+例6🌰.  leetcode153 
+假设按照升序排序的数组在预先未知的某个点上进行了旋转。
+
+( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。
+
+请找出其中最小的元素。
+```java
+public int findMin(int[] nums) {
+	int h = nums.length - 1;
+	int l = 0;
+	int mid;
+	while (l + 1 < h) {
+		mid = l + (h - l) / 2;
+		if (nums[mid] >= nums[h]) 
+			l = mid;
+		
+		if (nums[mid] < nums[h]) 
+			h = mid;
+		
+	}
+	return Integer.min(nums[l], nums[h]);
+}
+```
