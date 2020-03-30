@@ -55,25 +55,48 @@ git commit -m '<描述信息>' 提交更新(-m前加-a可以跳过add的步骤)
 
 git status 各子文件所处的状态
 
-git log 查看日志
+git log 查看提交历史
 
-git reflog 查看分支所有操作
+git reflog 查看命令历史
 
 git mv <文件名> <新文件名> 文件重命名
 
 git rm <文件名> 删除文件
 
-git reset HEAD <文件名>
+git reset --hard <版本号前几位>
 
-git checkout -- <文件名> 撤销内容操作到上一个版本(慎用，会数据丢失)
+git reset HEAD <文件名> 取消暂存区
+
+git checkout -- <文件名> 回到该文件最近一次commit或add的状态(慎用，会数据丢失)
 
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200317-file-status.png)
+
+总结  
+版本迭代：  
+1.首先建一个文件夹，用`git init`进行初始化。  
+2.然后对想要进行版本管理的文件使用`git add`纳入版本管理。修改文件后用`git add`加入暂存区。  
+3.最后使用`git commit`提交暂存区的内容形成一个可回溯的版本。  
+
+单个文件的版本撤回：    
+1.如果是工作区的修改出了问题，就直接用`git checkout -- <文件名>`，回退的状态以上一个命令是add或commit为准。  
+2.如果是暂存区修改，就使用`git reset HEAD <文件名>`然后按上一步操作。  
+3.如果commit过了，就进行一下版本回退。    
+
+版本回退：   
+1.HEAD指向的为当前版本，用`git log`或`git reflog`查看版本号。  
+2.然后用`git reset --hard <版本号前几位>`  
+
+删除文件：  
+1.不用的文件可以用`rm <文件名>`或直接在文件管理器删除。  
+2.如果在版本库中也要删除就用命令`git rm <文件名>`，并且`git commit`。  
+3.如果只是用第一步删除，都可以用`git checkout -- <文件名>`还原，而第二种移除的只能用版本回退。  
+
 
 #### 分支操作
 
 git branch <分支名> 在当前commit对象上创建分支  
 
-git checkout <分支名> 切换分支   
+git checkout <分支名> 切换分支  (-b)创建并切换分支 
 
 git merge <分支名> 合并分支  
 
@@ -81,6 +104,7 @@ git branch -d <分支名> 删除分支
 
 git rebase <分支名> 更新分支代码  
 
+git log --graph 查看分支合并图
 
 应用场景：我现在有一个网站,里面有原有内容，我这时候有个新的需求要做，创建一个newReq分支(git branch newReq)，同时我有一个bug要修复，创建一个bug1分支(git branch bug1)，我修复了bug1，切回master然后合并bug1和主支，当我再做newReq如果操作了同一个文件夹，就会出现冲突。  
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200318-branch.png)
