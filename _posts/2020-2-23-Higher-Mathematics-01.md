@@ -18,7 +18,7 @@ tags:
 
 Notes：
 1. []取整,[x]取不超过x的最大整数,🌰：[1.2] = 1,[-2.3] = -3
-2. $$三角不等式：||a|-|b|| \leq |a \pm b| \leq |a|-|b|$$
+2. $$三角不等式：||a|-|b|| \leqslant |a \pm b| \leqslant |a|-|b|$$
 
 1、定义：  
 $$  
@@ -84,7 +84,7 @@ $$\because\lim\limits_{n \rightarrow \infty}a_n = A,\therefore\exists N>0,当n>N
 $$a_n>\frac{A}{2}>0$$
 
 - 有界性：
-$$\lim\limits_{n \rightarrow \infty}a_n = A,则 \exists M>0，使|a_n| \leq M$$
+$$\lim\limits_{n \rightarrow \infty}a_n = A,则 \exists M>0，使|a_n| \leqslant M$$
 
 $$取\epsilon=1>0$$
 
@@ -94,7 +94,7 @@ $$||a_n|-|A||<1 \Rightarrow |a_n|<1+|A|$$
 
 $$取M=MAX\{|a_1|,|a_2|,...|a_n|,1+|A|\}$$
 
-$$\therefore\forall n,有|a_n|\leq M$$
+$$\therefore\forall n,有|a_n|\leqslant M$$
 
 #### 函数极限
 
@@ -206,7 +206,7 @@ $$x\rightarrow1时为无穷小$$
 
 $$x\rightarrow2时为不是无穷小$$
 
-1、$$无穷小： 若\lim\limits_{x \rightarrow a}\alpha(x) = 0,则称\alpha(x)当x\rightarrow时为无穷小$$
+1、$$无穷小： 若\lim\limits_{x \rightarrow a}\alpha(x) = 0,则称\alpha(x)当x\rightarrow a时为无穷小$$
 
 2、性质：
 - $$\alpha\rightarrow0,\beta\rightarrow0 \Rightarrow \alpha\pm\beta\rightarrow0$$
@@ -225,7 +225,7 @@ $$取\delta=min\{\delta_1,\delta_2\},当0<|x-a|<\delta时,(*)(**)成立$$
 
 $$当0<|x-a|<\delta时$$
 
-$$|(\alpha\pm\beta)-0|\leq|\alpha|+|\beta|=|a-0|+|\beta-0|<2\epsilon$$
+$$|(\alpha\pm\beta)-0|\leqslant|\alpha|+|\beta|=|a-0|+|\beta-0|<2\epsilon$$
 
 $$即|(\alpha\pm\beta)-0|<2\epsilon$$
 
@@ -249,7 +249,7 @@ $$|\alpha\beta-0|=|\alpha||\beta-0|<\epsilon$$
 
 $$\therefore\lim\limits_{x \rightarrow a}\alpha\beta=0$$
 
-- $$|\alpha|\leq M,\beta\rightarrow0,则\alpha\beta\rightarrow0$$
+- $$|\alpha|\leqslant M,\beta\rightarrow0,则\alpha\beta\rightarrow0$$
 
 $$证：设\lim\limits_{x \rightarrow a}\beta = 0$$
 
@@ -321,7 +321,7 @@ $$\therefore f(x)g(x)=AB$$
 
 $$证：\lim f(x)=A \Rightarrow f(x)=A+\alpha,\alpha\rightarrow0(B\not=0)$$
 
-$$取\epsilon0=\frac{|B|}{2}>0,\exists\delta_1>0,当0<|x-a|<\delta_1时$$
+$$取\epsilon_0=\frac{|B|}{2}>0,\exists\delta_1>0,当0<|x-a|<\delta_1时$$
 
 $$|g(x)-B|<\frac{|B|}{2}\Rightarrow||g(x)|-|B||<\frac{|B|}{2}\Rightarrow|g(x)|>\frac{|B|}{2}$$
 
@@ -404,7 +404,7 @@ $$\therefore\lim\limits_{x \rightarrow x_0}f[\varphi(x)]=A$$
 1、准则一：夹逼定理（迫敛定理）
 - 数列型
 
-$$1.a_n \leq b_n \leq c_n 2.\lim\limits_{n \rightarrow \infty}a_n=\lim\limits_{n \rightarrow \infty}c_n=A$$
+$$1.a_n \leqslant b_n \leqslant c_n 2.\lim\limits_{n \rightarrow \infty}a_n=\lim\limits_{n \rightarrow \infty}c_n=A$$
 
 $$则\lim\limits_{n \rightarrow \infty}b_n=A$$
 
@@ -414,7 +414,7 @@ $$\exists N_2>0,当n>N_2时,有|c_n-A|<\epsilon\Rightarrow A-\epsilon<c_n<A+\eps
 
 $$N=max\{N_1,N_2\},当n>N时(*)(**)成立$$
 
-$$A-\epsilon<a_n \leq b_n \leq c_n < A+\epsilon$$
+$$A-\epsilon<a_n \leqslant b_n \leqslant c_n < A+\epsilon$$
 
 $$A-\epsilon<b_n<A+\epsilon \Rightarrow |b_n-A|<\epsilon$$
 
@@ -427,9 +427,9 @@ $$\therefore\lim\limits_{n \rightarrow \infty}b_n=A$$
 
 例1🌰.$$\lim\limits_{n \rightarrow \infty}(2^n+3^n+4^n)^\frac{1}{n}$$
 
-$$解：4^n\leq2^n+3^n+4^n\leq3*4^n$$
+$$解：4^n\leqslant2^n+3^n+4^n\leqslant3*4^n$$
 
-$$4\leq(2^n+3^n+4^n)^\frac{1}{n}\leq3^\frac{1}{n}*4^n$$
+$$4\leqslant(2^n+3^n+4^n)^\frac{1}{n}\leqslant3^\frac{1}{n}*4$$
 
 $$\because\lim\limits_{n \rightarrow \infty}左=4,\lim\limits_{n \rightarrow \infty}右=4$$
 
@@ -443,16 +443,16 @@ $$则\lim\limits_{n \rightarrow \infty}(a^n+b^n+c^n)^\frac{1}{n}=max\{a,b,c\}$$
 
 $$解：令b_n=\frac{1}{\sqrt{n^2+1}}+\frac{1}{\sqrt{n^2+2}}+...+\frac{1}{\sqrt{n^2+n}}$$
 
-$$\frac{n}{\sqrt{n^2+n}}\leq b_n \leq\frac{n}{\sqrt{n^2+1}}$$
+$$\frac{n}{\sqrt{n^2+n}}\leqslant b_n \leqslant\frac{n}{\sqrt{n^2+1}}$$
 
 $$\lim\limits_{n \rightarrow \infty}左=1,\lim\limits_{n \rightarrow \infty}右=1$$
 
 2、准则二：单调有界的数列必定存在极限  
 Notes:
-1. $$如果\exists M>0,\forall n,有|a_n|\leq M,则{a_n}有界$$
+1. $$如果\exists M>0,\forall n,有|a_n|\leqslant M,则{a_n}有界$$
 2. $$\{a_n\}\uparrow\begin{cases}
 无上界 & \Rightarrow \lim\limits_{n \rightarrow \infty}a_n=+\infty \\
-\exists M,a_n\leq M & \Rightarrow \lim\limits_{n \rightarrow \infty}a_n \exists
+\exists M,a_n\leqslant M & \Rightarrow \lim\limits_{n \rightarrow \infty}a_n \exists
 \end{cases}$$
 
 $$\{a_n\}\downarrow\begin{cases}
@@ -478,15 +478,15 @@ $$\therefore A=0$$
 
 $$a_{n+1} = \sqrt{2+a_n},由题得\{a_n\}\uparrow$$
 
-$$假设a_n\leq 2$$
+$$假设a_n\leqslant 2$$
 
 $$a_1=\sqrt{2}<2$$
 
-$$设a_k \leq 2$$
+$$设a_k \leqslant 2$$
 
-$$a_k+1=\sqrt{2+a_k} \leq 2$$
+$$a_{k+1}=\sqrt{2+a_k} \leqslant 2$$
 
-$$\therefore\forall n,有a_n \leq 2$$
+$$\therefore\forall n,有a_n \leqslant 2$$
 
 $$\therefore\lim\limits_{n \rightarrow \infty}a_n\exists$$
 
@@ -555,7 +555,7 @@ $$a_{n+1} = (1+\frac{1}{n+1})^{n+1} = C_n^0+C_n^1\frac{1}{n+1}+...+C_n+1^{n+1}\f
 
 $$\Rightarrow a_{n+1}>a_n\Rightarrow \{a_n\}\uparrow$$
 
-$$\because a_n \leq 1+1+\frac{1}{2!}+\frac{1}{3!}+...+\frac{1}{n!}\leq 1+1+\frac{1}{1*2}+\frac{1}{3*4}+...++\frac{1}{(n-1)*n} = 3-\frac{1}{n} \leq 3$$
+$$\because a_n \leqslant 1+1+\frac{1}{2!}+\frac{1}{3!}+...+\frac{1}{n!}\leqslant 1+1+\frac{1}{1*2}+\frac{1}{3*4}+...++\frac{1}{(n-1)*n} = 3-\frac{1}{n} \leqslant 3$$
 
 $$\therefore\lim\limits_{n \rightarrow \infty}(1+\frac{1}{n})^n\exists$$
 
@@ -602,7 +602,7 @@ $$1.\alpha \rightarrow 0,\beta \rightarrow 0 \Rightarrow\begin{cases}
 k\alpha \rightarrow 0
 \end{cases}$$
 
-$$2.|\alpha|\leq M,\beta \rightarrow 0 \Rightarrow \alpha\beta \rightarrow 0$$
+$$2.|\alpha|\leqslant M,\beta \rightarrow 0 \Rightarrow \alpha\beta \rightarrow 0$$
 
 $$3.\lim f(x)=A \Rightarrow f(x)=A+\alpha,\alpha\rightarrow 0$$
 
@@ -712,7 +712,7 @@ $$注：\lim\limits_{x\rightarrow a}f(x)与f(a)无关$$
 
 $$如：f(x)=\frac{sin2x}{x},f(0)不存在$$
 
-$$但\lim\limits{x\rightarrow a}f(x)=2$$
+$$但\lim\limits_{x\rightarrow a}f(x)=2$$
 
 $$又如：f(x)=\begin{cases}
 \frac{\ln(1+x^2)}{1-cosx} & -1<x<0\\
@@ -867,7 +867,7 @@ $$ \exists x_2\in[a,b],f(x_2)=M$$
 
 2.有界定理
 
-$$设f(x)\in c[a,b]则一定\exists k>0使|f(x)|\leq k$$
+$$设f(x)\in c[a,b]则一定\exists k>0使|f(x)|\leqslant k$$
 
 3.零点定理
 
@@ -895,9 +895,9 @@ $$\therefore f(c)-c=0\Rightarrow f(c)=c$$
 
 $$证：\because f(x)\in c[0,2]\therefore\exists m,M$$
 
-$$6m\leq f(0)+2f(1)+3f(2) \leq 6M$$
+$$6m\leqslant f(0)+2f(1)+3f(2) \leqslant 6M$$
 
-$$m\leq1\leq M$$
+$$m\leqslant1\leqslant M$$
 
 $$\therefore c\in[0,2]使f(c)=1$$
 
@@ -950,7 +950,7 @@ $$\lim\frac{f(x)}{g(x)}=\frac{A}{B}(B\neq0)$$
 \alpha\beta\rightarrow0 \\
 k\alpha\rightarrow0 \\
 \end{cases}$$
-2. $$|\alpha|\leq M,\beta\rightarrow0 \Rightarrow \alpha\beta\rightarrow0$$
+2. $$|\alpha|\leqslant M,\beta\rightarrow0 \Rightarrow \alpha\beta\rightarrow0$$
 3. $$\lim f(x)=A\Rightarrow f(x)=A+\alpha,\alpha\rightarrow0$$
 
 等价性质  
@@ -982,7 +982,7 @@ Part2 连续与间断
 
 $$证：由题的a_{n+1}\geq1,即{a_n}有下界$$
 
-$$a_{n+1}-a_n=\frac{1}{2}(\frac{1}{a_n}-a_n)\leq0\Rightarrow a_{n+1}\leq a_n即\{a_n\}\downarrow$$
+$$a_{n+1}-a_n=\frac{1}{2}(\frac{1}{a_n}-a_n)\leqslant0\Rightarrow a_{n+1}\leqslant a_n即\{a_n\}\downarrow$$
 
 $$\therefore\lim\limits_{n\rightarrow\infty}a_n\exists$$
 
@@ -992,7 +992,7 @@ $$\therefore\lim\limits_{n\rightarrow\infty}a_n\exists$$
 
 $$解：令b_n=\frac{1}{n^2+1}+\frac{2}{n^2+2}+...+\frac{n}{n^2+n}$$
 
-$$\frac{1}{2}\leq b_n \leq \frac{\frac{1}{2}n(n+1)}{n^2+1}$$
+$$\frac{1}{2}\leqslant b_n \leqslant \frac{\frac{1}{2}n(n+1)}{n^2+1}$$
 
 $$\because\lim\limits_{n\rightarrow\infty}左=\frac{1}{2},\lim\limits_{n\rightarrow\infty}右=\frac{1}{2}\lim\limits_{n\rightarrow\infty}\frac{1+\frac{1}{n}}{1+\frac{1}{n^2}}=\frac{1}{2}$$
 

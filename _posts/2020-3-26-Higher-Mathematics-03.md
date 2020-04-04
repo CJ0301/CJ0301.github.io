@@ -13,7 +13,7 @@ tags:
 ---
 
 ## 微分中值定理
-预备知识：  
+#### 预备知识 
 1.极值点：
 
 $$If\exists\delta>0,当0<|x-a|<\delta时，f(x)<f(a)，则x=a为极大点，f(a)为极大值$$
@@ -61,6 +61,7 @@ Notes:
 反例1：$$y=x^3,y'=3x^2,y'(0)=0$$  
 $$x=0不是极值点$$
 
+#### 三个中值定理
 一、罗尔定理  
 Th1.若满足$$\begin{cases}
 f(x)\in c[a,b] \\
@@ -268,5 +269,187 @@ $$又\because f'(0)=f'(c)=0$$
 $$\therefore\exists\xi\in(0,c)\subset(0,1),使得f''(\xi)=0$$
 
 例6🌰.$$f(x)\in c[0,1],(0,1)内可导且f(1)=0,证：\exists\xi\in(0,1),使\xi f'(\xi)+2f(\xi)=0$$
+$$证明：\exists\xi\in(0,1),使\xi f'(\xi)+2f(\xi)=0$$
 
-$$证：\exists\xi$$
+$$分析：[\ln(f(x))]'=\frac{f'(x)}{f(x)}$$
+
+$$xf'(x)+2f(x)=0\Rightarrow\frac{f'(x)}{f(x)}+\frac{x}{2}=0$$
+
+$$[\ln f(x)]'+(lnx^2)'=0$$
+
+$$[\ln x^2f(x)]'=0$$
+
+$$证:令\phi(x)=x^2f(x)$$
+
+$$\phi(x)\in c[0,1],在(0,1)内可导$$
+
+$$\because f(1)=0,\therefore\phi(0)=\phi(1)=0$$
+
+$$\therefore\exists\xi\in(0,1),使\phi'(\xi)=0$$
+
+$$而\phi'(x)=2xf(x)+x^2f'(x)$$
+
+$$\therefore 2\xi f(\xi)+\xi^2f'(\xi)=0$$
+
+$$\because\xi\neq0,\therefore2f(\xi)+\xi f'(\xi)=0$$
+
+#### 洛必达法则
+背景：$$\frac{0}{0}型(\frac{\infty}{\infty}型),等价无穷小解决的问题有限。$$
+
+$$如:\lim\limits_{x\rightarrow0}\frac{(1+x)^{sinx}-1}{x^2}$$
+
+$$=\lim\limits_{x\rightarrow0}\frac{e^{sinx·\ln(1+x)}}{x^2}=\lim\limits_{x\rightarrow0}\frac{sinx·\ln(1+x)}{x^2}$$
+
+$$\lim\limits_{x\rightarrow0}\frac{x^2}{x^2}=1$$
+
+$$又如:\lim\limits_{x\rightarrow0}\frac{x-sinx}{x^3}$$
+
+$$\neq\lim\limits_{x\rightarrow0}\frac{x-x}{x^3}$$
+
+Th1.$$(\frac{0}{0}型)设:$$  
+1.f(x)·g(x)在x=a的去心领域内可导且g'(x)\neq0。  
+2.$$\lim\limits_{x\rightarrow a}f(x)=0,\lim\limits_{x\rightarrow a}g(x)=0$$。
+3.$$\lim\limits_{x\rightarrow a}\frac{f'(x)}{g'(x)}=A(或\infty)$$
+
+$$则\lim\limits_{x\rightarrow a}\frac{f(x)}{g(x)}=A，即\lim\limits_{x\rightarrow a}\frac{f(x)}{g(x)}=\lim\limits_{x\rightarrow a}\frac{f'(x)}{g'(x)}$$  
+
+Note:f(a)的值与其极限无关
+
+$$证:令f(a)=0,g(a)=0(保证连续性),则f(x),g(x)在x=a邻域内连续，去心邻域内可导$$
+
+$$\frac{f(x)}{g(x)}=\frac{f(x)-f(a)}{g(x)-g(a)}(x为a的去心邻域内的点，以a、x为端点用柯西中值定理)$$
+
+$$=\frac{f'(\xi)}{g'(\xi)}(\xi介于a与x之间)$$
+
+$$\therefore\lim\limits_{x\rightarrow a}\frac{f(x)}{g(x)}=\lim\limits_{x\rightarrow a}\frac{f'(\xi)}{g'(\xi)}=\lim\limits_{\xi\rightarrow a}\frac{f'(\xi)}{g'(\xi)}=A$$
+
+例1🌰.$$\lim\limits_{x\rightarrow0}\frac{x-sinx}{x^3}$$
+
+$$解：\lim\limits_{x\rightarrow0}\frac{x-sinx}{x^3}=\lim\limits_{x\rightarrow0}\frac{1-cosx}{3x^2}=\frac{1}{6}$$
+
+例2🌰.$$\lim\limits_{x\rightarrow0}\frac{x-\ln(1+x)}{x^2}$$
+
+$$解:原式=\lim\limits_{x\rightarrow0}\frac{1-\frac{1}{1+x}}{2x}=\lim\limits_{x\rightarrow0}\frac{\frac{x}{1+x}}{2x}=\frac{1}{2}$$
+
+Th2.$$(\frac{\infty}{\infty}型)$$    
+1.$$f(x)\rightarrow\infty,g(x)\rightarrow\infty(x\rightarrow a)$$  
+2.f(x)、g(x)在x=a去心邻域内可导  
+3.$$\lim\limits_{x\rightarrow a}\frac{f'(x)}{g'(x)}=A(或\infty)$$ 
+
+$$\lim\limits_{x\rightarrow a}\frac{f(x)}{g(x)}=\lim\limits_{x\rightarrow a}\frac{f'(x)}{g'(x)}$$
+
+例1🌰.$$\lim\limits_{x\rightarrow +\infty}x(\frac{\pi}{2}-arctanx)(\infty·0型)$$
+
+$$解:原式=\lim\limits_{x\rightarrow +\infty}\frac{\frac{\pi}{2}-arctanx}{\frac{1}{x}}(\frac{0}{0}型)$$
+
+$$=\lim\limits_{x\rightarrow +\infty}\frac{-\frac{1}{1+x^2}}{-\frac{1}{x^2}}=\frac{x^2}{1+x^2}$$
+
+例2🌰.$$\lim\limits_{x\rightarrow +\infty}\frac{\ln x}{x^a}(a>0)(\frac{\infty}{\infty}型)$$
+
+$$解：原式=\lim\limits_{x\rightarrow +\infty}\frac{\frac{1}{x}}{ax^{a-1}}=\frac{1}{a}\lim\limits_{x\rightarrow +\infty}\frac{1}{x^a}=0$$
+
+例3🌰.$$\lim\limits_{x\rightarrow +\infty}\frac{x^3}{e^x}(\frac{\infty}{\infty}型)$$
+
+$$解:原式=\lim\limits_{x\rightarrow +\infty}\frac{3x^2}{e^x}=\lim\limits_{x\rightarrow +\infty}\frac{6x}{e^x}$$
+
+$$=\lim\limits_{x\rightarrow +\infty}\frac{6}{e^x}=0$$
+
+例4🌰.$$\lim\limits_{x\rightarrow 0^+}x^x$$
+
+$$解:原式=e^{\lim\limits_{x\rightarrow 0^+}x\ln x}$$
+
+$$\because\lim\limits_{x\rightarrow 0^+}x\ln x(0·\infty型)=\lim\limits_{x\rightarrow 0^+}\frac{\ln x}{\frac{1}{x}}$$
+
+$$=\lim\limits_{x\rightarrow 0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}=\lim\limits_{x\rightarrow 0^+}(-x)=0$$
+
+$$\therefore原式=e^0=1$$
+
+Notes:  
+1.$$洛必达法则适用于\frac{0}{0}、{\infty}{\infty}，且条件满足时可重复使用。$$   
+2.$$\frac{\ln x}{x^a}\rightarrow0(a>0,x\rightarrow+\infty)$$  
+$$  \frac{x^a}{e^x}\rightarrow0(a>0,x\rightarrow+\infty)$$  
+3.$$\lim\frac{f'(x)}{g'(x)}\exists是\lim\frac{f}{g}\exists的充分不必要条件,即洛必达法则不一定成功$$
+
+$$如：\lim\limits_{x\rightarrow\infty}\frac{3x+sinx}{x}(\frac{\infty}{\infty})$$
+
+$$\lim\limits_{x\rightarrow\infty}\frac{(3x+sinx)'}{(x)'}=\lim\limits_{x\rightarrow\infty}(3+cosx)不存在$$
+
+$$而\lim\limits_{x\rightarrow\infty}\frac{3x+sinx}{x}=\lim\limits_{x\rightarrow\infty}(3+\frac{sinx}{x})=3$$
+
+#### 泰勒公式
+背景：$$\frac{0}{0}型求极限精度不够,如\lim\limits_{x\rightarrow0}\frac{x-tanx}{x^3}$$  
+$$tanx=x+?x^3+o(x^3)$$  
+$$设f(x)在x=x_0邻域内n+1阶可导$$  
+$$f(x)=P_n(x)+R_n(x)(P_n(x)主，R_n(x)次)，f(n)\approx P_n(x)$$  
+
+Th1.$$(泰勒公式) f(x)在x=x_0邻域内n+1阶可导，则$$
+
+$$f(x)=P_n(x)+R_n(x)(P_n(x)主，R_n(x)次)$$
+
+$$其中P_n(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+...+\frac{f^{(n)}}{n!}(x-x_0)^n$$
+
+$$R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1},\xi介于x_0与x之间。$$
+
+$$证明：P_n(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+...+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$$
+
+$$P_n(x_0)=f(x_0)$$
+
+$$P_n'(x)=f'(x_0)+f''(x_0)(x-x_0)+...+\frac{f^{(n)}(x_0)}{(n-1)!}(x-x_0)^{n-1}$$
+
+$$p_n'(x_0)=f'(x_0)$$
+
+$$P_n''(x)=f''(x_0)+f'''(x_0)(x-x_0)+...+\frac{f^{(n)}(x_0)}{(n-2)!}(x-x_0)^{n-2}$$
+
+$$P_n''(x_0)=f''(x_0)$$
+
+$$...$$
+
+$$P_n^{(n)}(x_0)=f^{(n)}(x_0)$$
+
+$$令R_n(x)=f(x)-P_n(x)$$
+
+$$R_n(x_0)=0,R_n'(x_0)=0,...,R_n^{(n)}(x_0)=0$$
+
+$$R_n^{(n+1)}(x)=f^{(n+1)}(x)$$
+
+$$\frac{R_n(x)}{(x-x_0)^{n+1}}=\frac{R_n(n)-R_n(x_0)}{(x-x_0)^{n+1}-(x_0-x_0)^{n+1}}$$
+
+$$根据柯西中值定理得，=\frac{R_n'(x_1)}{(n+1)(x_1-x_0)^n}(x_1介于x_0与x之间)$$
+
+$$=\frac{R_n'(x_1)-R_n'(x_0)}{(n+1)(x_1-x_0)^n-(n+1)(x_0-x_0)^n}=\frac{R_n''(x_2)}{(n+1)n(x_2-x_0)^{n-1}}(x_2介于x_0与x_1之间)$$
+
+$$=...=\frac{R_n^{(n-1)}(x_{n-1})}{(n+1)...2(x_{n-1}-x_0)}(x_{n-1}介于x_0与x_{n-2}之间)$$
+
+$$=\frac{R_n^{(n-1)}(x_{n-1})-R_n^{(n-1)}(x_0)}{(n+1)!(x_{n-1}-x_0)-(n+1)!(x_0-x_0)}$$
+
+$$=\frac{R_n^{(n+1)}(\xi)}{(n+1)!}=\frac{f^{(n+1)}(\xi)}{(n+1)!}(\xi介于x_0与x_{n-1}之间)$$
+
+$$\therefore\frac{R_n(x)}{(x-x_0)^{n+1}}=\frac{f^{(n+1)}(\xi)}{(n+1)!}$$
+
+$$\therefore R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}(\xi介于x与x_0之间)$$
+
+$$即f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+...$$
+
+$$+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$$
+
+$$特别的,当x_0=0$$
+
+$$f(x)=f(0)+f'(0)x+\frac{f''(0)}{2!}x^2+...+\frac{f^{(n)}(0)}{n!}x^n+\frac{f^{(n+1)}(\xi)}{(n+1)!}x^{n+1}(\xi介于0与x之间) 麦克劳林公式$$
+
+$$R_n(x)=\frac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1} 拉格朗日型余项$$
+
+Th2.$$f(x)在x=x_0邻域内n阶可导,则f(x)=P_n(x)+o((x-x_0)^n) 皮亚诺型余项$$
+
+$$证明：P_n(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!}(x-x_0)^2+...+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n$$
+
+$$P_n(x_0)=f(x_0)$$
+
+$$P_n'(x_0)=f'(x_0)$$
+
+$$...$$
+
+$$P_n^{(n)}(x_0)=f^{n}(x_0)$$
+
+$$R_n(x)=f(x)-P_n(x)$$
+
+$$R_n(x_0)=R_n'(x_0)=...=R_n^{(n)}(x_0)$$

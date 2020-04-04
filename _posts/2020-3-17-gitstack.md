@@ -25,16 +25,16 @@ tags:
 
 ## git用法总结
 #### 用户信息
-第一次使用需要配置用户信息
-git config --global user.name "<用户名>"
-git config -- global user.email <邮箱地址>
+第一次使用需要配置用户信息  
+`git config --global user.name "<用户名>"`  
+`git config -- global user.email <邮箱地址>`  
 
 然后就能用下面的命令查看(一般文件在主目录的.gitconfig)
-git config --list
+`git config --list`
 
 🌟单项目如果要调整配置信息就去掉globa
 
-git help <操作码> 🌰：git help config
+git help <操作码>  查看操作码用法 🌰： git help config
 
 #### 正常操作
 目录的几个命令
