@@ -542,6 +542,20 @@ $$原式=\frac{1}{3}$$
 
 #### 单调性与极值、最值
 一、函数单调性及判别法
-(一)def- $$y=f(x)(x\in I)$$
-1.$$if\forall x_1,x_2\in I 且x_1<x_2，有f(x_1)<f(x_2)，称f(x)再I上为单调增函数$$
-2.$$$$if\forall x_1,x_2\in I 且x_1<x_2，有f(x_1)>f(x_2)，称f(x)再I上为单调减函数$$$$
+(一)def- $$y=f(x)(x\in I)$$  
+1.$$if\forall x_1,x_2\in I 且x_1<x_2，有f(x_1)<f(x_2)，称f(x)再I上为单调增函数$$  
+2.$$if\forall x_1,x_2\in I 且x_1<x_2，有f(x_1)>f(x_2)，称f(x)再I上为单调减函数$$
+
+(二)判别法  
+Th1.f(x)\in c[a,b],(a,b)内可导  
+1.$$Iff'(x)>0(a<x<b)\Rightarrow f(x)在[a,b]上严格递增$$  
+2.$$Iff'(x)<0(a<x<b)\Rightarrow f(x)在[a,b]上严格递减$$
+
+$$证：\forall x_1,x_2\in[a,b]且x_1<x_2$$
+
+$$(拉格朗日)f(x_2)-f(x_1)=f'(\xi)(x_2-x_1)(x_1<\xi<x_2)$$
+
+$$\because f'(x)>0(a<x<b)$$
+
+$$\therefore f(x_2)-f(x_1)>0\Rightarrow f(x_1)<f(x_2)$$
+
