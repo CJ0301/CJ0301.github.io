@@ -453,3 +453,95 @@ $$P_n^{(n)}(x_0)=f^{n}(x_0)$$
 $$R_n(x)=f(x)-P_n(x)$$
 
 $$R_n(x_0)=R_n'(x_0)=...=R_n^{(n)}(x_0)$$
+
+$$\lim\limits_{x\rightarrow x_0}\frac{R_n(x)}{(x-x_0)^n}=\lim\limits_{x\rightarrow x_0}\frac{R_n'(x)}{n(x-x_0)^{n-1}}$$
+
+$$=...=\lim\limits_{x\rightarrow x_0}\frac{R_n^{(n-1)}(x)}{n!(x-x_0)}$$
+
+$$=\lim\limits_{x\rightarrow x_0}\frac{R_n^{(n-1)}(x)-R_n^{(n-1)}(x_0)}{n!(x-x_0)-n!(x_0-x_0)}$$
+
+$$利用柯西中值定理，得=\frac{1}{n!}R_n^{(n)}(x_0)=0$$
+
+$$\therefore R_n(x)=o((x-x_0)^n)$$
+
+$$\therefore f(x)=f(x_0)+f'(x_0)(x-x_0)+...+\frac{f^{(n)}(x_0)}{n!}(x-x_0)^n+o((x-x_0)^n)$$
+
+例1🌰.$$求f(x)=e^x的n阶麦克劳林公式。$$
+
+$$解：f(x)=e^x,f'(x)=e^x,...,f^{(n)}(x)=e^x$$
+
+$$f(0)=1,f'(0)=1,...,f^{(n)}(0)=1$$
+
+$$e^x=f(0)+f'(0)x+...+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)$$
+
+$$\therefore e^x=1+x+\frac{x^2}{2!}+...+\frac{x^n}{n!}+o(x^n)$$
+
+例2🌰.$$f(x)=sinx$$
+
+$$解：f(x)=sinx,f'(x)=cosx,f''(x)=-sinx,f'''(x)=-cosx,...$$
+
+$$f(0)=0,f'(0)=1,f''(0)=0,f'''(0)=-1,...$$
+
+$$sinx=f(0)+f'(0)x+...+\frac{f^{(n)}(0)}{n!}x^n+o(x^n)$$
+
+$$\therefore sinx=x-\frac{x^3}{3!}+\frac{x^5}{5!}-\frac{x^7}{7!}$$
+
+同上，可推得：
+
+$$cosx=1-\frac{x^2}{2!}+\frac{x^4}{4!}-...+\frac{(-1)^n}{(2n)!}x^{2n}+o(x^{2n})$$
+
+$$\frac{1}{1-x}=1+x+x^2+...+x^n+o(x^n)$$
+
+$$\frac{1}{1+x}=1-x+x^2-...+(-1)^nx^n+o(x^n)$$
+
+$$\ln(1+x)=x-\frac{x}{2}+\frac{x^3}{3}-...+\frac{(-1)^{n-1}x^n}{n}+o(x^n)$$
+
+$$(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+\frac{a(a-1)(a-2)}{3!}x^3+...+\frac{a(a-1)..(a-n+1)}{n!}x^n+o(x^n)$$
+
+例1🌰.$$\lim\limits_{x\rightarrow0}\frac{x-sinx}{x^3}$$
+
+$$解：\because sinx=x-\frac{x^3}{3!}+o(x^3)$$
+
+$$\therefore x-sinx=\frac{x^3}{6}+o(x^3) \sim \frac{x^3}{6}$$
+
+$$\therefore原式=\frac{1}{6}$$
+
+例2🌰.$$\lim\limits_{x\rightarrow0}\frac{x-\ln(1+x)}{x^2}$$
+
+$$解：\ln(1+x)=x-\frac{x^2}{2}+0(x^2)$$
+
+$$x-\ln(1+x)=\frac{x^2}{2}+o(x^2) \sim\frac{x^2}{2}$$
+
+$$\therefore原式=\frac{1}{2}$$
+
+例3🌰.$$\lim\limits_{x\rightarrow0}\frac{e^{-\frac{x^2}{2}}-1+\frac{x^2}{2}}{x^3sinx}$$
+
+$$解：原式=\lim\limits_{x\rightarrow0}\frac{e^{-\frac{x^2}{2}}-1+\frac{x^2}{2}}{x^4}$$
+
+$$\because e^x=1+x+\frac{x^2}{2!}+o(x^2)$$
+
+$$\therefore e^{-\frac{x^2}{2}}=1-\frac{x^2}{2}+\frac{x^4}{8}+o(x^4)$$
+
+$$\therefore e^{-\frac{x^2}{2}}-1+\frac{x^2}{2}=\frac{x^4}{8}+o(x^4) \sim \frac{x^4}{8}$$
+
+$$\therefore原式=\frac{1}{8}$$
+
+例4🌰.$$\lim\limits_{x\rightarrow0}\frac{sinx-xcosx}{sin^3x}$$
+
+$$解：原式=\lim\limits_{x\rightarrow0}\frac{sinx-xcosx}{x^3}$$
+
+$$\because sinx=x-\frac{x^3}{3!}+o(x^3)$$
+
+$$cosx=1-\frac{x^2}{2!}+o(x^2)$$
+
+$$\therefore xcosx=x-\frac{x^3}{2}+o(x^3)$$
+
+$$\therefore sinx-xcosx=\frac{x^3}{3}+o(x^3)\sim\frac{x^3}{3}$$
+
+$$原式=\frac{1}{3}$$
+
+#### 单调性与极值、最值
+一、函数单调性及判别法
+(一)def- $$y=f(x)(x\in I)$$
+1.$$if\forall x_1,x_2\in I 且x_1<x_2，有f(x_1)<f(x_2)，称f(x)再I上为单调增函数$$
+2.$$$$if\forall x_1,x_2\in I 且x_1<x_2，有f(x_1)>f(x_2)，称f(x)再I上为单调减函数$$$$
