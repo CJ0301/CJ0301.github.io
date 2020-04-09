@@ -800,6 +800,7 @@ AlertDialog
 ```
 
 ## Notification
+一、基本使用
 初始化Manager
 ```java
 NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
@@ -858,4 +859,69 @@ builder.setSmallIcon(android.R.drawable.star_on)//设置小图标
 发送通知
 ```java
 manager.notify(1,builder.build());
+```
+
+二、其他样式
+大图模式
+```java
+.setStyle(new NotificationCompat.BigPictureStyle()
+	.bigPicture(BitmapFactory.decodeResource(getResources(),R.drawable.pic)))
+```
+进度条
+```java
+//禁止用户点击删除按钮删除
+builder.setAutoCancel(false);
+//禁止滑动删除
+builder.setOngoing(true);
+//取消右上角的时间显示
+builder.setShowWhen(false);
+builder.setContentTitle("下载中..."+progress+"%");
+builder.setProgress(100,progress,false);
+//builder.setContentInfo(progress+"%");
+builder.setOngoing(true);
+```
+
+```java
+new Thread(new Runnable() {
+	@Override
+	public void run() {
+		while(progress<100){
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			builder.setProgress(100,progress+=20,false)
+				.setContentTitle("下载中..."+progress+"%");
+			notificationManager.notify(1,builder.build());
+			if(progress==100){
+				progress=0;
+			}
+		}
+	}
+}).run();
+```
+
+模糊进度条
+```java
+ .setProgress(0, 0, true);
+```
+
+文本块
+```java
+.setStyle(new NotificationCompat.InboxStyle()
+	.setBigContentTitle("这是一个文本段")
+	.setSummaryText("这是总结")
+	.addLine("文本行111")
+	.addLine("文本行222")
+	.addLine("文本行333")
+```
+
+```java
+.setStyle(new NotificationCompat.BigTextStyle().setBigContentTitle("这是一段长文本")
+	.setSummaryText("这是总结")
+	.bigText("打南边来了个哑巴，腰里别了个喇叭；打北边来了个喇嘛，手里提了个獭犸。提着獭犸的喇嘛要拿獭犸换" +
+	"别着喇叭的哑巴的喇叭；别着喇叭的哑巴不愿拿喇叭换提着獭犸的喇嘛的獭犸。" +
+	"不知是别着喇叭的哑巴打了提着獭犸的喇嘛一喇叭；还是提着獭犸的喇嘛打了别着喇叭的哑巴一獭犸。" +
+	"喇嘛回家炖獭犸；哑巴嘀嘀哒哒吹喇叭"));
 ```

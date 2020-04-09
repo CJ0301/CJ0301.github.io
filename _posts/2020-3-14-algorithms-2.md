@@ -304,8 +304,9 @@ public static void QuickSort(int a[], int s, int e){
 
 用按身高排队举个例子，先把队头的小明👦揪出来，这时候第一个位置是空缺的，我再从最后面开始找个比小明矮的塞到队头，如果找到了再换到队尾找，直到形成一个能依靠小明身高为基准划分的队伍。然后依次再对两队进行操作。
 
-二分搜索变种
-例3🌰. leetcode35  
+## 例题
+#### 二分搜索变种  
+例1🌰. leetcode35  
 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
 ```java
 public int searchInsert(int[] nums, int target) {
@@ -329,7 +330,7 @@ public int searchInsert(int[] nums, int target) {
 }
 ```
 
-例4🌰. leetcode74  
+例2🌰. leetcode74  
 编写一个高效的算法来判断 m x n 矩阵中，是否存在一个目标值。该矩阵具有如下特性：
 
 - 每行中的整数从左到右按升序排列。
@@ -371,7 +372,7 @@ public static boolean searchInsert(int[][] matrix, int target) {
 }
 ```
 
-例5🌰.  leetcode240  
+例3🌰.  leetcode240    
 编写一个高效的算法来搜索 m x n 矩阵 matrix 中的一个目标值 target。该矩阵具有以下特性：
 
 - 每行的元素从左到右升序排列。
@@ -396,7 +397,7 @@ public static boolean searchInsert(int[][] matrix, int target) {
 }
 ```
 
-例6🌰.  leetcode153 
+例4🌰.  leetcode153   
 假设按照升序排序的数组在预先未知的某个点上进行了旋转。
 
 ( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。

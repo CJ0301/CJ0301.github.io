@@ -541,13 +541,14 @@ $$\therefore sinx-xcosx=\frac{x^3}{3}+o(x^3)\sim\frac{x^3}{3}$$
 $$原式=\frac{1}{3}$$
 
 #### 单调性与极值、最值
-一、函数单调性及判别法
-(一)def- $$y=f(x)(x\in I)$$  
+
+一、函数单调性及判别法      
+(一)def- $$y=f(x)(x\in I)$$    
 1.$$if\forall x_1,x_2\in I 且x_1<x_2，有f(x_1)<f(x_2)，称f(x)再I上为单调增函数$$  
 2.$$if\forall x_1,x_2\in I 且x_1<x_2，有f(x_1)>f(x_2)，称f(x)再I上为单调减函数$$
 
 (二)判别法  
-Th1.f(x)\in c[a,b],(a,b)内可导  
+Th1.$$f(x)\in c[a,b],(a,b)内可导$$  
 1.$$Iff'(x)>0(a<x<b)\Rightarrow f(x)在[a,b]上严格递增$$  
 2.$$Iff'(x)<0(a<x<b)\Rightarrow f(x)在[a,b]上严格递减$$
 
@@ -559,3 +560,175 @@ $$\because f'(x)>0(a<x<b)$$
 
 $$\therefore f(x_2)-f(x_1)>0\Rightarrow f(x_1)<f(x_2)$$
 
+$$\therefore f(x)在[a,b]上严格递增$$
+
+Note:在(a,b)内除有少数几个点不可导或导数等于0以外，f'(x)>0(<0)
+则f(x)在[a,b]上严格递增(递减)
+
+例1🌰.$$f(x)-sinx在[-\pi,\pi]单调性$$
+
+$$解：f'(x)=1-cosx$$
+
+$$\because在(-\pi,\pi)内除f'(0)=0外f'(x)>0$$
+
+$$\therefore f(x)在[-\pi,\pi]递增$$
+
+例2🌰.$$f(x)=e^x-x-1$$
+
+$$解：x\in(-\infty,+\infty)$$
+
+$$f'(x)=e^x-1=0\Rightarrow x=0$$
+
+$$当x\in(-\infty,0)时,f'(x)<0\Rightarrow f(x)在(-\infty,0]递减$$
+
+$$当x\in(0,+\infty)时,f'(x)>0\Rightarrow f(x)在[0,+\infty)递增$$
+
+例3🌰.$$f(x)=\sqrt[3]{x^2}$$
+
+$$解：x\in(-\infty,+\infty)$$
+
+$$f'(x)=\frac{2}{3}x^{-\frac{1}{3}}$$
+
+$$在X=0时,f(x)不可导$$
+
+$$当x\in(-\infty,0)时,f'(x)<0\Rightarrow f(x)在(-\infty,0]递减$$
+
+$$当x\in(0,+\infty)时,f'(x)>0\Rightarrow f(x)在[0,+\infty)递增$$
+
+二、极值  
+(一)def- $$y=f(x)(x\in D),x_0\in D$$  
+1.$$If\exists\delta>0,当0<|x-x_0|<\delta时,f(x)<f(x_0),x_0为极大点,f(x_0)为极大值$$    
+2.$$If\exists\delta>0,当0<|x-x_0|<\delta时,f(x)>f(x_0),x_0为极小点,f(x_0)为极小值$$
+
+(二)求解步骤  
+y=f(x)  
+1.$$x\in D$$  
+2.f'(x)$$\begin{cases}
+=0 (驻点)\\
+不存在
+\end{cases}(不一定为极值点)$$
+
+(三)判别法    
+Th1.(第一充分条件)  
+1.$$\begin{cases}
+x<x_0 & f'(x)<0 \\
+x>x_0 & f'(x)>0
+\end{cases}\Rightarrow x_0为极小值$$  
+2.$$\begin{cases}
+x<x_0 & f'(x)>0 \\
+x>x_0 & f'(x)<0
+\end{cases}\Rightarrow x_0为极大值$$
+
+Th2.(第二充分条件)f'(x_0)=0  
+1.$$If f''(x_0)>0,x=x_0为极小点$$  
+1.$$If f''(x_0)<0,x=x_0为极大点$$  
+
+$$证：f'(x_0)=0,f''(x_0)>0$$
+
+$$f''(x_0)=\lim\limits_{x\rightarrow x_0}\frac{f'(x)-f'(x_0)}{x-x_0}=\lim\limits_{x\rightarrow x_0}\frac{f'(x)}{x-x_0}>0$$
+
+$$(极限保号性)\exists\delta>0,当0<|x-x_0|<\delta时,\frac{f'(x)}{x-x_0}>0$$
+
+$$\begin{cases}
+f'(x)<0 , x\in(x_0-\delta,x_0) \\
+f'(x)>0 , x\in(x_0,x_0+\delta)
+\end{cases}$$
+
+$$\therefore x=x_0为极小值$$
+
+例1🌰.$$f(x)=(x-4)\sqrt[3]{(x+1)^2}$$
+
+$$解：1.x\in(-\infty,+\infty)$$
+
+$$2.f'(x)=\frac{5(x-1)}{3\sqrt[3]{x+1}},f'(-1)不存在,f'(1)=0$$
+
+$$3.\begin{cases}
+x<-1 & f'(x)>0 \\
+-1<x<1 & f'(x)<0
+\end{cases}\Rightarrow x=-1为极大值,f(-1)=0$$
+
+$$\begin{cases}
+-1<x<1 & f'(x)<0 \\
+x>1 & f'(x)>0
+\end{cases}\Rightarrow x=1为极小值,f(1)=-3\sqrt[3]{4}$$
+
+三、最值  
+case1.$$f(x)\in c[a,b] \exists m,M$$
+1.$$f'(x)\begin{cases}
+=0 \\
+不存在
+\end{cases}(a<x<b)\Rightarrow x_1,x_2,...,x_n$$
+
+2.$$\begin{cases}
+m = min{f(a),f(x_1),...,f(x_n),f(b)} \\
+M = max{f(a),f(x_1),...,f(x_n),f(b)}
+\end{cases}$$
+
+例1🌰.$$f(x)=x^2+(1-x)^2(0\leqslant x\leqslant 1)最值$$
+
+$$f'(x)=2x-2(1-x)=0\Rightarrow x=\frac{1}{2}$$
+
+$$\because f(0)=f(1)=1 f(\frac{1}{2})=\frac{1}{2}$$
+
+$$\therefore m=\frac{1}{2},M=1$$
+
+$$\therefore \frac{1}{2}\leqslant x^2+(1-x)^2\leqslant 1(0\leqslant x\leqslant 1)$$
+
+case2.无限区间的最值  
+若x=x_0为f(x)位移极值点，x=x_0即为最值点  
+例1🌰.$$f(x)=\ln x-\frac{x}{e}+2(x>0)求最大值$$
+
+$$解：x\in(0,+\infty)$$
+
+$$f'(x)=\frac{1}{x}-\frac{1}{e}=0\Rightarrow x=e$$
+
+$$f''(x)=-\frac{1}{x^2}$$
+
+$$\because f''(e)=-\frac{1}{e^2}<0$$
+
+$$\therefore M=f(e)=2$$
+
+$$\therefore x=e为最大值$$
+
+#### 凹凸性与拐点
+一、$$def- y=f(x)(x\in I)$$    
+1.$$If\forall x_1,x_2\in I且 x_1\neq x_2,有f(\frac{x_1+x_2}{2})<\frac{f(x_1)+f(x_2)}{2},称f(x)在I内为凹函数$$    
+
+2.$$If\forall x_1,x_2\in I且 x_1\neq x_2,有f(\frac{x_1+x_2}{2})>\frac{f(x_1)+f(x_2)}{2},称f(x)在I内为凸函数$$
+
+二、判别法  
+Th2.  
+1.$$If f''(x)>0(a<x<b),则f(x)在(a,b)内凹$$
+2.$$If f''(x)<0(a<x<b),则f(x)在(a,b)内凸$$
+
+$$证：\forall x_1,x_2\in(a,b)且x_1\neq x_2$$
+
+$$取\frac{x_1+x_2}{2}\triangleq x_0$$
+
+$$f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(\xi)}{2!}(x-x_0)^2(\xi介于x_0与x之间)$$
+
+$$\because f''(x)>0$$
+
+$$\therefore f(x)\geqslant f(x_0)+f'(x_0)(x-x_0) 且在x=x_0时取等于$$
+
+$$\because x_1\neq x_0 x_2\neq x_0$$
+
+$$\therefore f(x_1)>f(x_0)+f'(x_0)(x1-x_0),f(x_2)>f(x_0)+f'(x_0)(x2-x_0)$$
+
+$$\Rightarrow \frac{f(x_1+x_2)}{2}>f(x_0)+f'(x_0)·(\frac{x_1+x_2}{2}-x_0)=f(x_0)$$
+
+$$\therefore f(\frac{x_1+x_2}{2})<\frac{f(x_1)+f(x_2)}{2}$$
+
+$$\therefore f(x)在(a,b)内为凹函数$$
+
+Notes:若x<x_0,x>x_0两侧y=f(x)凹凸性不同，则(x_0,f(x_0))为y=f(x)的拐点
+
+例1🌰.$$y=x^3的凹凸性$$
+
+$$解：y''=6x=0\Rightarrow x=0$$
+
+$$x<0时，y''<0,y=x^3在(-\infty,0)内为凸函数$$
+
+$$x>0时，y''>0,y=x^3在(0,+\infty)内为凸函数$$
+
+$$(0,0)为y=x^3的拐点$$

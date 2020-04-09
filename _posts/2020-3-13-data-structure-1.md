@@ -92,6 +92,7 @@ void union(List *La,List Lb){
 ```
 
 #### 线性表的顺序存储结构
+一、数组
 顺序表的顺序存储结构与数组的形式类似，都是占用一段连续的存储空间。  
 完整代码
 ```c
@@ -182,7 +183,31 @@ int main() {
 ```
 顺序表的优点在于结构简单，因为是连续的存储空间，不需要额外的逻辑关系增加存储空间，随机读取快。而缺点就是插入删除需要移动后面的元素，存储空间容量的不灵活。
 
+二、顺序栈
+动态分配
+```c
+typedef struct SqStack{
+	ElemType *base;//栈底指针
+	ElemType *top;//栈顶指针
+}SqStack;
+```
+
+静态分配
+```c
+typedef struct SqStack{
+	ElemType data[MAX_SIZE];//定长数组
+	int top;//数组下标
+}SqStack;
+```
+
+初始化
+```c
+s.base = new int[maxsize];
+s.top=s.base;
+```
+
 #### 线性表的链式存储结构
+链表
 链式存储结构就解决了插入删除需要大量移动工作的问题。  
 完整代码
 ```c
@@ -444,3 +469,5 @@ int main()
 }
 
 ```
+
+
