@@ -105,10 +105,9 @@ friends: [
     {
          title: "Vergessen(河工大大佬)",
          href: "https://www.vergessen.top/"
+    },
+    {
+         title: "dragon6879(龙龙)",
+         href: "https://dragon6879.github.io/"
     }
-    #,{
-    #    title: "乱序",
-    #    href: "http://mida.re/"
-    #}
-    
 ]
