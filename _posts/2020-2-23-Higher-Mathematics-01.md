@@ -1085,3 +1085,13 @@ $$\lim\limits_{x\rightarrow1}f(x)=\infty$$
 $$f(0^-)=0,f(0^+)=\infty$$
 
 $$\therefore x=-1为可去间断点 x=1为第二类间断点 x=0为第二类间断点$$
+
+例11🌰.$$\lim\limits_{x\rightarrow0}\frac{\sqrt{1+tanx}-\sqrt{1+sinx}}{x\sqrt{1+sin^2x}-x}$$
+
+$$解:原式=\lim\limits_{x\rightarrow0}\frac{tanx-sinx}{x(\sqrt{1+sin^2x}-1)(\sqrt{1+tanx}+\sqrt{1+sinx})} \\
+=\lim\limits_{x\rightarrow0}(\frac{sinx}{x}·\frac{secx-1}{\sqrt{1+sin^2x}-1}·\frac{1}{\sqrt{1+tanx}+\sqrt{1+sinx}})\\
+=\lim\limits_{x\rightarrow0}(\frac{sinx}{x}·\frac{\sqrt{1+sin^2x}+1}{cosx}·\frac{1-cosx}{sin^2x}·\frac{1}{\sqrt{1+tanx}+\sqrt{1+sinx}})\\
+=\frac{1}{2}$$
+
+
+
