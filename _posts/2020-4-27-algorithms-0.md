@@ -64,7 +64,7 @@ public int fact(int n) {
 /**
  * 求 n 的阶乘
  */
-public int fact(int n，int r) {
+public int fact(int n,int r) {
     if (n <= 0) {
         return 1 * r;
     } else {
@@ -72,7 +72,7 @@ public int fact(int n，int r) {
     }
 }
 ```
-这里用了r去记录每次运算结果，与普通递归相比减少了空间占用。
+这里用了去记录每次运算结果，与普通递归相比减少了空间占用。
 
 注：  
 1.递归不是为了求得最优解，只是一种简化解决问题的思路。
