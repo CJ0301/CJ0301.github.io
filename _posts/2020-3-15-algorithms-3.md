@@ -122,35 +122,41 @@ $$如果a_k为5，f(27)应该是f(27-5)+1$$
 
 $$如果a_k为7，f(27)应该是f(27-7)+1$$
 
-$$需要最少的硬币，所以转移方程为f(27)=min{f(27-2)+1,f(27-5)+1,f(27-7)+1}$$
+$$需要最少的硬币，所以转移方程为f(27)=min\{f(27-2)+1,f(27-5)+1,f(27-7)+1\}$$
 
 $$对拼不出来的情况赋值为\infty,设置初始条件为f[0]=0$$
 
 
 ```java
 public static int solution(int[] coins,int amount) {
-	int[] f = new int[amount+1];
-	int n = coins.length;
+		int[] f = new int[amount+1];
+		int n = coins.length;
+			
+		f[0] = 0;
+			
+		int i,j;
 		
-	f[0] = 0;
-		
-	int i,j;
-		
-	for(i=1;i<=amount;i++) {
-		f[i] = Integer.MAX_VALUE;
-		for(j=0;j<n;j++) {
-			if(i>=coins[j] && f[i-coins[j]]!= Integer.MAX_VALUE) {
-				f[i] = Math.min(f[i-coins[j]]+1,f[i]);
+		//分解乘amount个子问题
+		for(i=1;i<=amount;i++) {
+			f[i] = Integer.MAX_VALUE;
+			
+			//从头遍历
+			for(j=0;j<n;j++) {
+				
+				//如果子问题的amount大于下标j 并且i-coins[j]不是无解
+				if(i>=coins[j] && f[i-coins[j]]!= Integer.MAX_VALUE) {
+					//选择出在i子问题下 当前coins[j]是否是i子问题的最后最优解
+					f[i] = Math.min(f[i-coins[j]]+1,f[i]);
+				}
 			}
 		}
+			
+		if(f[amount] == Integer.MAX_VALUE) {
+			f[amount] = -1;
+		}
+			
+		return f[amount];
 	}
-		
-	if(f[amount] == Integer.MAX_VALUE) {
-		f[amount] = -1;
-	}
-		
-	return f[amount];
-}
 ```
 
 例2🌰.有个(m,n)的表格，求左上角到右下角的路径种数。(类型一)
@@ -325,5 +331,38 @@ public static int FindMax(int w[], int[] v, int capacity) {
 		}
 	}
 	return V[number][capacity];
+}
+```
+
+#### 拓展：空间类指针移动模板
+```java
+for(i = 0;i < n; i++){
+	while(j < n){
+		if(满足条件){
+			j++;
+			//更新j状态
+		}else{
+			//不满足条件
+			break;
+		}
+	}
+	//更新i状态
+}
+```
+例1🌰.寻找最长不重复子串
+```
+public static int solution(String s) {
+	int[] map = new int[256];//ASCII码的最大长度,也可以用HashMap代替
+		
+	int i,j=0;
+	int maxLen = 0;
+	for(i = 0;i<s.length();i++) {
+		while(i<s.length() && map[s.charAt(j)]==0) {
+			map[s.charAt(j)] = 1;
+			maxLen = Math.max(maxLen, j-i+1);
+			j++;
+		}
+	}
+	return maxLen;
 }
 ```
