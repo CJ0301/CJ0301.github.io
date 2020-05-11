@@ -582,3 +582,50 @@ public Builder after(Animator anim)
 //延迟n毫秒之后执行动画
 public Builder after(long delay)
 ```
+
+```java
+final FallingBallImageView imageView = findViewById(R.id.animate);
+ObjectAnimator animator = ObjectAnimator.ofObject(imageView,"fallingPos",new FallEvaluator(),new Point(0f,0f),new Point(500f,1600f));
+animator.setDuration(2000);
+
+ObjectAnimator animator1 = ObjectAnimator.ofFloat(imageView,"alpha",1,0,1);
+animator1.setDuration(2000);
+
+ObjectAnimator animator2 = ObjectAnimator.ofFloat(imageView,"TranslationX",0f,200f);
+animator2.setDuration(2000);
+AnimatorSet animatorSet = new AnimatorSet();
+AnimatorSet.Builder builder = animatorSet.play(animator);
+builder.before(animator1).before(animator2);
+animatorSet.start();
+```
+
+如果两个before两个before的动画会并到一起去，after也一样。
+
+#### AnimatorSet监听器
+监听器
+```java
+public static interface AnimatorListener{
+	//AnimatorSet开始调用
+	void onAnimationStart(Animator animation);
+
+	//AnimatorSet结束时调用
+	void onAnimationEnd(Animator animation);
+
+	//Animator被取消时调用
+	void onAnimationCancel(Animator animation);
+
+	//当AnimatorSet重复调用时。由于Animator没设置重复函数，这个函数也不会被调用。
+	void onAnimationRepeat(Animator animation);
+}
+```
+
+添加方法：
+```java
+public void addListener(AnimatorListener listener);
+```
+
+注意：  
+- AnimatorSet监听器只监听AnimatorSet的状态。  
+- AnimatorSet监听器永远无法执行onAnimationRepeat函数。 
+
+
