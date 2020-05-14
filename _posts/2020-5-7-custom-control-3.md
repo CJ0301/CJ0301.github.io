@@ -118,7 +118,7 @@ void setRepeatMode(int value)
 void cancel()
 ```
 
-#### 添加与移除监听器
+添加与移除监听器
 1）添加监听器
 ValueAnimator有两个监听器：
 ```java
@@ -156,7 +156,7 @@ void removeListener(AnimatorListener listener);
 void removeAllListeners();
 ```
 
-#### 不常用函数
+不常用函数
 ```java
 //延时开始
 public void setStartDelay(long startDelay)
@@ -601,7 +601,7 @@ animatorSet.start();
 
 如果两个before两个before的动画会并到一起去，after也一样。
 
-#### AnimatorSet监听器
+AnimatorSet监听器
 监听器
 ```java
 public static interface AnimatorListener{
@@ -628,4 +628,188 @@ public void addListener(AnimatorListener listener);
 - AnimatorSet监听器只监听AnimatorSet的状态。  
 - AnimatorSet监听器永远无法执行onAnimationRepeat函数。 
 
+和别的动画类差不多的函数
+```
+//设置单次动画时长
+public AnimatorSet setDuration(long duration);
+//设置插值器
+public void setInterpolator(TimeInterpolator interpolator)
+//设置ObjectAnimator动画的目标控件
+public void setTarget(Object target)
+//设置开始前的延时
+public void startStartDelay(long duration)
+```
+注意：在AnimatorSet中设置后，ObjectAnimator中的设置会失效。但是单个动画的startStartDelay不会失效，只是延迟整个动画的激活。
 
+#### 例子
+MainActivity.java
+```java
+public class MainActivity extends AppCompatActivity {
+    private boolean mIsMenuOpen = false;
+    private Button iButton1,iButton2,iButton3,menu;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.menu_layout);
+        menu = findViewById(R.id.menu);
+        iButton1 = findViewById(R.id.item1);
+        iButton2 = findViewById(R.id.item2);
+        iButton3 = findViewById(R.id.item3);
+
+        menu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!mIsMenuOpen){
+                    mIsMenuOpen = true;
+                    openMenu();
+                }else{
+                    mIsMenuOpen = false;
+                    closeMenu();
+                }
+            }
+        });
+    }
+
+    private void openMenu(){
+        doAnimateOpen(iButton1,0,5,300);
+        doAnimateOpen(iButton2,1,5,300);
+        doAnimateOpen(iButton3,2,5,300);
+    }
+
+    private void closeMenu(){
+        doAnimateClose(iButton1,0,5,300);
+        doAnimateClose(iButton2,1,5,300);
+        doAnimateClose(iButton3,2,5,300);
+    }
+
+    public void doAnimateOpen(View view, int index,int total,int radius){
+        if(view.getVisibility() != View.VISIBLE){
+            view.setVisibility(View.VISIBLE);
+        }
+        double degree = Math.toRadians(90) / (total - 1) * index;
+        int translationX = -(int) (radius * Math.sin(degree));
+        int translationY = -(int) (radius * Math.cos(degree));
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(
+                ObjectAnimator.ofFloat(view,"translationX",0,translationX),
+                ObjectAnimator.ofFloat(view,"translationY",0,translationY),
+                ObjectAnimator.ofFloat(view,"scaleX",0f,1f),
+                ObjectAnimator.ofFloat(view,"scaleY",0f,1f),
+                ObjectAnimator.ofFloat(view,"alpha",0f,1f)
+        );
+        set.setDuration(600).start();
+    }
+
+    public void doAnimateClose(View view, int index,int total,int radius){
+        if(view.getVisibility() != View.VISIBLE){
+            view.setVisibility(View.VISIBLE);
+        }
+        double degree = Math.PI * index / ((total - 1) * 2);
+        int translationX = -(int) (radius * Math.sin(degree));
+        int translationY = -(int) (radius * Math.cos(degree));
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(
+                ObjectAnimator.ofFloat(view,"translationX",translationX,0),
+                ObjectAnimator.ofFloat(view,"translationY",translationY,0),
+                ObjectAnimator.ofFloat(view,"scaleX",1f,0.1f),
+                ObjectAnimator.ofFloat(view,"scaleY",1f,0.1f),
+                ObjectAnimator.ofFloat(view,"alpha",1f,0f)
+        );
+        set.setDuration(600).start();
+    }
+}
+
+```
+
+menu_layout.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layout_marginBottom="10dp"
+    android:layout_marginRight="10dp">
+    <Button
+        android:id="@+id/menu"
+        style="@style/MenuStyle"
+        android:background="@drawable/menu"/>
+    <Button
+        android:id="@+id/item1"
+        style="@style/MenuItemStyle"
+        android:background="@drawable/oreo"
+        android:visibility="gone"/>
+    <Button
+        android:id="@+id/item2"
+        style="@style/MenuItemStyle"
+        android:background="@drawable/icecream"
+        android:visibility="gone"/>
+    <Button
+        android:id="@+id/item3"
+        style="@style/MenuItemStyle"
+        android:background="@drawable/strawberry"
+        android:visibility="gone"/>
+
+</FrameLayout>
+```
+
+## Animator动画的XML实现
+XML中与Animator对应的有三个标签
+- <animator />：对应ValueAnimator。
+- <objectAnimator />：对应ObjectAnimator。
+- <set />：对应AnimatorSet。
+
+#### animator标签
+```xml
+<animator
+    android:duration="int"
+    android:valueFrom="float | int | color"
+    android:valueTo="float | int | color"
+    android:startOffset="int"
+    android:repeatCount="int"
+    android:repeatMode="repeat | reverse"
+    android:valueType="intType | floatType"
+	android:interpolatpr=["@android:interpolator/XXX"]/>
+```
+
+- android:duration：设置时长
+- android:valueFrom：初始动画值，只有三个取值。
+- android:valueTo：结束动画值，只有三个取值。
+- android:startOffse：动画延时激活
+- android:repeatCount：动画重复次数
+- android:repeatMode：动画重复模式，只有两种取值
+- android:valueType：对应参数类型，如果时color类型则不需要设置
+- android:interpolatpr：设置插值器
+
+代码中使用：  
+```java
+ValueAnimator valueAnimator = (ValueAnimator)AnimatorInflater.loadAnimator(MainActivity.this,R.animator.animator);
+valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+	@Override
+	public void onAnimationUpdate(ValueAnimator animation) {
+		int offset = (Integer)animation.getAnimatedValue();
+		textView.layout(offset,offset,textView.getWidth()+offset,textView.getHeight()+offset);
+	}
+});
+valueAnimator.start();
+```
+
+#### objectAnimator标签
+```xml
+<objectAnimator
+	android:propertyName="string"
+	android:duration="int"
+	android:valueFrom="float | int | color"
+	android:valueTo="float | int | color"
+	android:startOffset="int"
+	android:repeatCount="int"
+	android:repeatMode="repeat | reverse "
+	android:valueType="intType | floatType"
+	android:interpolatpr=["@android:interpolator/XXX"]/>
+```
+
+代码中使用：
+```java
+ObjectAnimator animator = (ObjectAnimator)AnimatorInflater.loadAnimator(MainActivity.this,R.animator.animator);
+animator.setTarget(textView);
+animator.start();
+```
