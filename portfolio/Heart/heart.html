@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>❤️</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            animation: all 4s ease infinite;
+        }
+        .heart{
+            width: 200px;
+            height: 200px;
+            background-color: #eb3f84;
+            margin:200px auto;
+            position: relative;
+            transform: rotate(45deg);
+            animation: heart 4s ease infinite;
+        }
+        .heart::before{
+            content: '';
+            width: 200px;
+            height: 200px;
+            background-color: #eb3f84;
+            border-radius: 50%;
+            position: absolute;
+            top: -100px;
+            left: 0;
+            animation: left 4s ease infinite;
+            transition:all 1s ease;
+        }
+        .heart::after{
+            content: '';
+            width: 200px;
+            height: 200px;
+            background-color: #eb3f84;
+            border-radius: 50%;
+            position: absolute;
+            top: 0px;
+            left: 100px;
+            animation: right 4s ease infinite;
+            transition:all 1s ease;
+        }
+
+        #clock{
+            margin: 0 auto;
+            text-align:center;
+            font-size:36px;
+            animation: word 4s ease infinite;
+            transition:all 1s ease;
+        }
+
+        @keyframes all {
+            0%{
+                background-color: #eb3f84;
+            }
+            50%{
+                background-color: #fff;
+            }
+            100%{
+                background-color: #eb3f84;
+            }
+        }
+
+        @keyframes heart {
+           0%{
+               transform: rotate(0deg);
+               border-radius: 200px;
+               background-color: #fff;
+           }
+           30%{
+               transform: rotate(45deg);
+               border-radius: 10px;
+           }
+           50%{
+               background-color: #eb3f84;
+           }
+           70%{
+               transform: rotate(45deg);
+               border-radius: 10px;
+           }
+           100%{
+               transform: rotate(90deg);
+               border-radius: 200px;
+               background-color: #fff;
+           }
+        }
+
+        @keyframes left {
+            0%{
+                top:0;
+                background-color: #fff;
+            }
+            30%{
+                top: -100px;
+            }
+            50%{
+                background-color: #eb3f84;
+            }
+            70%{
+                top: -100px;
+            }
+            100%{
+                top:0;
+                background-color: #fff;
+            }
+        }
+
+        @keyframes right {
+            0%{
+                left:0;
+                background-color: #fff;
+            }
+            30%{
+                left: -100px;
+            }
+            50%{
+                background-color: #eb3f84;
+            }
+            70%{
+                left: -100px;
+            }
+            100%{
+                left:0;
+                background-color: #fff;
+            }
+        }
+
+        @keyframes word {
+            0%{
+                color: #fff;
+            }
+            50%{
+                color: #eb3f84;;
+            }
+            100%{
+                color: #fff;
+            }
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload=function starttime(){
+            time(clock,"2020/5/19 12:07:59");     // 在一起的时间
+            ptimer = setTimeout(starttime,1000); // 添加计时器
+        }
+
+        function time(obj,futimg){
+            var nowtime = new Date().getTime(); // 现在时间转换为时间戳
+            var futruetime =  new Date(futimg).getTime(); // 未来时间转换为时间戳
+            var msec = nowtime-futruetime; // 毫秒 未来时间-现在时间
+            var time = (msec/1000);  // 毫秒/1000
+            var day = parseInt(time/86400); // 天  24*60*60*1000
+            var hour = parseInt(time/3600)-24*day;    // 小时 60*60 总小时数-过去的小时数=现在的小时数
+            var minute = parseInt(time%3600/60); // 分 -(day*24) 以60秒为一整份 取余 剩下秒数 秒数/60 就是分钟数
+            var second = parseInt(time%60);  // 以60秒为一整份 取余 剩下秒数
+//              console.log(hour+":"+minute+":"+second)
+//              alert(hour)
+            obj.innerHTML= "和文文在一起的第"+day+"天"
+                                + hour+"小时"
+                                +minute+"分钟"
+                                +second+"秒";
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div class="heart"></div>
+    <div id="clock">...</div>
+</body>
+</html>
