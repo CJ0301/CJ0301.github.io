@@ -49,17 +49,38 @@ x\rightarrow a^- \\
 x\rightarrow a^+
 \end{cases}$$
 
-例1🌰. $$ f(x) = \vert x\vert,证f'(x)是否存在 $$
+例1🌰. $$ f(x) = \vert x\vert,证f'(0)是否存在 $$
 
 $$解:f_-'(0)=\lim\limits_{x\rightarrow0^-}\frac{f(x)-f(0)}{x-0}=\lim\limits_{x\rightarrow0^-}\frac{|x|}{x}=-1$$
 
 $$f_+'(0)=\lim\limits_{x\rightarrow0^+}\frac{f(x)-f(0)}{x-0}=\lim\limits_{x\rightarrow0^+}\frac{|x|}{x}=1$$
 
-$$\because f_-'(0)\neq f_+'(0),\therefore f'(x)不存在$$
+$$\because f_-'(0)\neq f_+'(0),\therefore f'(0)不存在$$
 
-二、用定义求导数  
+例2🌰.$$已知f(x)=\begin{cases}
+\frac{1}{x}sinx^2+1 & x<0 \\
+x+1 & x\geqslant0
+\end{cases}求f'(0)$$  
 
-1)一般函数
+$$f_-'(0)=\lim\limits_{x\rightarrow0^-}\frac{f(x)-f(0)}{x-0} \\
+
+=\lim\limits_{x\rightarrow0^-}\frac{\frac{1}{x}sinx^2+1-1}{x} \\
+
+=\lim\limits_{x\rightarrow0^-}\frac{sinx^2}{x^2} \\
+
+=1 \\
+
+f_+'(0)=\lim\limits_{x\rightarrow0^+}\frac{f(x)-f(0)}{x-0} \\
+
+=\lim\limits_{x\rightarrow0^+}\frac{x+1-1}{x} \\
+
+=1$$
+
+$$\because f_-'(0)= f_+'(0),\therefore f'(0)存在$$
+
+二、用定义求导数    
+
+1)一般函数  
 1.$$f(x)=c$$
 
 $$f'(x)=\lim\limits_{h\rightarrow0}\frac{f(x+h)-f(x)}{h}=\lim\limits_{h\rightarrow0}\frac{c-c}{h}=0$$
@@ -207,6 +228,15 @@ Notes:
 5.三角的和差化积
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200319-sumToMul.png)
 
+积化和差公式记忆口诀   
+积化和差角加减,二分之一排前边   
+正余积化正弦和,余正积化正弦差   
+余弦积化余弦和,正弦积化负余差   
+
+和差化积公式记忆口诀   
+和差化积2排前,半角加减放右边   
+正弦和化正余积,正弦差化余正积   
+余弦和化余弦积,余弦差化负正积 
 #### 函数的求导法则
 初等函数-$$由\begin{cases}
 常数 \\

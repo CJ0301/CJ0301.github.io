@@ -1093,5 +1093,7 @@ $$解:原式=\lim\limits_{x\rightarrow0}\frac{tanx-sinx}{x(\sqrt{1+sin^2x}-1)(\s
 =\lim\limits_{x\rightarrow0}(\frac{sinx}{x}·\frac{\sqrt{1+sin^2x}+1}{cosx}·\frac{1-cosx}{sin^2x}·\frac{1}{\sqrt{1+tanx}+\sqrt{1+sinx}})\\
 =\frac{1}{2}$$
 
+由例题11可以得出一个小总结，数值的代入必须是分子分母一起代入的，不能只代入一侧。
+
 
 
