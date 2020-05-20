@@ -91,7 +91,7 @@ $$\Rightarrow f'(\xi)=0或不存在$$
 
 $$\because f(x)在(a,b)内可导\therefore f'(\xi)=0$$
 
-例1🌰.$$f(x)\in c[a,b],(a,b)内可导,f(a)f(b)>0,f(a)f(\frac{1+b}{2})<0,证明:\exists\xi\in(a,b),使得f'(\xi)=0$$
+例1🌰.$$f(x)\in c[a,b],(a,b)内可导,f(a)f(b)>0,f(a)f(\frac{a+b}{2})<0,证明:\exists\xi\in(a,b),使得f'(\xi)=0$$
 
 $$f(a)f(\frac{a+b}{2})<0\Rightarrow\exists x_1\in(a,\frac{a+b}{2}),f(x_1)=0$$
 

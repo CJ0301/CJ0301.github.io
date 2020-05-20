@@ -63,11 +63,11 @@ git mv <文件名> <新文件名> 文件重命名
 
 git rm <文件名> 删除文件
 
-git reset --hard <版本号前几位>
+git reset \-\-hard <版本号前几位>
 
 git reset HEAD <文件名> 取消暂存区
 
-git checkout -- <文件名> 回到该文件最近一次commit或add的状态(慎用，会数据丢失)
+git checkout \-\- <文件名> 回到该文件最近一次commit或add的状态(慎用，会数据丢失)
 
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200317-file-status.png)
 
@@ -105,7 +105,7 @@ git branch -d <分支名> 删除分支
 
 git rebase <分支名> 更新分支代码  
 
-git log --graph 查看分支合并图
+git log \-\-graph 查看分支合并图
 
 应用场景：我现在有一个网站,里面有原有内容，我这时候有个新的需求要做，创建一个newReq分支(git branch newReq)，同时我有一个bug要修复，创建一个bug1分支(git branch bug1)，我修复了bug1，切回master然后合并bug1和主支，当我再做newReq如果操作了同一个文件夹，就会出现冲突。  
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200318-branch.png)
