@@ -306,8 +306,10 @@ $$又如:\lim\limits_{x\rightarrow0}\frac{x-sinx}{x^3}$$
 
 $$\neq\lim\limits_{x\rightarrow0}\frac{x-x}{x^3}$$
 
+(加减法不一定能用等价无穷小，精度不够)
+
 Th1.$$(\frac{0}{0}型)设:$$  
-1.f(x)·g(x)在x=a的去心领域内可导且g'(x)\neq0。  
+1.$$f(x)·g(x)在x=a的去心领域内可导且g'(x)\neq0$$。  
 2.$$\lim\limits_{x\rightarrow a}f(x)=0,\lim\limits_{x\rightarrow a}g(x)=0$$。
 3.$$\lim\limits_{x\rightarrow a}\frac{f'(x)}{g'(x)}=A(或\infty)$$
 
@@ -365,7 +367,7 @@ $$=\lim\limits_{x\rightarrow 0^+}\frac{\frac{1}{x}}{-\frac{1}{x^2}}=\lim\limits_
 $$\therefore原式=e^0=1$$
 
 Notes:  
-1.$$洛必达法则适用于\frac{0}{0}、{\infty}{\infty}，且条件满足时可重复使用。$$   
+1.$$洛必达法则适用于\frac{0}{0}、\frac{\infty}{\infty}，且条件满足时可重复使用。$$   
 2.$$\frac{\ln x}{x^a}\rightarrow0(a>0,x\rightarrow+\infty)$$  
 $$  \frac{x^a}{e^x}\rightarrow0(a>0,x\rightarrow+\infty)$$  
 3.$$\lim\frac{f'(x)}{g'(x)}\exists是\lim\frac{f}{g}\exists的充分不必要条件,即洛必达法则不一定成功$$
@@ -498,6 +500,22 @@ $$\ln(1+x)=x-\frac{x}{2}+\frac{x^3}{3}-...+\frac{(-1)^{n-1}x^n}{n}+o(x^n)$$
 
 $$(1+x)^a=1+ax+\frac{a(a-1)}{2!}x^2+\frac{a(a-1)(a-2)}{3!}x^3+...+\frac{a(a-1)..(a-n+1)}{n!}x^n+o(x^n)$$
 
+实际使用：  
+
+$$x-sinx=\frac{1}{6}x^3+o(x^3) \\
+
+\Rightarrow x-sinx\approx\frac{1}{6}x^3 \\
+
+\Rightarrow x-sinx\sim\frac{1}{6}x^3(x\rightarrow0) \\
+
+x^3-sinx^3=\frac{1}{6}(x^3)^3+o(x^3) \\
+
+\Rightarrow x^3-sinx^3\approx\frac{1}{6}(x^3)^3 \\
+
+\Rightarrow x^3-sinx^3\sim\frac{1}{6}x^9(x\rightarrow0)$$
+
+例题：
+
 例1🌰.$$\lim\limits_{x\rightarrow0}\frac{x-sinx}{x^3}$$
 
 $$解：\because sinx=x-\frac{x^3}{3!}+o(x^3)$$
@@ -540,6 +558,89 @@ $$\therefore sinx-xcosx=\frac{x^3}{3}+o(x^3)\sim\frac{x^3}{3}$$
 
 $$原式=\frac{1}{3}$$
 
+例5🌰.$$\lim\limits_{x\rightarrow0}\frac{[sin-sin(sinx)]xinx}{x^4}$$
+
+$$sin x-sin(sinx)\sim\frac{1}{6}sin^3x \\
+
+原式=\lim\limits_{x\rightarrow0}\frac{\frac{1}{6}sin^4}{x^4} \\
+
+=\frac{1}{6}
+$$
+
+无穷小运算：  
+1. 有限个无穷小和是无穷小。  
+2. 有界函数与无穷小的乘积是无穷小。
+3. 有限个无穷小成绩是无穷小。
+4. 运算性质：
+设m，n为正整数，则  
+$$a.o(x^m)\pm o(x^n)=o(x^l),l=min\{m,n\}(加减法时低阶吸收高阶) \\
+b.o(x^m)·o(x^n)=o(x^{m+n}),x^m·o(x^n)=o(x^{m+n})(乘法时阶数累加) \\
+c.o(x^m)=o(kx^m)=k·o(x^m),k\neq0且为常数(非零常数相乘不影响阶数)$$
+
+🌰：  
+$$o(x^2)=o(x^3)=o(x^2) \\
+o(x^3)+o(x^3)=o(x^3) \\
+o(x^3)-o(x^3)=o(x^3)$$
+
+用泰勒公式时需要展开到多少次幂：  
+1）$$\frac{A}{B}型，适用于“上下同阶”原则。$$  
+如果分母或分子是x的k次幂，则应把分子或分母展开到x的k次幂，可称为“上下同阶”原则。  
+🌰：  
+$$\lim\limits_{x\rightarrow0}\frac{x-sinx}{x^3}=\frac{1}{6}$$
+
+2）A-B型，适用于幂次最低原则  
+将A,B展开到系数不相等的x的最低次幂为止。  
+🌰：  
+$$
+\lim\limits_{x\rightarrow0}cosx-e^{-\frac{x^2}{2}} \\
+cosx=1-\frac{x^2}{2}+\frac{1}{24}x^4+o(x^4) \\
+e^{-\frac{x^2}{2}}=1-\frac{x^2}{2}+\frac{1}{8}x^4+o(x^4) \\
+\Rightarrow cosx-e^{-\frac{x^2}{2}}=-\frac{1}{12}x^4+o(x^4) \\
+\Rightarrow cosx-e^{-\frac{x^2}{2}}\sim-\frac{1}{12}x^4
+$$
+
+更多🌰：   
+1）$$x-sinx \\
+x=1·x^1+0·x^3 \\
+sinx=x^1-\frac{1}{6}x^3+o(x^3) \\
+\Rightarrow x-sinx=\frac{1}{6}x^3+o(x^3)
+\Rightarrow x-sinx\sim\frac{1}{6}x^3$$
+
+2）$$x+sinx \Rightarrow x-(-sinx)\\
+x=1·x^1 \\
+-sinx=(-1)·x^1+o(x) \\
+\Rightarrow x+sinx=x-(-sinx)=2x+o(x)
+\Rightarrow x+sinx\sim 2x$$
+
+3）$$\lim\limits_{x\rightarrow0}\frac{sin^2x-x^2}{e^4-1} \\
+=\lim\limits_{x\rightarrow0}\frac{(sinx+x)(sinx-x)}{x^4} \\
+=\lim\limits_{x\rightarrow0}\frac{-\frac{1}{3}x^4}{x^4} \\
+=-\frac{1}{3}
+$$
+
+#### 海涅定理(归结定理)
+$$\lim\limits_{x\rightarrow x_0}f(x)=A存在\Leftrightarrow \\
+\lim\limits_{n\rightarrow\infty}f(x_n)=A存在(对于任何的数列x_n\rightarrow x_0)$$
+
+1.$$"\Leftarrow"往往用于否定存在性$$
+1.$$"\Rightarrow"考计算$$
+
+🌰：  
+1）$$
+\lim\limits_{x\rightarrow0}\frac{1}{x}sin\frac{1}{x} \\
+取x_n=\frac{1}{n\pi},n\rightarrow\infty,\lim\limits_{n\rightarrow\infty}f(x_n) \\
+=\lim\limits_{n\rightarrow\infty}n\pi sinn\pi=0 \\
+取x_n'=\frac{1}{(2n+\frac{1}{2})\pi},n\rightarrow\infty \\
+\lim\limits_{n\rightarrow\infty}f(x_n')=(2n+\frac{1}{2})\pi·sin(2n\pi+\frac{1}{2}\pi)=\infty
+$$
+
+2）$$
+\lim\limits_{n\rightarrow\infty}(ntan\frac{1}{n})^{n^2}(n为正整数) \\
+(数列转函数)\lim\limits_{x\rightarrow0}(\frac{tanx}{x})^{\frac{1}{x^2}}=e^{\lim\limits_{x\rightarrow0}\frac{1}{x^2}\ln\frac{tanx}{x}} \\
+\ln(1+g(x))\sim g(x),g(x)\rightarrow0 \\
+\frac{tanx-x}{x}\sim\frac{1}{3}x^3 \\
+=e^{\frac{1}{3}}
+$$
 #### 单调性与极值、最值
 
 一、函数单调性及判别法      

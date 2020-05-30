@@ -22,13 +22,21 @@ Notes：
 
 1、定义：  
 $$  
-{a_n} \rightarrow 数列,   
+\{a_n\} \rightarrow 数列,   
 A \rightarrow 常数  
 $$
 
 $$
-若\forall\epsilon > 0,\exists N > 0,当n>N时,|a_n - A| < \epsilon,则\lim\limits_{n \rightarrow \infty}a_n = A
+若\forall\epsilon > 0,\exists N > 0,当n>N时,|a_n - A| < \epsilon,则\lim\limits_{n \rightarrow \infty}a_n = A 或称数列\{a_n\}收敛于A，\\
+否则则称数列\{x_n\}是发散的 \\
+通俗来讲就是要证明表达式与极限值的无限接近，即对任意大于0的距离都能找到对应比他小的第n项值 \\
+减去极限值的绝对值的数(即第n项与极限的距离)
 $$
+
+方法：  
+1. $$写|x_n-a|<\epsilon$$
+2. $$反解出n>g(\epsilon)$$
+3. $$取N=[g(\epsilon)]+1$$
 
 例1🌰. $$\lim\limits_{n \rightarrow \infty}\frac{n-1}{2n+1} = \frac{1}{2}$$
 
@@ -1095,5 +1103,69 @@ $$解:原式=\lim\limits_{x\rightarrow0}\frac{tanx-sinx}{x(\sqrt{1+sin^2x}-1)(\s
 
 由例题11可以得出一个小总结，数值的代入必须是分子分母一起代入的，不能只代入一侧。
 
+$$\infty-\infty\begin{cases}
+(1)有分母，则通分 \\
+(2)没有分母，创造分母再通分，令x=\frac{1}{t}
+\end{cases}$$
 
+例12🌰.(类型一)$$\lim\limits_{x\rightarrow0}(\frac{1}{sin^2x}-\frac{cos^2x}{x^2}) \\
+=\lim\limits_{x\rightarrow0}\frac{x^2-sin^2xcos^2x}{x^4} \\
+=\lim\limits_{x\rightarrow0}\frac{x^2-\frac{sin^22x}{4}}{x^4} \\
+=\lim\limits_{x\rightarrow0}\frac{2x-\frac{1}{4}·2·2sin2x·cos2x·2}{4x^3} \\
+=\lim\limits_{x\rightarrow0}\frac{2x-\frac{1}{2}sin4x}{4x^3} \\
+=\lim\limits_{x\rightarrow0}\frac{2-2cos4x}{12x^2} \\
+=\frac{4}{3}
+$$
+
+例13🌰.(类型二)$$\lim\limits_{x\rightarrow+\infty}[x^2(e^{\frac{1}{x}}-1)-x] \\
+令x=\frac{1}{t} \\
+=\lim\limits_{x\rightarrow+\infty}(\frac{e^t-1}{t^2}-\frac{1}{t}) \\
+=\lim\limits_{x\rightarrow+\infty}\frac{e^t-1-t}{t^2} \\
+e^x=1+x+\frac{x^2}{2}+o(x^2) \\
+\Rightarrow e^x-1-x\sim\frac{1}{2}x^2 \\
+=\frac{1}{2}$$
+
+
+
+幂指函数：  
+$$\infty^0,0^0,1^{\infty} \\
+转化:u^v=e^{v\ln u}$$
+
+$$1^{\infty}$$型
+
+$$\lim u^v=e^{\lim v\ln u} \\
+=e^{\lim v(u-1)}$$
+
+🌰：  
+1）$$
+\lim\limits_{x\rightarrow0^+}(\frac{tanx}{x})^{\frac{1}{x^2}} \\
+=e^{\lim\limits_{x\rightarrow0^+}\frac{1}{x^2}·(\frac{tanx}{x}-1)} \\
+=e^{\frac{1}{3}}$$
+
+2）$$\lim\limits_{x\rightarrow0}(\frac{e^x+e^{2x}+...+e^{nx}}{n})^{\frac{e}{x}} \\
+=e^{\lim\limits_{x\rightarrow0}\frac{e}{x}(\frac{e^x+e^{2x}+...+e^{nx}}{n}-1)} \\
+=e^{\frac{e}{n}\lim\limits_{x\rightarrow0}\frac{e^x-1}{x}+\frac{e^{2x}-1}{x}+...+\frac{e^{nx}-1}{x}} \\
+=e^{\frac{e(1+n)}{2}}$$
+
+$$0·\infty$$    
+$$0·\infty可转化为\frac{0}{0}或\frac{\infty}{\infty}$$
+
+但同时要注意分母要尽量简化。
+$$\begin{cases}
+简单：x^{\alpha},e^{\beta x} \\
+复杂：\ln x,三角函数
+\end{cases}$$
+🌰：  
+1）$$
+\lim\limits_{x\rightarrow 0^+}x\ln x \\
+=\lim\limits_{x\rightarrow 0^+}\frac{\ln x}{\frac{1}{x}} \\
+=\lim\limits_{x\rightarrow 0^+}\frac{x^{-1}}{-x^{-2}}=0
+$$
+
+2）$$
+\lim\limits_{x\rightarrow1^-}\ln x\ln(1-x) \\ 
+\ln x\sim x-1,x\rightarrow1^- \\
+令1-x=t \\
+-\lim\limits_{t\rightarrow0^+}t\ln t=0
+$$
 
