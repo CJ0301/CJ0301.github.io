@@ -109,4 +109,12 @@ e^{-x^2}-1+x^2\thicksim\frac{1}{2}x^4\\
 例3🌰.$$f(x)连续，f(0)=0,f'(0)=\pi\\
 \lim\limits_{x\rightarrow0}\frac{\int^x_0t(x-t)dt}{x^3}$$
 
-$$解：$$
+$$解：设x-t=u \\
+f^0_x(x-u)f(u)(-du) \\
+=f^x_0(x-u)f(u)du \\
+=xf^x_0f(u)du-f^x_0uf(u)du \\
+
+原式=\lim\limits_{x\rightarrow0} \frac{f^x_0f(u)du+xf(x)-xf(x)}{3x^2} \\
+=\lim\limits_{x\rightarrow0}\frac{f(x)}{6x} \\
+=\frac{1}{6}\lim\limits_{x\rightarrow0}\frac{f(x)-f(0)}{x} \\
+\frac{1}{6}f'(0)=\frac{\pi}{6}$$

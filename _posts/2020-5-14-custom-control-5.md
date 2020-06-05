@@ -295,6 +295,21 @@ canvas.drawBitmap(mArrawBmp,matrix,mPaint);
 ## SVG动画
 Android没有对原生的SVG语法支持，但可以使用path标签来实现。
 
+#### 配置
+AndroidX之后是不需要配置的，之前的版本需要配置一下。
+```xml
+compile 'com.android.support:appcompat-v7:23.2.0' //要求 appcompat-v7库的版本要在23.2.0+
+```
+
+修改gradle配置文件(gradle插件版本是2.0+)。
+```
+android {
+  defaultConfig {
+    vectorDrawables.useSupportLibrary = true
+  }
+}
+```
+
 #### vector标签与图像显示
 vector标签有四个属性：  
 - width、height：指定SVG图像高宽。  
@@ -392,6 +407,9 @@ SVG图像使用：
         app:srcCompat="@drawable/ic_icon"/>
 ```
 
+注意：  
+- 如果ImageView使用不了，就看看继承的是否是AppCompatActivity。
+- Button这类带状态的控件使用时注意要用selector去设置，然后属性为background。
 
 添加动画：  
 anim.xml
@@ -557,3 +575,127 @@ ic_icon.xml
   </vector>
 
 ```
+
+注意：  
+- 使用objectAnimator加动画的时候注意是加给路径还是加给了组，有些属性是二者各自独有的。  
+- 向下兼容问题：Android pre-L之前不能使用路径变换动画，不能自定义插值器。  
+
+路径变换动画：
+svg_apple.xml  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="128dp"
+    android:height="128dp"
+    android:viewportWidth="520"
+    android:viewportHeight="520">
+    <group
+        android:name="rotationGroup"
+        android:pivotX="260"
+        android:pivotY="260"
+        android:rotation="0.0">
+
+        <path
+            android:name="v"
+            android:strokeColor="#000000"
+            android:strokeWidth="6"
+            android:pathData="@string/svg_apple" />
+    </group>
+</vector>
+
+```
+
+svg_droid_for_apple.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="128dp"
+    android:height="128dp"
+    android:viewportWidth="520"
+    android:viewportHeight="520">
+    <group
+        android:name="rotationGroup"
+        android:pivotX="260"
+        android:pivotY="260"
+        android:rotation="0.0">
+
+        <path
+            android:name="v"
+            android:strokeColor="#000000"
+            android:strokeWidth="6"
+            android:pathData="@string/svg_droid_for_apple" />
+    </group>
+</vector>
+
+```
+
+morph_apple_to_droid.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<objectAnimator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:duration="3500"
+    android:propertyName="pathData"
+    android:valueFrom="@string/svg_apple"
+    android:valueTo="@string/svg_droid_for_apple"
+    android:repeatMode="reverse"
+    android:repeatCount="infinite"
+    android:valueType="pathType" />
+```
+
+animated_vector_apple.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<animated-vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/svg_apple">
+
+
+    <target
+        android:name="v"
+        android:animation="@animator/morph_apple_to_droid" />
+
+</animated-vector>
+```
+
+activity_main.xml
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/animated_vector_apple"/>
+</LinearLayout>
+```
+
+```java
+ImageView imageView = findViewById(R.id.image);
+Drawable drawable = imageView.getDrawable();
+
+if(drawable instanceof Animatable)
+	((Animatable) drawable).start();
+
+```
+问题1.Can't morph    
+这个问题是因为两图复杂度不统一，无法相互转化。  
+解决方法就是去下一个vectalign，统一一下路径。
+
+低版本会有各种各样的问题，我这里最小sdk设置的是21，Android5.0以下的设备这种动画无法使用。
+
+这里是Android官方的讲解[传输门](https://developer.android.com/studio/write/vector-asset-studio)和其中一个问题[传送门](https://stackoverflow.com/questions/27626831/error-while-trying-to-test-animatedvectordrawable-cant-morph-from-x-to-z)
+
+总结：  
+1. Bitmap的绘制效率并不一定会比Vector高 ，它们有-定的平衡点.当Vector比较简单时,其效率是一定比Bitmap高的,所以,为了保证Vector的高效率, Vector需要更加简单，PathData更加标准、精简,当Vector图像变得非常复杂时,就需要使用Bitmap来代替了  
+2. Vector适用于ICON、Button. lmageView的图标等小的ICON .或者是需要的动画效果，由于Bitmap在GPU中有缓存功能,而Vector并没有,所以Vector图像不能做频繁的重绘  
+3. Vector图像过于复杂时,不仅仅要注意绘制效率,初始化效率也是需要考虑的重要因素。  
+4. SVG加载速度会快于PNG ,但渲染速度会慢于PNG .毕竟PNG有硬件加速.但平均下来,加载速度的提升弥补了绘利的速度缺陷。  
+
