@@ -230,6 +230,17 @@ Notes:
 5.三角的和差化积
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200319-sumToMul.png)
 
+推导：  
+$$
+sin(\alpha+\beta) = sin\alpha cos\beta+ cos\alpha sin\beta \\
+sin(\alpha-\beta) = sin\alpha cos\beta- cos\alpha sin\beta \\
+cos(\alpha+\beta) = cos\alpha cos\beta- sin\alpha sin\beta \\
+cos(\alpha-\beta) = cos\alpha cos\beta+ sin\alpha sin\beta \\
+相互加减可得四个积化和差公式。 \\
+将\alpha+\beta设成\theta \alpha+\beta设成\phi
+则可以推得和差化积的四个公式
+$$
+
 积化和差公式记忆口诀   
 积化和差角加减,二分之一排前边   
 正余积化正弦和,余正积化正弦差   
@@ -549,7 +560,7 @@ $$\frac{d^2y}{dx^2}=\frac{d(2t)/dt}{dx/dt}=2(1+t^2)$$
 
 #### 函数的微分
 
-🌰.$$y=x^2,x_0=3$$
+🌰.边长为x的正方形边长加3个单位长度$$y=x^2,x_0=3$$
 
 $$\Delta y=y(3+\Delta x)-y(3)=(3+\Delta x)^2-9$$
 
@@ -590,6 +601,9 @@ $$\therefore\lim\limits_{\Delta x\rightarrow0}\frac{\Delta y}{\Delta x}=A=f'(x_0
 
 $$dy=df(x)=f'(x)dx$$
 
+4.dy为切线在$\Delta x变化下的增量，与\Delta y相差o(\Delta x)(局部线性化)$
+
+5.微分形式不变性：y=f(u)，u=g(x),则dy=f'(u)du
 
 一、近似计算
 $$\Delta y=f'(x_0)\Delta x+o(\Delta x)$$
@@ -609,3 +623,23 @@ $$f(4)=2,f'(x)=\frac{1}{2\sqrt{x}},f'(4)=\frac{1}{4}$$
 $$\therefore\sqrt{4.003}=f(4+0.003)\approx f(4)+f'(4)*0.003$$
 
 $$=2+\frac{1}{4}*0.003$$
+
+例2🌰.$设方程x=y^y确定了函数y=y(x)，求dy$
+
+$$解：先\ln x=\ln y^y=y\ln y \\
+两边同时微分：d(\ln x)=d(y\ln y) \\
+\frac{1}{x}dx=\ln ydy+yd(\ln y)=\ln ydy+y·\frac{1}{y}dy \\
+=\ln ydy+dy=(1+\ln y)dy$$
+
+注意：求微分不必考虑自变量与因变量。
+
+凑微分  
+例3🌰.$\frac{1}{1+4x^2}dx=d(?)$
+
+$$\frac{1}{1+(2x^2)}dx=\frac{1}{2}\frac{1}{1+(2x)^2}d(2x) \\
+=\frac{1}{2}d(arctan2x)=d(\frac{1}{2}arctan2x)$$
+
+例4🌰.$设y=(1+sinx)^x，则dy|_{x=\pi}=?$
+$$dy=de^{x\ln(1+sinx)}=(1+sinx)^xd(x\ln(1+sinx)) \\
+=(1+sinx)^x(\frac{xcosx}{1+sinx}+\ln(1+sinx))dx \\
+dy|_{x=\pi}=-\pi dx$$

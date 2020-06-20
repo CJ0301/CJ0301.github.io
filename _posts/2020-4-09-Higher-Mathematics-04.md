@@ -91,13 +91,13 @@ $$\therefore\int cotxdx=\ln|sinx|+c$$
 
 $$\int cscx dx=\int\frac{1}{sinx}dx=\int\frac{1}{2sin\frac{x}{2}cos\frac{x}{2}}dx$$
 
-$$=\int\frac{1}{tan\frac{x}{2}cos\frac{x}{2}}d(\frac{x}{2})=\int\frac{sec^2\frac{x}{2}}{tan\frac{x}{2}}d(\frac{x}{2})$$
+$$=\int\frac{1}{sin\frac{x}{2}cos\frac{x}{2}}d(\frac{x}{2})=\int\frac{sec^2\frac{x}{2}}{tan\frac{x}{2}}d(\frac{x}{2})$$
 
 $$设\frac{x}{2}=t$$
 
 $$\int\frac{sec^2t}{tant}dt$$
 
-$$=\frac{1}{tant}=d(tant)$$
+$$=\frac{1}{tant}d(tant)$$
 
 $$=\ln|tant|+c=\ln|tan\frac{x}{2}|+c$$
 
@@ -125,7 +125,7 @@ $$\therefore\int secx dx=\ln|secx+tanx|+c$$
 \int \frac{1}{1+x^2}dx = arctanx+c \\
 \int \frac{1}{a^2+x^2}dx = \frac{1}{a}arctanx+c \\
 \int \frac{1}{x^2-a^2}dx = \frac{1}{2a}\ln|\frac{x-a}{x+a}|+c \\
-\int\frac{1}{\sqrt{x^2+a^2}}dx=\ln(x+\sqrt{x^2+a^2})+c \\
+\int\frac{1}{\sqrt{x^2+a^2}}dx=\ln|x+\sqrt{x^2+a^2}|+c \\
 \int\frac{1}{\sqrt{x^2-a^2}}dx=\ln|x+\sqrt{x^2-a^2}|+c \\
 \int\sqrt{a^2-x^2}dx=\frac{a^2}{2}arcsin\frac{x}{a}+\frac{x}{2}\sqrt{a^2-x^2}+c
 \end{cases}$$
@@ -150,7 +150,7 @@ $$原式=\int\frac{1}{(x-a)(x+a)}dx=\frac{1}{2a}\int(\frac{1}{x-a}-\frac{1}{x+a}
 
 $$=\frac{1}{2a}[\int\frac{1}{x-a}d(x-a)-\int\frac{1}{x+a}d(x+a)]$$
 
-$$\frac{1}{2a}|\frac{x-a}{x+a}|+c$$
+$$=\frac{1}{2a}\ln|\frac{x-a}{x+a}|+c$$
 
 例5🌰.$$\int\frac{dx}{x(1+2\ln x)}$$
 
@@ -461,7 +461,7 @@ Case6.$$\int\begin{cases}
 sec^nx \\
 csc^nx
 \end{cases}dx(n为奇数)$$
-注：偶次不定积分分部积分
+注：偶次不需要分部积分
 
 $$\int sec^2xdx=tanx+c$$
 

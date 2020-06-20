@@ -664,7 +664,7 @@ $$\lim\limits_{x \rightarrow 0}\frac{arcsinx}{x}=1\Rightarrow x\sim arcsinx$$
 
 $$\lim\limits_{x \rightarrow 0}\frac{arctanx}{x}=1,设x=tant\Rightarrow \lim\limits_{t \rightarrow 0}\frac{t}{tant}=1\Rightarrow x\sim arctanx$$
 
-$$\lim\limits_{x \rightarrow 0}\frac{\ln(1+x)}{x} = \lim\limits_{x \rightarrow 0}\frac{1}{x}\ln(1+x) = \lim\limits_{x \rightarrow 0}\ln(1+x)^\frac{1}{x} = 1\Rightarrow x\sim \frac{\ln(1+x)}{x}$$
+$$\lim\limits_{x \rightarrow 0}\frac{\ln(1+x)}{x} = \lim\limits_{x \rightarrow 0}\frac{1}{x}\ln(1+x) = \lim\limits_{x \rightarrow 0}\ln(1+x)^\frac{1}{x} = 1\Rightarrow x\sim \ln(1+x)$$
 
 $$\lim\limits_{x \rightarrow 0}\frac{e^x-1}{x},设e^x-1=t\Rightarrow\lim\limits_{t \rightarrow 0}\frac{t}{\ln(1+t)}=1\Rightarrow x\sim e^x-1$$
 
@@ -1169,3 +1169,10 @@ $$
 -\lim\limits_{t\rightarrow0^+}t\ln t=0
 $$
 
+错题整理：  
+
+$$\lim\limits_{x\rightarrow0}\frac{sinx-tanx}{(\sqrt[3]{1+x^2}-1)(\sqrt{1+sinx}-1)} \\
+=\lim\limits_{x\rightarrow0}\frac{sin(1-secx)}{\frac{1}{3}x^2·\frac{1}{2}sinx} \\
+=\frac{-\frac{1}{2}x^2}{\frac{1}{6}x^2}=-3$$
+
+$$\lim\limits_{x\rightarrow\infty}(\frac{3+x}{6+x})^{\frac{x-1}{2}}$$

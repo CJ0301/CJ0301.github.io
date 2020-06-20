@@ -34,7 +34,7 @@ f(x)在[a,b]上有界
 
 2.$$\forall\xi_i\in[x_{i-1},x_i],作\sum^n_{n=1}f(\xi_i)\Delta x_i$$
 
-3.$$\lambda=max{\Delta x_1,...,\Delta x_n}$$
+3.$$\lambda=max\{\Delta x_1,...,\Delta x_n\}$$
 
 $$若\lim\limits_{\lambda\rightarrow0}\sum^n_{i=1}f(\xi_i)\Delta X_i\exists$$
 

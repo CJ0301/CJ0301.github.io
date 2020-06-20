@@ -221,3 +221,92 @@ i.putExtra("data","xxx");
 setResult(1,i);
 finish();
 ```
+
+#### Activity状态更改
+1、当配置发生更改时  
+Activity在经历横竖屏变化，语言或输入设备改变时，Activity会被销毁并重新创建， onPause()、onStop() 和 onDestroy() 回调。系统将创建新的 Activity 实例，并触发 onCreate()、onStart() 和 onResume() 回调。  
+结合使用 ViewModels、onSaveInstanceState() 方法和/或持久性本地存储，可使 Activity 的界面状态在配置发生更改后保持不变。
+
+2、Activity 或对话框显示在前台  
+如果有新的Activity或对话框出现在前台，并且局部覆盖正在进行的Activity，则被覆盖的Activity会市区焦点进入已暂停状态，系统自动调用onPause()。  
+当重新获得焦点时，会调用onResume()。
+如果有新的Activity或对话框出现在前台，夺取焦点且完全覆盖了正在进行的Activity，则被覆盖的Activity会失去焦点进入已停止状态，然后系统会调用onPause()和onStop()方法。  
+当被覆盖的Activity的同一实例返回到前台时，系统会对该Activity调用onRestart()、onStart() 和 onResume()。如果被覆盖的 Activity 的新实例进入后台，则系统不会调用 onRestart()，而只会调用 onStart() 和 onResume()。  
+注意：当用户点按“概览”或主屏幕按钮时，系统的行为就好像当前 Activity 已被完全覆盖一样。  
+
+3、用户点返回按钮(有返回虚拟按键的手机)  
+如果Activity位于前台，并且用户点按了返回按钮，Activity将一次经历onPause()、onStop() 和 onDestroy() 回调。活动不仅会被销毁，还会从返回堆栈中移除。    
+需要注意的是，在这种情况下，默认不会触发 onSaveInstanceState() 回调。此行为基于的假设是，用户点按返回按钮时不期望返回 Activity 的同一实例。不过，您可以通过替换 onBackPressed() 方法实现某种自定义行为，例如“confirm-quit”对话框。  
+如果替换 onBackPressed() 方法，我们仍然强烈建议您从被替换的方法调用 super.onBackPressed()。否则，返回按钮的行为可能会让用户感觉突兀。
+
+#### 保存和恢复界面瞬态  
+当Activity因系统限制遭到销毁时，应组合使用ViewModel、onSaveInstanceState() 和/或本地存储来保留用户的界面瞬态。 
+
+用户发起的状态解除：  
+- 按返回按钮   
+- 从最近使用关闭Activity
+- 从Activity向上导航
+- 从设置屏幕中中止应用
+- Activity.finish()
+
+系统发起的状态解除：
+-  配置变更(屏幕方向等)  
+-  应用切换，同时可能导致系统直接销毁。销毁后会带着存储状态一起销毁
+
+<table>
+    <thead>
+    <tr>
+    <th></th>
+    <th>ViewModel</th>
+    <th>已保存实例状态</th>
+    <th>持久性存储空间</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr>
+    <td>存储位置</td>
+    <td>在内存中</td>
+    <td>已序列化到磁盘</td>
+    <td>在磁盘或网络上</td>
+    </tr>
+    <tr>
+    <td>在配置更改后继续存在</td>
+    <td>是</td>
+    <td>是</td>
+    <td>是</td>
+    </tr>
+    <tr>
+    <td>在系统发起的进程终止后继续存在</td>
+    <td>否</td>
+    <td>是</td>
+    <td>是</td>
+    </tr>
+    <tr>
+    <td>在用户完成 Activity 关闭/onFinish() 后继续存在</td>
+    <td>否</td>
+    <td>否</td>
+    <td>是</td>
+    </tr>
+    <tr>
+    <td>数据限制</td>
+    <td>支持复杂对象，但是空间受可用内存的限制</td>
+    <td>仅适用于基元类型和简单的小对象，例如字符串</td>
+    <td>仅受限于磁盘空间或从网络资源检索的成本/时间</td>
+    </tr>
+    <tr>
+    <td>读取/写入时间</td>
+    <td>快（仅限内存访问）</td>
+    <td>慢（需要序列化/反序列化和磁盘访问）</td>
+    <td>慢（需要磁盘访问或网络事务）</td>
+    </tr>
+    </tbody>
+</table>
+
+## Service与AIDL
+Service是Android中实现程序后台，与Activity一样执行在UI线程中。
+两种状态：
+- 启动状态
+当应用组件(如Activity)通过调用s
+
+- 绑定状态
