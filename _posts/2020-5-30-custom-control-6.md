@@ -131,3 +131,122 @@ Log.i("result",minRect.toShortString());
 ```
 
 这样能打印出来以baseLine为基线的矩形位置，实际的给两个点的y值向上baseLineY即可。
+
+
+#### 计算获得基线位置  
+例1🌰.定点写字    
+给定左上角坐标(left,top)，要写字必然要确定左基线与下基线的位置，下基线的位置需要通过文字大小以及上基线位置进行计算：  
+Paint.FontMetricsInt.top = top - baseline  
+可得  
+baseline = top - FontMetricsInt.top
+
+MyTextView.java
+```java
+public class MyTextView extends View {
+
+    public MyTextView(Context context, @Nullable AttributeSet attrs) {
+        super(context, attrs);
+
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+        String text = "SomeWords";
+        int top = 400;
+        int baseLineX = 90;
+
+        //设置Paint
+        Paint paint = new Paint();
+        paint.setTextSize(120);
+        paint.setTextAlign(Paint.Align.LEFT);
+
+        //画top线
+        paint.setColor(Color.YELLOW);
+        paint.setStrokeWidth(3);
+        canvas.drawLine(baseLineX,top,300,top,paint);
+
+        //计算出baseline线的位置
+        Paint.FontMetricsInt fm = paint.getFontMetricsInt();
+        int baseLineY = top-fm.top;
+
+        //画基线
+        paint.setColor(Color.RED);
+        canvas.drawLine(baseLineX,baseLineY,300,baseLineY,paint);
+
+        //写文字
+        paint.setColor(Color.BLACK);
+        canvas.drawText(text,baseLineX,baseLineY,paint);
+    }
+}
+```
+
+例2🌰.给定中间线写字  
+center线是矩形的中线，正好在top线与bottom线之间，可以根据公式推得：  
+baseline = center+(FontMetricsInt.bottom-FontMetricsInt.top)/2-FontMetricsInt.bottom  
+
+## Paint常用函数  
+#### 基本设置函数
+重置画笔
+```java
+reset()
+```
+
+给画笔设置颜色值
+```java
+setColor(int color)
+```
+
+给画笔设置颜色值
+```java
+setARGB(int a,int r,int g,int b)
+```
+
+设置画笔透明度
+```java
+setAlpha(int a)
+```
+
+设置画笔样式
+```java
+setStyle(Paint.Style style)
+```
+- Paint.Style.FILL：填充内部。
+- Paint.Style.FILL_AND_STROKE：填充内部和描边。
+- Paint.STROKE：仅描边。
+```java
+//画笔宽度
+setStrokeWidth(float width)
+//抗锯齿
+setAntiAlias(boolean aa)
+//设置画笔倾斜度(没啥区别)
+setStrokeMiter(float miter)
+//设置路径样式，取值是PathEffect的子类
+set PathEffect(PathEffect effect)
+//设置线帽样式取值有三个，线帽是多出来的一部分
+setStrokeCap(Paint.Cap cap)
+//设置转角样式取值有三个MITER(锐角)、Join.ROUND(圆弧)、BEVEL(直线)
+setStrokeJoin(Paint.Join join)
+//绘制图像设置抗抖动
+setDither(boolean dither)
+```
+
+#### 字体相关函数 
+```java
+//设置文字大小
+setTextSize(float textSize)
+//设置是否是粗体文字
+setFakeBoldText(boolean fakeBoldText)
+//设置带有删除线效果
+setStrikeThruText(boolean strikeThruText)
+//设置下划线
+setUnderlineText(boolean underlineText)
+//设置开始绘图点位置
+setTextAlign(Paint.Align align)
+//设置水平拉伸
+setTextScaleX(float scaleX)
+//设置字体水平倾斜度。普通斜体字设置为-0.25，向右倾斜
+setTextSkewX(float skewX)
+//设置字体样式
+setLinearText(boolean linearText)
+```

@@ -310,3 +310,6 @@ Service是Android中实现程序后台，与Activity一样执行在UI线程中�
 当应用组件(如Activity)通过调用s
 
 - 绑定状态
+
+## Broadcast
+广播是一种广泛运用在应用程序之间传输信息的机制，而BroadcastReceiver是对发送出来的广播进行过滤接收并相应的组件。

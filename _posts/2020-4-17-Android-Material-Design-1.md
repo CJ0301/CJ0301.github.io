@@ -31,7 +31,7 @@ palette、preference、recyclerView(最低兼容到3.0)
 
 ## SwipeRefreshLayout
 依赖
-```
+```xml
 implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
 ```
 
@@ -257,17 +257,17 @@ implementation 'androidx.recyclerview:recyclerview:1.1.0'
 ```
 
 #### 适配器
-1.创建Adapter：继承RecyclerView.Adapter<VH>。  
-2.创建ViewHolder内部类：在Adapter中创建一个继承RecyclerView.ViewHolder的静态内部类，记为VH。ViewHolder的实现和ListView的ViewHolder实现几乎一样。
+1.创建Adapter：继承RecyclerView.Adapter<VH>。    
+2.创建ViewHolder内部类：在Adapter中创建一个继承。  RecyclerView.ViewHolder的静态内部类，记为VH。ViewHolder的实现和ListView的ViewHolder实现几乎一样。  
 3.实现三个方法：
 
-onCreateViewHolder()
-这个方法主要生成为每个Item inflater出一个View，但是该方法返回的是一个ViewHolder。该方法把View直接封装在ViewHolder中，然后我们面向的是ViewHolder这个实例，当然这个ViewHolder需要我们自己去编写。
+onCreateViewHolder()  
+这个方法主要生成为每个Item inflater出一个View，但是该方法返回的是一个ViewHolder。该方法把View直接封装在ViewHolder中，然后我们面向的是ViewHolder这个实例，当然这个ViewHolder需要我们自己去编写。  
 
-onBindViewHolder()
+onBindViewHolder()  
 这个方法主要用于适配渲染数据到View中。方法提供给你了一viewHolder而不是原来的convertView。
-
-getItemCount()
+ 
+getItemCount()  
 这个方法就类似于BaseAdapter的getCount方法了，即总共有多少个条目。
 
 基本实现：  
@@ -300,13 +300,13 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 
 	@Override
 	public void onBindViewHolder(MyViewHolder holder, int position) {
-		//设置数据
+		//获取创建好的holder，对其进行数据赋值
 		holder.tv.setText(list.get(position));
 	}
 
 	@Override
 	public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int arg1) {
-		//创建ViewHolder
+		//创建ViewHolder，初始化其视图
 		MyViewHolder holder = new MyViewHolder(View.inflate(viewGroup.getContext(), android.R.layout.simple_list_item_1, null));
 		return holder;
 	}
@@ -329,8 +329,8 @@ rv.setAdapter(new MyRecyclerAdapter(data));
 ```
 
 一、LayoutManager  
-RecyclerView提供了三种布局管理器：
-LinerLayoutManager 以垂直或者水平列表方式展示Item。  
+RecyclerView提供了三种布局管理器：  
+LinerLayoutManager 以垂直或者水平列表方式展示Item。    
 GridLayoutManager 以网格方式展示Item。  
 StaggeredGridLayoutManager 以瀑布流方式展示Item。  
 如果你想用 RecyclerView 来实现自己自定义效果，则应该去继承实现自己的 LayoutManager，并重写相应的方法，而不应该想着去改写 RecyclerView。
@@ -380,8 +380,9 @@ public void setOnnItemClickListener(RecyclerItemClickListener listener){
 }
 ```
 使用
-```
-adapter.setOnnItemClickListener(new 	RecyclerItemClickListener() {
+```java
+adapter.setOnnItemClickListener(new
+	RecyclerItemClickListener() {
 	@Override
 	public void click(TextView textView) {
 		Toast.makeText(MainActivity.this,textView.getText(),Toast.LENGTH_SHORT).show();
@@ -389,7 +390,7 @@ adapter.setOnnItemClickListener(new 	RecyclerItemClickListener() {
 });
 ```
 
-三、Item Decoration间隔样式
+三、Item Decoration间隔样式  
 RecyclerView通过addItemDecoration()方法添加item之间的分割线。Android并没有提供实现好的Divider，因此任何分割线样式都需要自己实现。
 
 自定义间隔样式需要继承RecyclerView.ItemDecoration类，该类是个抽象类，官方目前并没有提供默认的实现类，主要有三个方法。
@@ -423,7 +424,7 @@ public void getItemOffsets(@NonNull Rect outRect, int itemPosition,
 	outRect.set(0, 0, 0, 0);
 }
 ```
-两个getItemOffsets方法最终都是调用了上面实现,就一行代码,如果我们自定义过 ItemDecoration 的话,就会知道,我们可以为 outRect 设置四边的大小来为 itemView 设置一个偏移量。偏移量在绘制时与parent-padding、layout_margin加在一起。
+两个getItemOffsets方法最终都是调用了上面实现,就一行代码,如果我们自定义过 ItemDecoration 的话,就会知道,我们可以为 outRect 设置四边的大小来为 itemView 设置一个偏移量,对绘制区域进行偏移。
 
 2.onDraw  
 ```java
@@ -441,3 +442,429 @@ public void onDraw(Canvas c, RecyclerView parent) {
 
 onDraw方法有两个重载，一个被标注为 @deprecated,即弃用了，我们知道，如果重写了 onDraw，就可以在我们上面的 getItemOffsets中设置的范围内绘制。
 
+线性布局分割线
+```java
+public class DividerDecoration extends RecyclerView.ItemDecoration {
+    private int mOrientation = LinearLayoutManager.VERTICAL;
+    private Drawable mDivider;
+    private int[] attrs = new int[]{
+      android.R.attr.listDivider
+    };
+    public DividerDecoration(Context context, int orientation) {
+        TypedArray typedArray = context.obtainStyledAttributes(attrs);
+        mDivider = typedArray.getDrawable(0);
+        typedArray.recycle();
+        setOrientation(orientation);
+    }
+
+    public void setOrientation(int orientation){
+        if(orientation != LinearLayoutManager.HORIZONTAL && orientation != LinearLayoutManager.VERTICAL){
+            throw new IllegalArgumentException("参数设置异常");
+        }
+        this.mOrientation = orientation;
+    }
+
+    @Override
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+        //调用此方法，先获取条目之间的宽度，即Rect矩形区域
+        //获取条目的偏移量，所有条目都会调用一次该方法
+        if(mOrientation == LinearLayoutManager.VERTICAL){
+            //right先设置为0，之后再拉伸，这里也可以设置
+            outRect.set(0,0,0,mDivider.getIntrinsicHeight());
+        }else{
+            outRect.set(0,0,mDivider.getIntrinsicWidth(),0);
+        }
+    }
+
+    @Override
+    public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        super.onDraw(c, parent, state);
+        //调用绘制方法
+        if(mOrientation == LinearLayoutManager.VERTICAL){
+            drawVertical(c,parent);
+        }else{
+            drawHorizontal(c,parent);
+        }
+    }
+
+    private void drawHorizontal(Canvas c, RecyclerView parent) {
+        //画垂直线
+        int top = parent.getPaddingTop();
+        int bottom = parent.getHeight()-parent.getPaddingBottom();
+        int childCount = parent.getChildCount();
+        for(int i=0;i<childCount;i++){
+            View child = parent.getChildAt(i);
+            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams)child.getLayoutParams();
+            //底部值+外边距+动画偏移
+            int left = child.getRight() + params.rightMargin + Math.round(ViewCompat.getTranslationX(child));
+            int right = left + mDivider.getIntrinsicHeight();
+            mDivider.setBounds(left,top,right,bottom);
+            mDivider.draw(c);
+        }
+    }
+
+    private void drawVertical(Canvas c, RecyclerView parent) {
+        //画水平线
+        int left = parent.getPaddingLeft();
+        int right = parent.getWidth()-parent.getPaddingRight();
+        int childCount = parent.getChildCount();
+        for(int i=0;i<childCount;i++){
+            View child = parent.getChildAt(i);
+            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams)child.getLayoutParams();
+            //底部值+外边距+动画偏移
+            int top = child.getBottom() + params.bottomMargin + Math.round(ViewCompat.getTranslationY(child));
+            int bottom = top + mDivider.getIntrinsicHeight();
+            mDivider.setBounds(left,top,right,bottom);
+            mDivider.draw(c);
+        }
+    }
+
+}
+
+```
+
+网格布局分割线
+```java
+public class GridDividerDecoration extends RecyclerView.ItemDecoration {
+    private Drawable mDivider;
+
+    public GridDividerDecoration(Context context) {
+        Resources resources = context.getResources();
+        Drawable drawable = resources.getDrawable(R.drawable.item_deco);
+        mDivider = drawable;
+    }
+
+    @Override
+    public void onDraw(@NonNull Canvas c, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        super.onDraw(c, parent, state);
+        drawVertical(c,parent);
+        drawHorizontal(c,parent);
+    }
+
+    private void drawHorizontal(Canvas c, RecyclerView parent) {
+        //水平间隔线
+        int childCount = parent.getChildCount();
+        for(int i=0;i<childCount;i++){
+            View child = parent.getChildAt(i);
+            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams)child.getLayoutParams();
+            int left = child.getLeft() - params.leftMargin;
+            int right = child.getRight() + params.rightMargin;
+            int top = child.getBottom() + params.bottomMargin;
+            int bottom = top + mDivider.getIntrinsicHeight();
+
+            mDivider.setBounds(left,top,right,bottom);
+            mDivider.draw(c);
+        }
+    }
+
+    private void drawVertical(Canvas c, RecyclerView parent) {
+        //垂直间隔线
+        int childCount = parent.getChildCount();
+        for(int i=0;i<childCount;i++){
+            View child = parent.getChildAt(i);
+            RecyclerView.LayoutParams params = (RecyclerView.LayoutParams)child.getLayoutParams();
+            int left = child.getRight();
+            int right = left + mDivider.getIntrinsicWidth();
+            int top = child.getTop() - params.topMargin;
+            int bottom = child.getBottom() + params.bottomMargin;
+
+            mDivider.setBounds(left,top,right,bottom+10);
+            mDivider.draw(c);
+        }
+    }
+
+    @Override
+    public void getItemOffsets(@NonNull Rect outRect, @NonNull View view, @NonNull RecyclerView parent, @NonNull RecyclerView.State state) {
+        super.getItemOffsets(outRect, view, parent, state);
+        Log.i("count",parent.getChildPosition(view)+"  ");
+        int position = parent.getChildPosition(view);
+        //四个方向的偏移值
+        int right = mDivider.getIntrinsicWidth();
+        int bottom = mDivider.getIntrinsicHeight();
+
+		//最后的行列不再绘制
+        if(isLastColumn(position,parent))
+            right = 0;
+
+        if(isLastRow(position,parent))
+            bottom = 0;
+
+        outRect.set(0,0,right,bottom);
+
+    }
+
+    private boolean isLastRow(int position,RecyclerView parent) {
+        RecyclerView.LayoutManager lm = parent.getLayoutManager();
+        if(lm instanceof GridLayoutManager){
+            GridLayoutManager gm = (GridLayoutManager)lm;
+            int childCount = gm.getItemCount();
+            int spanCount = gm.getSpanCount();
+            int lastRowCount = childCount%spanCount;
+
+            if(lastRowCount==0||lastRowCount<spanCount)
+                return true;
+
+        }
+
+        return false;
+    }
+
+    private boolean isLastColumn(int position,RecyclerView parent) {
+        RecyclerView.LayoutManager lm = parent.getLayoutManager();
+        if(lm instanceof GridLayoutManager){
+            GridLayoutManager gm = (GridLayoutManager)lm;
+            int spanCount = gm.getSpanCount();
+            if((position+1)%spanCount == 0){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+}
+
+
+```
+
+![](20200715-grid-item-decorate.jpg)
+过程就是先通过getItemOffsets方法进行偏移，然后在调用onDraw方法进行绘制。  
+上面的线性布局分割线其实就是按谷歌提供的DividerItemDecoration写的，也可以进源码看看。
+
+注意：
+- 可以通过修改通过Them.Appcompat主题样式里的android:listSelector或者android:listDivider属性达到改变间隔线大小和颜色，例：
+```xml
+<style name="AppTheme" parent="AppBaseTheme">
+	<item name="android:listDivider">@drawble/item_divider</item>
+</style>
+```
+- 绘制RecyclerView的时候，会分发Canvas到ItemDecoration里
+
+四、多条目种类  
+实现多条目得重写getItemViewType()方法，再通过onCreateViewHolder()方法判断生成视图。
+```java
+public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
+	private final int SINGLE = 0;
+	private final int MULTI = 1;
+	private final int EDIT = 2;
+	private List<Question> lists;
+	private String[] answers;
+	public QuestionAdapter(List<Question> lists) {
+		this.lists = lists;
+		answers = new String[lists.size()];
+	}
+
+	public int getItemCount() {
+		return lists.size();
+	}
+
+	@Override
+	public QuestionAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+		QuestionAdapter.MyViewHolder viewHolder = null;
+		if(viewType == SINGLE){
+			View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlayout_single,parent,false);
+			return new SingleViewHolder(view);
+			
+		}else if(viewType == MULTI){
+			View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlayout_multi,parent,false);
+			return new MultiViewHolder(view);
+		}else if(viewType == EDIT){
+			View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.itemlayout_edit,parent,false);
+			return new EditViewHolder(view);
+		}
+		return viewHolder;
+	}
+
+	@Override
+	public void onBindViewHolder(QuestionAdapter.MyViewHolder holder, int position) {
+		holder.setIsRecyclable(false);//禁止复用 不加这个会出错 以后好好研究研究
+		holder.setDate(position);
+	}
+
+	@Override
+	public int getItemViewType(int position) {
+		return lists.get(position).getType();
+	}
+
+	abstract class MyViewHolder extends RecyclerView.ViewHolder{
+		TextView id;
+		TextView question;
+		public MyViewHolder(View itemView) {
+			super(itemView);
+			id=itemView.findViewById(R.id.question_id);
+			question = itemView.findViewById(R.id.question);
+		}
+
+		public void setDate(int pos){
+			id.setText("Q"+(pos+1)+".");
+			question.setText(lists.get(pos).getQues());
+			setAnswer(pos);
+		}
+
+		abstract void setAnswer(int pos);
+	}
+
+	String answer;
+	class SingleViewHolder extends MyViewHolder{
+		RadioGroup radioGroup;
+		public SingleViewHolder(View itemView) {
+			super(itemView);
+			radioGroup = itemView.findViewById(R.id.radioGroup);
+		}
+
+		@Override
+		void setAnswer(final int pos) {
+			List<String> singles = lists.get(pos).getAnswers();
+			for(String s:singles){
+				final RadioButton radioButton = new RadioButton(radioGroup.getContext());
+				radioButton.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+				radioButton.setText(s);
+				answer = radioButton.getText().toString().substring(0,1);
+				if(answer.equals(answers[pos])){
+					radioButton.setChecked(true);
+				}
+				radioButton.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						answer = radioButton.getText().toString().substring(0,1);
+						answers[pos] = answer;
+					}
+				});
+				radioGroup.addView(radioButton);
+			}
+		}
+
+	}
+
+	class MultiViewHolder extends MyViewHolder{
+		LinearLayout linearLayout;
+		public MultiViewHolder(View itemView) {
+			super(itemView);
+			linearLayout = itemView.findViewById(R.id.linearLayout);
+
+		}
+
+		@Override
+		void setAnswer(final int pos) {
+			List<String> multies = lists.get(pos).getAnswers();
+			for(String s:multies){
+				final CheckBox checkBox = new CheckBox(linearLayout.getContext());
+				checkBox.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+				checkBox.setText(s);
+				answer = checkBox.getText().toString().substring(0,1);
+				if(answers[pos]!=null){
+					if(answers[pos].contains(answer)){
+						checkBox.setChecked(true);
+					}
+				}
+				checkBox.setOnClickListener(new View.OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						String answer = checkBox.getText().toString().substring(0,1);
+						if(answers[pos]!=null){
+							if(!answers[pos].contains(answer)){
+								answers[pos] += answer;
+							}else{
+								answer.replace(answer,"");
+							}
+						}else if(answers[pos]==null){
+							answers[pos]=answer;
+						}
+					}
+				});
+				linearLayout.addView(checkBox);
+			}
+		}
+	}
+
+	class EditViewHolder extends MyViewHolder{
+		private EditText editText;
+		public EditViewHolder(View itemView) {
+			super(itemView);
+			editText = itemView.findViewById(R.id.editAnswer);
+		}
+
+		@Override
+		void setAnswer(final int pos) {
+			if(answers[pos]!=null){
+				editText.setText(answers[pos]);
+			}
+			editText.addTextChangedListener(new TextWatcher() {
+				@Override
+				public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+				}
+
+				@Override
+				public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+				}
+
+				@Override
+				public void afterTextChanged(Editable s) {
+					answers[pos] = editText.getText().toString();
+				}
+			});
+		}
+	}
+
+	public int commitCheck(){
+		for(int i=0;i<answers.length;i++){
+			if(answers[i]==null){
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public String[] getAnswers() {
+		return answers;
+	}
+
+	/**
+	 * 目标项是否在最后一个可见项之后
+	 */
+	private boolean mShouldScroll;
+	/**
+	 * 记录目标项位置
+	 */
+	private int mToPosition;
+
+	/**
+	 * 滑动到指定位置
+	 *
+	 * @param mRecyclerView
+	 * @param position
+	 */
+	public void smoothMoveToPosition(RecyclerView mRecyclerView, final int position) {
+		// 第一个可见位置
+		int firstItem = mRecyclerView.getChildLayoutPosition(mRecyclerView.getChildAt(0));
+		// 最后一个可见位置
+		int lastItem = mRecyclerView.getChildLayoutPosition(mRecyclerView.getChildAt(mRecyclerView.getChildCount() - 1));
+
+		if (position < firstItem) {
+			// 如果跳转位置在第一个可见位置之前，就smoothScrollToPosition可以直接跳转
+			mRecyclerView.smoothScrollToPosition(position);
+		} else if (position <= lastItem) {
+			// 跳转位置在第一个可见项之后，最后一个可见项之前
+			// smoothScrollToPosition根本不会动，此时调用smoothScrollBy来滑动到指定位置
+			int movePosition = position - firstItem;
+			if (movePosition >= 0 && movePosition < mRecyclerView.getChildCount()) {
+				int top = mRecyclerView.getChildAt(movePosition).getTop();
+				mRecyclerView.smoothScrollBy(0, top);
+			}
+		} else {
+			// 如果要跳转的位置在最后可见项之后，则先调用smoothScrollToPosition将要跳转的位置滚动到可见位置
+			// 再通过onScrollStateChanged控制再次调用smoothMoveToPosition，执行上一个判断中的方法
+			mRecyclerView.smoothScrollToPosition(position);
+			mToPosition = position;
+			mShouldScroll = true;
+		}
+	}
+
+}
+
+```
+
+五、交互动画
