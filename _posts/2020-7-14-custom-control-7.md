@@ -18,7 +18,7 @@ tags:
 $$p(t)= \sum_{i=0}^{n}  a_i f_{i,n}(t),0\Rightarrow t \Rightarrow 1$$  
 
 其中系数矢量$a_i(i=0,1,...,n)顺序首尾相接$  
-![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/2020-07-14-bezier-1.png)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/2020-07-14-bezier-1.png)  
 这条折线被称为控制多边形或贝塞尔多边形。
 
 #### 定义

@@ -257,15 +257,15 @@ implementation 'androidx.recyclerview:recyclerview:1.1.0'
 ```
 
 #### 适配器
-1.创建Adapter：继承RecyclerView.Adapter<VH>。    
-2.创建ViewHolder内部类：在Adapter中创建一个继承。  RecyclerView.ViewHolder的静态内部类，记为VH。ViewHolder的实现和ListView的ViewHolder实现几乎一样。  
+1.创建Adapter：继承RecyclerView.Adapter\<VH\>。  
+2.创建ViewHolder内部类：在Adapter中创建一个继承。RecyclerView.ViewHolder的静态内部类，记为VH。ViewHolder的实现和ListView的ViewHolder实现几乎一样。    
 3.实现三个方法：
 
 onCreateViewHolder()  
 这个方法主要生成为每个Item inflater出一个View，但是该方法返回的是一个ViewHolder。该方法把View直接封装在ViewHolder中，然后我们面向的是ViewHolder这个实例，当然这个ViewHolder需要我们自己去编写。  
 
 onBindViewHolder()  
-这个方法主要用于适配渲染数据到View中。方法提供给你了一viewHolder而不是原来的convertView。
+这个方法主要用于适配渲染数据到View中。方法提供给你了该条目的viewHolder而不是原来的convertView。
  
 getItemCount()  
 这个方法就类似于BaseAdapter的getCount方法了，即总共有多少个条目。
@@ -304,20 +304,33 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 		holder.tv.setText(list.get(position));
 	}
 
-	@Override
-	public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int arg1) {
-		//创建ViewHolder，初始化其视图
-		MyViewHolder holder = new MyViewHolder(View.inflate(viewGroup.getContext(), android.R.layout.simple_list_item_1, null));
-		return holder;
-	}
+    @Override
+    public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int arg1) {
+        Log.i("onCreateViewHolder","调用");
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_item,viewGroup,false);
+        //创建ViewHolder，初始化其视图
+        MyViewHolder holder = new MyViewHolder(view);
+        return holder;
+    }
 }
 ```
+
+注意：  
+视图创建一定要用LayoutInflater
+```java
+View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_item,viewGroup,false);
+```
+去生成，用
+```java
+View view=View.inflate(context,layoutId,null);
+```
+创建的view未添加viewGroup，无法获得LayoutParams，会导致宽高不正常。
 
 #### 设置RecyclerView
 一般来说，需要为RecyclerView进行四大设置：  
 1.Layout Manager(必选):Item的布局。  
 2.Adapter(必选)：为Item提供数据。  
-3.Item Decoration(可选，默认为空)：Item之间的Divider。
+3.Item Decoration(可选，默认为空)：Item之间的Divider。  
 4.Item Animator(可选，默认为DefaultItemAnimator)：添加、删除Item动画。  
 
 如果要实现ListView的效果，只需要设置Adapter和Layout Manager，如下🌰：  
@@ -361,7 +374,7 @@ public interface RecyclerItemClickListener {
 }
 ```
 
-在ViewHolder的构造方法中给view加上点击事件
+给view加上点击事件
 ```java
 view.setOnClickListener(new View.OnClickListener() {
 	@Override
@@ -634,6 +647,7 @@ public class GridDividerDecoration extends RecyclerView.ItemDecoration {
 
 注意：
 - 可以通过修改通过Them.Appcompat主题样式里的android:listSelector或者android:listDivider属性达到改变间隔线大小和颜色，例：
+
 ```xml
 <style name="AppTheme" parent="AppBaseTheme">
 	<item name="android:listDivider">@drawble/item_divider</item>
@@ -643,6 +657,7 @@ public class GridDividerDecoration extends RecyclerView.ItemDecoration {
 
 四、多条目种类  
 实现多条目得重写getItemViewType()方法，再通过onCreateViewHolder()方法判断生成视图。
+
 ```java
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyViewHolder> {
 	private final int SINGLE = 0;
@@ -868,3 +883,193 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.MyView
 ```
 
 五、交互动画
+RecyclerView有一个专门能实现交互的类ItemTouchHelper，它的Callback类能在一些操作下被RecyclerView回调。  
+
+首先我们写一个ItemTouchCallback继承自ItemTouchHelper.Callback，必须重写的有三个方法：
+```java
+//Callback回调时先调用，用来判断是什么动作，比如方向
+public int getMovementFlags(RecyclerView recyclerView,RecyclerView.ViewHolder viewHolder) 
+
+//移动时回调的方法
+public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder,RecyclerView.ViewHolder target)
+
+//侧滑时回调的方法
+public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction)
+```
+
+首先是第一个方法，第一个方法有四个方向可以选择，在ItemTouchHelper里以常量形式存在，上下左右分别对应1，2，4，8，底层上是进行了二进制的移位，方便用或运算组成十六种不同的组合(之前二进制的文章里也有写这个用法)，根据这个组合拖拽与侧滑的方向标记，然后进行合成作为函数返回值。
+```java
+//方向：上下左右
+//常量:ItemTouchHelper.UP,ItemTouchHelper.DOWN
+// ItemTouchHelper.LEFT,ItemTouchHelper.RIGHT
+
+//实现原理，UP的值是二进制的0001，DOWN的值为二进制的0010，进行或运算得到0011表示能监听上下两个方位。
+//拖拽的监听方向
+int dragFlags = ItemTouchHelper.UP|ItemTouchHelper.DOWN;
+
+//侧滑的监听方向
+int swipeFlags = ItemTouchHelper.LEFT|ItemTouchHelper.RIGHT;
+
+//合成监听标记
+int flags = makeMovementFlags(dragFlags,swipeFlags);
+return flags;
+```
+
+第二个方法是实现拖拽使用的  
+ItemTouchCallback的长按拖拽默认是存在的，更改需要在isLongPressDragEnabled中重写返回值。
+
+下面来实现一个直接拖拽  
+首先准备一个接口  
+```java
+public interface StartDragListener {
+    //回调拖拽效果
+    void onStartDrag(RecyclerView.ViewHolder viewHolder);
+}
+```
+
+activity中继承接口，重写接口方法等待adapter传入数据。
+```java
+//暴露给适配器的方法
+public void onStartDrag(RecyclerView.ViewHolder viewHolder){
+	helper.startDrag(viewHolder);
+}
+```
+
+把activity对象传给adapter，获取对应控件的点击时间后调用接口方法，并把当前holder传递。
+```java
+@Override
+public void onBindViewHolder(final MyViewHolder holder, int position) {
+	//获取创建好的holder，对其进行数据赋值
+	holder.tv.setText(list.get(position));
+	holder.photo.setOnTouchListener(new View.OnTouchListener() {
+		@Override
+		public boolean onTouch(View v, MotionEvent event){
+			if(event.getAction() == MotionEvent.ACTION_DOWN){
+				//传递触摸情况给指定控件
+            	listener.onStartDrag(holder);
+			}
+		return false;
+		}
+	});
+}
+```
+
+这样实现的拖拽还不能数据交互，这时候就需要ItemTouchCallback去调用adapter中的数据交互方法了。  
+同样准备接口，adapter继承
+```java
+public interface ItemTouchMoveListener {
+    //拖拽的时候回调，在此方法中实现拖拽条目并刷新
+    boolean onItemMove(int fromPosition,int toPosition);
+}
+```
+
+实现数据交换逻辑
+```java
+@Override
+public boolean onItemMove(int fromPosition, int toPosition) {
+	//数据交换
+	Collections.swap(list,fromPosition,toPosition);
+	//刷新
+	notifyItemMoved(fromPosition,toPosition);
+	return true;
+}
+```
+
+重写移动回调
+```java
+//移动时回调的方法
+@Override
+public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+	//布局种类不同则不交换
+	if(viewHolder.getItemViewType()!=target.getItemViewType())
+            return false;
+        
+	boolean flag = listener.onItemMove(viewHolder.getAdapterPosition(),target.getAdapterPosition());
+	return flag;
+}
+```
+
+第三个方法是侧滑  
+在适配器那个接口加个方法给删除用
+```java
+public interface ItemTouchMoveListener {
+    //拖拽的时候回调，在此方法中实现拖拽条目并刷新
+    boolean onItemMove(int fromPosition,int toPosition);
+
+    //条目移除时回调
+    boolean onItemRemove(int position);
+}
+```
+
+重写方法
+```
+@Override
+public boolean onItemRemove(int position) {
+	list.remove(position);
+	notifyItemRemoved(position);
+	return true;
+}
+```
+
+重写侧滑方法
+```java
+//侧滑时回调
+@Override
+public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+	//方向判断
+//        if(direction == 4){
+//            listener.onItemRemove(viewHolder.getAdapterPosition());
+//        }
+	listener.onItemRemove(viewHolder.getAdapterPosition());
+}
+```
+
+ItemTouchCallback还有很多方法和代表状态的变量
+选中时改变背景色
+```java
+@Override
+public void onSelectedChanged(@Nullable RecyclerView.ViewHolder viewHolder, int actionState) {
+	super.onSelectedChanged(viewHolder, actionState);
+	//判断选中状态
+	if(actionState!=ItemTouchHelper.ACTION_STATE_IDLE){
+		viewHolder.itemView.setBackgroundColor(viewHolder.itemView.getContext().getResources().getColor(R.color.colorPrimary));
+	}
+}
+```
+
+侧滑时实现动画 
+```java
+//重绘Child
+@Override
+public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
+	super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+	//dx范围0~view.getWidth
+	if(actionState == ItemTouchHelper.ACTION_STATE_SWIPE){
+		float flag = 1-Math.abs(dX)/viewHolder.itemView.getWidth();
+		//透明度动画
+		viewHolder.itemView.setAlpha(flag);
+		//缩放动画
+		viewHolder.itemView.setScaleX(flag);
+		viewHolder.itemView.setScaleY(flag);
+	}
+
+	//方向反转
+	viewHolder.itemView.setTranslationX(-0.5f*viewHolder.itemView.getTranslationX());
+
+}
+```
+
+这里注意，ListView和RecyclerView中都有复用的条目itemView，上面两个方法改变的参数都需要用clearView方法恢复条目状态，否则会出现视图问题。
+```java
+@Override
+public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+	super.clearView(recyclerView, viewHolder);
+	viewHolder.itemView.setBackgroundColor(Color.WHITE);
+
+	//会遇到一个bug，存在侧滑删除后视图倒转之类的问题，在下面的动画绘制完之后需要恢复视图属性
+	viewHolder.itemView.setAlpha(1);
+	viewHolder.itemView.setScaleX(1);
+	viewHolder.itemView.setScaleY(1);
+}
+```
+

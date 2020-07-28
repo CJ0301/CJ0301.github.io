@@ -1,6 +1,6 @@
 ---
 layout: 		post
-title: 			"高等数学_7"
+title: 			"高等数学_8"
 subtitle: 		'常微分方程'
 author: 		"CJ"
 header-img: 	"img/post-bg-math.jpg"

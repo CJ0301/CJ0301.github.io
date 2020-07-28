@@ -1172,7 +1172,5 @@ $$
 错题整理：  
 
 $$\lim\limits_{x\rightarrow0}\frac{sinx-tanx}{(\sqrt[3]{1+x^2}-1)(\sqrt{1+sinx}-1)} \\
-=\lim\limits_{x\rightarrow0}\frac{sin(1-secx)}{\frac{1}{3}x^2·\frac{1}{2}sinx} \\
+=\lim\limits_{x\rightarrow0}\frac{sinx(1-secx)}{\frac{1}{3}x^2·\frac{1}{2}sinx} \\
 =\frac{-\frac{1}{2}x^2}{\frac{1}{6}x^2}=-3$$
-
-$$\lim\limits_{x\rightarrow\infty}(\frac{3+x}{6+x})^{\frac{x-1}{2}}$$
