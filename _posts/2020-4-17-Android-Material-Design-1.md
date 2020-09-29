@@ -641,7 +641,7 @@ public class GridDividerDecoration extends RecyclerView.ItemDecoration {
 
 ```
 
-![](20200715-grid-item-decorate.jpg)
+![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200715-grid-item-decorate.jpg)
 过程就是先通过getItemOffsets方法进行偏移，然后在调用onDraw方法进行绘制。  
 上面的线性布局分割线其实就是按谷歌提供的DividerItemDecoration写的，也可以进源码看看。
 

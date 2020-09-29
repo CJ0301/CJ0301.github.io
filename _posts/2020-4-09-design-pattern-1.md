@@ -112,6 +112,7 @@ public class Person3 {
 }
 ```
 
+DCL(Double Check Lock)实现单例
 直接在方法上加锁会对性能产生影响，所以锁加在判断里。
 优化:
 ```java
@@ -146,3 +147,60 @@ public class Person4 {
 	}
 }
 ```
+
+#### 静态内部类单例模式
+DCL在某种情况下还是会出现失效的情况，建议用以下代码代替。
+```java
+public class Singleton{
+	private Singleton(){}
+	public static Singleton getInstance(){
+		return SingletonHolder.sInstance;
+	}
+
+	//静态内部类
+	private static class SingletonHolder{
+		private static final Singleton sInstance = new Singleton();
+	}
+}
+```
+
+当第一次加载Singleton类并不会初始化sInstance，只有调用getInstance时才会导致sInstance被初始化。
+
+#### 枚举单例
+有一种更简单的实现单例的方法。
+```java
+public enum SingletonEnum{
+	INSTANCE;
+	public void doSomething(){
+		
+	}
+}
+```
+
+枚举实例的创建默认都是线程安全的，而上述的其他单例模式实现中，都可以用反序列化来重新创建对象。  
+杜绝这种情况就要重写readResolve方法。  
+```java
+private Object readResolve() throws ObjectStreamException{
+	return sInstance;
+}
+```
+
+#### 容器实现单例模式
+```java
+public class SingletonManager{
+	private static Map<String,Object> objMap = new HashMap<String,Object>();
+
+	private SingletonManager(){}
+	public static void registerService(String key,Object instance){
+		if(!objMap.containsKey(key)){
+			objMap.put(key,instance);
+		}
+	}
+	
+	public static Object getService(){
+		return objMap.get(key);	
+	}
+}
+```
+
+直接将单例对象存入一个集合中统一管理，使用时也可以用统一的接口操作，降低使用成本。
