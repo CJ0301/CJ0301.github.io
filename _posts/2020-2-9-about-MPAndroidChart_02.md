@@ -48,13 +48,15 @@ tags:
 &emsp;使用ValueFormatter类，进行坐标信息显示的定制  
 
 &emsp;举个🌰：
-
-	xAxis.setValueFormatter(new IAxisValueFormatter() {
-		@Override
-			public String getFormattedValue(float v, AxisBase axisBase) {
-				return v==0?"个数":v==6?"(星期)":(int)v+"";
-			}
-		});
+```java
+xAxis.setValueFormatter(new IAxisValueFormatter() {
+	@Override
+	public String getFormattedValue(float v, AxisBase axisBase) {
+		return v==0?"个数":v==6?"(星期)":(int)v+"";
+	}
+});
+```
+	
 
 #### 警戒线
 &emsp;在x轴或者y轴添加边线或者警戒线。
@@ -65,16 +67,16 @@ tags:
 - setDrawLimitLinesBehindData(boolean enabled)：允许控制LimitLines和实际数据。如果此值设置为true，则LimitLines则绘制在实际数据后面，否则绘制在顶部。默认值：false  
 
 &emsp;举个🌰：
-
-	YAxis leftAxis = chart.getAxisLeft();
-	LimitLine ll = new LimitLine(140f, "Blood Pressure High");
-	ll.setLineColor(Color.RED);
-	ll.setLineWidth(4f);
-	ll.setTextColor(Color.BLACK);
-	ll.setTextSize(12f);
-	// .. and more styling options
-	leftAxis.addLimitLine(ll);
-
+```java
+YAxis leftAxis = chart.getAxisLeft();
+LimitLine ll = new LimitLine(140f, "Blood Pressure High");
+ll.setLineColor(Color.RED);
+ll.setLineWidth(4f);
+ll.setTextColor(Color.BLACK);
+ll.setTextSize(12f);
+// .. and more styling options
+leftAxis.addLimitLine(ll);
+```
 ## XAxis
 &emsp;XAxis继承自[AxisBase](#轴基(AxisBase))，是与水平轴相关的所有内容的数据和信息容器。
 &emsp;这个XAxis类允许特定的样式，并由以下组件/部件组成(可以由以下组件/部件组成)：
@@ -84,34 +86,37 @@ tags:
 
 &emsp;获取XAxis实例
 
-	XAxis xAxis = chart.getXAxis();
+```java
+XAxis xAxis = chart.getXAxis();
 
+```
 #### 自定义轴值
 - setLabelRotationAngle(float angle)：设置绘制x轴标签的角度(以度数为单位)。
 - setPosition(XAxisPosition pos)：设置XAxis应该出现。在顶部、底部、两边、顶部、内部或底部之间进行选择。
 
 &emsp;举个🌰：
-
-	XAxis xAxis = chart.getXAxis();
-	xAxis.setPosition(XAxisPosition.BOTTOM);
-	xAxis.setTextSize(10f);
-	xAxis.setTextColor(Color.RED);
-	xAxis.setDrawAxisLine(true);
-	xAxis.setDrawGridLines(false);
-	// set a custom value formatter
-	xAxis.setValueFormatter(new MyCustomFormatter()); 
-	// and more...
-
+```java
+XAxis xAxis = chart.getXAxis();
+xAxis.setPosition(XAxisPosition.BOTTOM);
+xAxis.setTextSize(10f);
+xAxis.setTextColor(Color.RED);
+xAxis.setDrawAxisLine(true);
+xAxis.setDrawGridLines(false);
+// set a custom value formatter
+xAxis.setValueFormatter(new MyCustomFormatter()); 
+// and more...
+```
 ## YAxis
 &emsp;YAxis也继承自[AxisBase](#轴基(AxisBase))，是与垂直轴相关的所有内容的数据和信息容器。有一些图表有左右轴，像雷达图只有一个轴。默认情况下两个轴都会被画出来
 
 &emsp;获取YAxis实例
 
-	YAxis leftAxis = chart.getAxisLeft();
-	YAxis rightAxis = chart.getAxisRight();
-	YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);
-	YAxis yAxis = radarChart.getYAxis(); // this method radarchart only
-
+```java
+YAxis leftAxis = chart.getAxisLeft();
+YAxis rightAxis = chart.getAxisRight();
+YAxis leftAxis = chart.getAxis(AxisDependency.LEFT);
+YAxis yAxis = radarChart.getYAxis(); // this method radarchart only
+```
 
 Tips：
 
@@ -123,9 +128,11 @@ Tips：
 
 &emsp;如果您的图表需要支持不同的轴比例，则可以通过设置数据应绘制的轴来实现。 这可以通过更改DataSet对象的AxisDependency来完成：
 
-	LineDataSet dataSet = ...; // get a dataset
-	dataSet.setAxisDependency(AxisDependency.RIGHT);
+```java
+LineDataSet dataSet = ...; // get a dataset
+dataSet.setAxisDependency(AxisDependency.RIGHT);
 
+```
 #### 零线
 &emsp;除了网格线，YAxis还有一个零线可单独配置
 
@@ -135,23 +142,27 @@ Tips：
 
 &emsp;举个🌰：
 
-	// data has AxisDependency.LEFT
-	YAxis left = mChart.getAxisLeft();
-	left.setDrawLabels(false); // no axis labels
-	left.setDrawAxisLine(false); // no axis line
-	left.setDrawGridLines(false); // no grid lines
-	left.setDrawZeroLine(true); // draw a zero line
-	mChart.getAxisRight().setEnabled(false); // no right axis
+```java
+// data has AxisDependency.LEFT
+YAxis left = mChart.getAxisLeft();
+left.setDrawLabels(false); // no axis labels
+left.setDrawAxisLine(false); // no axis line
+left.setDrawGridLines(false); // no grid lines
+left.setDrawZeroLine(true); // draw a zero line
+mChart.getAxisRight().setEnabled(false); // no right axis
+```
 
 &emsp;更多的🌰：
 
-	YAxis yAxis = mChart.getAxisLeft();
-	yAxis.setTypeface(...); // set a different font
-	yAxis.setTextSize(12f); // set the text size
-	yAxis.setAxisMinimum(0f); // start at zero
-	yAxis.setAxisMaximum(100f); // the axis maximum is 100
-	yAxis.setTextColor(Color.BLACK);
-	yAxis.setValueFormatter(new MyValueFormatter());
-	yAxis.setGranularity(1f); // interval 1
-	yAxis.setLabelCount(6, true); // force 6 labels
-	//... and more
+```java
+YAxis yAxis = mChart.getAxisLeft();
+yAxis.setTypeface(...); // set a different font
+yAxis.setTextSize(12f); // set the text size
+yAxis.setAxisMinimum(0f); // start at zero
+yAxis.setAxisMaximum(100f); // the axis maximum is 100
+yAxis.setTextColor(Color.BLACK);
+yAxis.setValueFormatter(new MyValueFormatter());
+yAxis.setGranularity(1f); // interval 1
+yAxis.setLabelCount(6, true); // force 6 labels
+//... and more
+```

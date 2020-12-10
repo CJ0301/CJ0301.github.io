@@ -25,73 +25,87 @@ tags:
 #### 初始化
 &emsp;创建视图的方式有两种，第一种就是在XML文件里添加
 
-	<com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+```xml
+<com.github.mikephil.charting.charts.LineChart
+	android:id="@+id/chart"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent" />
+```
 
 &emsp;然后在Activity、Fragment或是其他一些代码中进行处理
 
-	// in this example, a LineChart is initialized from xml
-	 LineChart chart = (LineChart) findViewById(R.id.chart);
+```java
+// in this example, a LineChart is initialized from xml
+LineChart chart = (LineChart) findViewById(R.id.chart);
+```
 
 &emsp;或是直接在代码中创建
 
-	// programmatically create a LineChart
- 	LineChart chart = new LineChart(Context);
-    // get a layout defined in xml
- 	RelativeLayout rl = (RelativeLayout) findViewById(R.id.relativeLayout);
- 	rl.add(chart); 
-    // add the programmatically created chart
+```java
+// programmatically create a LineChart
+LineChart chart = new LineChart(Context);
+// get a layout defined in xml
+RelativeLayout rl = (RelativeLayout) findViewById(R.id.relativeLayout);
+rl.add(chart); 
+// add the programmatically created chart
+```
 
 #### 添加数据
 &emsp;在你的图表初始化过后，你可以创建数据并添加到图表之中。这里用LineChart作为例子，LineChart的数据用Entry进行封装，Entry的属性包括x坐标与y坐标，而其他表格用其他的类进行封装(后文进行介绍)。
 	
-	YourData[] dataObjects = ...;
-	List<Entry> entries = new ArrayList<Entry>();
-	for (YourData data : dataObjects) {
-    // turn your data into Entry objects
-	 entries.add(new Entry(data.getValueX(), data.getValueY())); 
-	}
+```java
+YourData[] dataObjects = ...;
+List<Entry> entries = new ArrayList<Entry>();
+for (YourData data : dataObjects) {
+	// turn your data into Entry objects
+	entries.add(new Entry(data.getValueX(), data.getValueY())); 
+}
+```
 
 &emsp;下一步，你需要将封装若干Entry的同类数据集放入一个LineDataSet中，并为这个数据集添加一个标签，进行单独的样式处理。
 
-	LineDataSet dataSet = new LineDataSet(entries, "Label"); // add entries to dataset
-	dataSet.setColor(...);
-	dataSet.setValueTextColor(...); // styling, ...
+```java
+LineDataSet dataSet = new LineDataSet(entries, "Label"); // add entries to dataset
+dataSet.setColor(...);
+dataSet.setValueTextColor(...); // styling, ...
 
+```
 &emsp;最后，你需要将所有的LineDataSet放入LineData中，有几条添加几条
 	
-	LineData lineData = new LineData();
-	lineData.addDataSet(dataSet);
-	chart.setData(lineData);
-	chart.invalidate(); // refresh
+```java
+LineData lineData = new LineData();
+lineData.addDataSet(dataSet);
+chart.setData(lineData);
+chart.invalidate(); // refresh
+```
 
 &emsp;整体代码：
 
-	public class MainActivity extends AppCompatActivity {
-    	LineChart lineChart;
-    	@Override
-    	protected void onCreate(Bundle savedInstanceState) {
-       	 super.onCreate(savedInstanceState);
-       	 setContentView(R.layout.activity_main);
-       	 lineChart = findViewById(R.id.lineChart);
-       	 List<Entry> entries = new ArrayList<>();
-       	 entries.add(new Entry(1,20f));
-       	 entries.add(new Entry(2,14f));
-       	 entries.add(new Entry(3,26f));
-       	 entries.add(new Entry(4,10f));
-       	 entries.add(new Entry(5,30f));
+```
+public class MainActivity extends AppCompatActivity {
+	LineChart lineChart;
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		lineChart = findViewById(R.id.lineChart);
+		List<Entry> entries = new ArrayList<>();
+		entries.add(new Entry(1,20f));
+		entries.add(new Entry(2,14f));
+		entries.add(new Entry(3,26f));
+		entries.add(new Entry(4,10f));
+		entries.add(new Entry(5,30f));
 
-       	 LineDataSet lineDataSet = new LineDataSet(entries,"参数1");
+		LineDataSet lineDataSet = new LineDataSet(entries,"参数1");
 
-       	 LineData lineData = new LineData();
-       	 lineData.addDataSet(lineDataSet);
+		LineData lineData = new LineData();
+		lineData.addDataSet(lineDataSet);
 	
-       	 lineChart.setData(lineData);
-		 lineChart.invalidate();
-    	 }
+		lineChart.setData(lineData);
+		lineChart.invalidate();
 	}
+}
+```	
 
 &emsp;显示效果：
 ![](https://a-photo-store.oss-cn-beijing.aliyuncs.com/in-posts/20200209_simple_chart.png)
@@ -117,69 +131,71 @@ tags:
 #### 手势回调
 &emsp;OnChartGestureListener能对图表操作的手势进行反应
 
-    public interface OnChartGestureListener {
-	 /**
-	  Callbacks when a touch-gesture has started on the chart (ACTION_DOWN)
+```
+public interface OnChartGestureListener {
+	/**
+		Callbacks when a touch-gesture has started on the chart (ACTION_DOWN)
      
-	  @param lastPerformedGesture
-     */
+		@param lastPerformedGesture
+	*/
     	
-		void onChartGestureStart(MotionEvent me, ChartGesture lastPerformedGesture);
+	void onChartGestureStart(MotionEvent me, ChartGesture lastPerformedGesture);
 
-	 /**
-	  Callbacks when a touch-gesture has ended on the chart (ACTION_UP, ACTION_CANCEL)
+	/**
+		Callbacks when a touch-gesture has ended on the chart (ACTION_UP, ACTION_CANCEL)
     
-	  @param lastPerformedGesture
-	 */
+		@param lastPerformedGesture
+	*/
 
-		void onChartGestureEnd(MotionEvent me, ChartGesture lastPerformedGesture);
+	void onChartGestureEnd(MotionEvent me, ChartGesture lastPerformedGesture);
 
-	 /**
-	  Callbacks when the chart is longpressed.
-	 */
+	/**
+		Callbacks when the chart is longpressed.
+	*/
 
-		public void onChartLongPressed(MotionEvent me);
+	public void onChartLongPressed(MotionEvent me);
 
-	 /**
-	  Callbacks when the chart is double-tapped.
-	 */
+	/**
+		Callbacks when the chart is double-tapped.
+	*/
 
-    	public void onChartDoubleTapped(MotionEvent me);
+	public void onChartDoubleTapped(MotionEvent me);
 
-	 /**
-	  Callbacks when the chart is single-tapped.
-	 */
+	/**
+		Callbacks when the chart is single-tapped.
+	*/
 
-    	public void onChartSingleTapped(MotionEvent me);
+	public void onChartSingleTapped(MotionEvent me);
 
-	 /**
-	  Callbacks then a fling gesture is made on the chart.
+	/**
+		Callbacks then a fling gesture is made on the chart.
       
-	  @param velocityX
-	  @param velocityY
-	 */
+		@param velocityX
+		@param velocityY
+	*/
 
-    	public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY);
+	public void onChartFling(MotionEvent me1, MotionEvent me2, float velocityX, float velocityY);
 
-    /**
-      Callbacks when the chart is scaled / zoomed via pinch zoom gesture.
+	/**
+		Callbacks when the chart is scaled / zoomed via pinch zoom gesture.
      
-	  @param scaleX scalefactor on the x-axis
-	  @param scaleY scalefactor on the y-axis
-     */
+		@param scaleX scalefactor on the x-axis
+		@param scaleY scalefactor on the y-axis
+	*/
 
-		public void onChartScale(MotionEvent me, float scaleX, float scaleY);
+	public void onChartScale(MotionEvent me, float scaleX, float scaleY);
 
-    /**
-      Callbacks when the chart is moved / translated via   drag gesture.
+	/**
+		Callbacks when the chart is moved / translated via   drag gesture.
      
-	  @param dX translation distance on the x-axis
-	  @param dY translation distance on the y-axis
-	 */
+		@param dX translation distance on the x-axis
+		@param dY translation distance on the y-axis
+	*/
 
-		public void onChartTranslate(MotionEvent me, float dX, float dY);
+	public void onChartTranslate(MotionEvent me, float dX, float dY);
 
-    }
+}
+```
     
 ## 高亮
 #### 启用与禁用突出显示
@@ -188,12 +204,14 @@ tags:
 - setMaxHighlightDistance(float distanceDp)：在DP中设置最大高亮距离。在图表上按一下，离条目越远，距离越远，就不会触发高亮显示。默认值：500 dp
 
 &emsp;高亮设置作用于DataSet对象
+```java
 
-	dataSet.setHighlightEnabled(true); // allow highlighting for DataSet
-	// set this to false to disable the drawing of highlight indicator (lines)
-	dataSet.setDrawHighlightIndicators(true); 
-	dataSet.setHighlightColor(Color.BLACK); // color for highlight indicator
-	// and more...
+dataSet.setHighlightEnabled(true); // allow highlighting for DataSet
+// set this to false to disable the drawing of highlight indicator (lines)
+dataSet.setDrawHighlightIndicators(true); 
+dataSet.setHighlightColor(Color.BLACK); // color for highlight indicator
+// and more...
+```
 
 #### 以编程的方式突出显示
 - highlightValue(float x, int dataSetIndex, boolean callListener)：高亮显示给定数据集中给定x位置处的值。提供-1作为数据设置索引，以撤消所有突出显示。布尔标志决定选择侦听器是否应该被调用。
@@ -224,61 +242,65 @@ tags:
 #### 高亮类
 &emsp;高亮类能根据x轴y轴以及下标定位需要高亮的点
 
-	public Highlight(float x, float y, int dataSetIndex, int dataIndex) {
-        this.mX = x;
-        this.mY = y;
-        this.mDataSetIndex = dataSetIndex;
-        this.mDataIndex = dataIndex;
-    }
+```java
+public Highlight(float x, float y, int dataSetIndex, int dataIndex) {
+	this.mX = x;
+	this.mY = y;
+	this.mDataSetIndex = dataSetIndex;
+	this.mDataIndex = dataIndex;
+}
 
-    public Highlight(float x, float y, int dataSetIndex) {
-        this.mX = x;
-        this.mY = y;
-        this.mDataSetIndex = dataSetIndex;
-        this.mDataIndex = -1;
-    }
+public Highlight(float x, float y, int dataSetIndex) {
+	this.mX = x;
+	this.mY = y;
+	this.mDataSetIndex = dataSetIndex;
+	this.mDataIndex = -1;
+}
 
-    public Highlight(float x, int dataSetIndex, int stackIndex) {
-        this(x, Float.NaN, dataSetIndex);
-        this.mStackIndex = stackIndex;
-    }
+public Highlight(float x, int dataSetIndex, int stackIndex) {
+	this(x, Float.NaN, dataSetIndex);
+	this.mStackIndex = stackIndex;
+}
 
-	 /**
-	  constructor
+/**
+	constructor
      
-	  @param x            the x-value of the highlighted value
-	  @param y            the y-value of the highlighted value
-	  @param dataSetIndex the index of the DataSet the highlighted value belongs to
-     */
-	public Highlight(float x, float y, float xPx, float yPx, int dataSetIndex, YAxis.AxisDependency axis) {
-        this.mX = x;
-        this.mY = y;
-        this.mXPx = xPx;
-        this.mYPx = yPx;
-        this.mDataSetIndex = dataSetIndex;
-        this.axis = axis;
-    }
+	@param x            the x-value of the highlighted value
+	@param y            the y-value of the highlighted value
+	@param dataSetIndex the index of the DataSet the highlighted value belongs to
+*/
+public Highlight(float x, float y, float xPx, float yPx, int dataSetIndex, YAxis.AxisDependency axis) {
+	this.mX = x;
+	this.mY = y;
+	this.mXPx = xPx;
+	this.mYPx = yPx;
+	this.mDataSetIndex = dataSetIndex;
+	this.axis = axis;
+}
 
-	 /**
-	  Constructor, only used for stacked-barchart.
+/**
+	Constructor, only used for stacked-barchart.
 	
-	  @param x            the index of the highlighted value on the x-axis
-	  @param y            the y-value of the highlighted value
-	  @param dataSetIndex the index of the DataSet the highlighted value belongs to
-	  @param stackIndex   references which value of a stacked-bar entry has been selected
-	 */
-	public Highlight(float x, float y, float xPx, float yPx, int dataSetIndex, int stackIndex, YAxis.AxisDependency axis) {
-		this(x, y, xPx, yPx, dataSetIndex, axis);
-        this.mStackIndex = stackIndex;
-    }
+	@param x            the index of the highlighted value on the x-axis
+	@param y            the y-value of the highlighted value
+	@param dataSetIndex the index of the DataSet the highlighted value belongs to
+	@param stackIndex   references which value of a stacked-bar entry has been selected
+*/
+public Highlight(float x, float y, float xPx, float yPx, int dataSetIndex, int stackIndex, YAxis.AxisDependency axis) {
+	this(x, y, xPx, yPx, dataSetIndex, axis);
+	this.mStackIndex = stackIndex;
+}
+```
 
 &emsp;举个🌰：
 	
-	//find the first point in dataset which position is （2，20）
-	Highlight highlight = new Highlight(2f,20f,0);
+```java
+//find the first point in dataset which position is （2，20）
+Highlight highlight = new Highlight(2f,20f,0);
 
-    // highlight this value, don't call listener    
-    lineChart.highlightValue(highlight,false);
+// highlight this value, don't call listener    
+lineChart.highlightValue(highlight,false);
+```
 
 #### 自定义高亮笔
 可以用ChartHighlighter类来定制自己的高亮笔

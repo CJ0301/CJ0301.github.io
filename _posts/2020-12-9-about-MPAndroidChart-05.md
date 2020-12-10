@@ -97,38 +97,32 @@ tags:
 
 &emsp;举个🌰：
 
-```java
-Legend l = chart.getLegend();
-l.setFormSize(10f); // set the size of the legend forms/shapes
-l.setForm(LegendForm.CIRCLE); // set what type of form/shape should be used
-l.setPosition(LegendPosition.BELOW_CHART_LEFT);
-l.setTypeface(...);
-l.setTextSize(12f);
-l.setTextColor(Color.BLACK);
-l.setXEntrySpace(5f); // space between the legend entries on the x-axis
-l.setYEntrySpace(5f); // space between the legend entries on the y-axis
-// set custom labels and colors
-l.setCustom(ColorTemplate.VORDIPLOM_COLORS, new String[] { "Set1", "Set2", "Set3", "Set4", "Set5" });
-// and many more...
-```
+	Legend l = chart.getLegend();
+	l.setFormSize(10f); // set the size of the legend forms/shapes
+	l.setForm(LegendForm.CIRCLE); // set what type of form/shape should be used
+	l.setPosition(LegendPosition.BELOW_CHART_LEFT);
+	l.setTypeface(...);
+	l.setTextSize(12f);
+	l.setTextColor(Color.BLACK);
+	l.setXEntrySpace(5f); // space between the legend entries on the x-axis
+	l.setYEntrySpace(5f); // space between the legend entries on the y-axis
+    // set custom labels and colors
+	 l.setCustom(ColorTemplate.VORDIPLOM_COLORS, new String[] { "Set1", "Set2", "Set3", "Set4", "Set5" });
+    // and many more...
 
 ## 解释
 &emsp;默认在表格的右下角会有个小标签，没多少可讲的，主要就是获取：
 	
-```java
-Description description = chart.getDescription();
-```
+	Description description = chart.getDescription();
 
 &emsp;与样式：
 
-```java
-// enable or disable the description
-description.setEnabled(...);
-// set the description text
-description.setText("...");
-// set the position of the description on the screen
-description.setPosition(float x, float y);
-```
+	// enable or disable the description
+	description.setEnabled(...);
+	// set the description text
+	description.setText("...");
+	// set the position of the description on the screen
+	description.setPosition(float x, float y);
 
 ## 动画
 &emsp;为了优化用户体验，我们还可以加一些动画。  
@@ -138,13 +132,11 @@ description.setPosition(float x, float y);
 - animateY(int durationMillis)：：在垂直轴上动画图表值，这意味着图表将在指定的时间内从下到上建立起来。
 - animateXY(int xDuration, int yDuration)：：动画的水平和垂直轴，导致左/右，底部/上建。
 
-```java
-mChart.animateX(3000); // animate horizontal 3000 milliseconds
-// or:
-mChart.animateY(3000); // animate vertical 3000 milliseconds
-// or:
-mChart.animateXY(3000, 3000); // animate horizontal and vertical 3000 milliseconds
-```
+	mChart.animateX(3000); // animate horizontal 3000 milliseconds
+	// or:
+	mChart.animateY(3000); // animate vertical 3000 milliseconds
+	// or:
+	mChart.animateXY(3000, 3000); // animate horizontal and vertical 3000 milliseconds
 
 &emsp;动画的减缓效果都在Easing类里，这里就不多做尝试了。
 

@@ -29,6 +29,45 @@ palette、preference、recyclerView(最低兼容到3.0)
 
 现在support包已经由AndroidX整理取代。
 
+## style属性
+
+## toolbar  
+注意  
+将全部主题设置成NoActionBar  
+```xml
+<style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">    
+</style>
+```
+
+在布局中设置背景、logo、标题等属性
+```xml
+<androidx.appcompat.widget.Toolbar
+	android:id="@+id/toolbar"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:background="?attr/colorPrimary"
+	app:logo="@drawable/ic_launcher_foreground"
+	app:subtitle="subtitle"
+	app:title="title"
+	app:subtitleTextColor="#fff"
+	app:titleTextColor="#fff"
+	app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+```
+
+标题居中   
+只需要在toolbar标签内加一个居中的textview即可  
+```xml
+<TextView
+	android:id="@+id/toolTitle"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center"
+	android:textColor="#fff"
+	android:textSize="20sp"
+	android:textStyle="bold"/>
+```
+
+
 ## SwipeRefreshLayout
 依赖
 ```xml
@@ -74,7 +113,8 @@ public class MainActivity extends AppCompatActivity {
 activity_main.xml
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout 
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/swipe"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -192,11 +232,11 @@ public class mScrollView extends ScrollView {
 高版本(sdk23以上)：
 ```java
 scrollView.setOnScrollChangeListener(new View.OnScrollChangeListener() {
-            @Override
-            public void onScrollChange(View view, int i, int i1, int i2, int i3) {
-                srl.setEnabled(scrollView.getScrollY()==0);
-            }
-        });
+	@Override
+	public void onScrollChange(View view, int i, int i1, int i2, int i3) {
+		srl.setEnabled(scrollView.getScrollY()==0);
+	}
+});
 ```
 
 #### 常用方法
@@ -272,7 +312,8 @@ getItemCount()
 
 基本实现：  
 ```java
-public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
+public class MyRecyclerAdapter extends 
+	RecyclerView.Adapter<MyRecyclerAdapter.MyViewHolder> {
 
 	private List<String> list;
 
@@ -307,7 +348,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int arg1) {
         Log.i("onCreateViewHolder","调用");
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_item,viewGroup,false);
+        View view = LayoutInflater.from(viewGroup.getContext())
+			.inflate(R.layout.recycler_item,viewGroup,false);
         //创建ViewHolder，初始化其视图
         MyViewHolder holder = new MyViewHolder(view);
         return holder;
@@ -318,7 +360,8 @@ public class MyRecyclerAdapter extends RecyclerView.Adapter<MyRecyclerAdapter.My
 注意：  
 视图创建一定要用LayoutInflater
 ```java
-View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.recycler_item,viewGroup,false);
+View view = LayoutInflater.from(viewGroup.getContext())
+	.inflate(R.layout.recycler_item,viewGroup,false);
 ```
 去生成，用
 ```java
@@ -398,7 +441,8 @@ adapter.setOnnItemClickListener(new
 	RecyclerItemClickListener() {
 	@Override
 	public void click(TextView textView) {
-		Toast.makeText(MainActivity.this,textView.getText(),Toast.LENGTH_SHORT).show();
+		Toast.makeText(MainActivity.this,
+			textView.getText(),Toast.LENGTH_SHORT).show();
 	}
 });
 ```
@@ -1072,4 +1116,7 @@ public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.
 	viewHolder.itemView.setScaleY(1);
 }
 ```
+
+
+
 
